@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script|Roboto|Roboto+Slab');
 
-@media only screen and (min-device-width: 300px) and (max-device-width: 840px){
+@media only screen and (min-device-width: 300px) and (max-device-width: 840px) {
 
 	div {
 		width: 100%;
@@ -8,6 +8,7 @@
 		margin-right: auto;
 
 	}
+
 	section {
 		background-color: white;
 		width: 100%;
@@ -18,10 +19,10 @@
 		padding-top: 20px;
 		padding-bottom: 20px;
 	}
-		
+
 }
 
-@media only screen and (min-device-width: 840px){
+@media only screen and (min-device-width: 840px) {
 	div {
 		width: 50%;
 		margin-left: auto;
@@ -32,19 +33,26 @@
 		flex-wrap: wrap;
 		flex: 1;
 	}
-	section { 
-	background-color: white;
-	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0;
-	margin-bottom: 0;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
+
+	section {
+		background-color: rgba(64, 64, 64, 0.591);
+		width: calc(100% - 100px);
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 50px;
+		margin-bottom: 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		border-radius: 50px;
+		transition: 0.3s;
+	}
+
+	section:hover {
+		box-shadow: 0px 0px 100px 5px gray;
+	}
 }
 
 body {
@@ -62,7 +70,9 @@ h1 {
 	text-align: center;
 }
 
-h2,h3,h4 {
+h2,
+h3,
+h4 {
 	font-size: 1.8rem;
 	color: black;
 	display: block;
@@ -95,6 +105,8 @@ img {
 	height: auto;
 	max-height: 400px;
 	max-width: 100%;
+	border-radius: 50px;
+	/* Changed By Jeelan */
 }
 
 
@@ -123,7 +135,9 @@ iframe {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-	max-width: 100%
+	max-width: 100%;
+	border-radius: 50px;
+	/* Added By Jeelan */
 }
 
 footer {
@@ -136,5 +150,7 @@ footer {
 }
 
 #incomplete {
-	background-color: red;
+	background-color: rgba(78, 78, 78, 0.546);
+	border-radius: 50px;
+	margin: 50px;
 }
