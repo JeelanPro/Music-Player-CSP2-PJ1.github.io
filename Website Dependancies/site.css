@@ -155,7 +155,9 @@ header:hover {
 }
 
 .bg1 {
-	background-color: #ffe400;
+	/* background-color: #ffe400; */
+	background: rgb(77,23,23);
+background: linear-gradient(145deg, rgba(77,23,23,0.7036939775910365) 0%, rgba(28,47,88,0.7036939775910365) 32%, rgba(92,91,29,0.6784838935574229) 66%, rgba(44,20,96,0.6560749299719888) 100%);
 }
 
 .bg2 {
