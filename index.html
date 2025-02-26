@@ -110,6 +110,7 @@
       <img style="margin-top: 20px; margin-left: 20px; height: 200px;"
         src="https://img.freepik.com/premium-vector/music-player-vector-ui-design-with-buttons-track-title-vector-illustration-isolated-audio-player_505988-687.jpg"
         alt="Repeat for more images">
+        <img src="Images/MyMusicPlayer Image.jpeg" alt="">
       <!-- Date Accessed: ??? -->
     </div>
     <div style="color: rgb(146, 146, 146);">
@@ -392,10 +393,21 @@
       <span style="text-decoration: underline;">we</span> 
       <span style="font-size: 1.7em;">offer</span>!
     </p>
+    <button onclick="scrollToTop()" style="padding: 10px 20px; font-size: 1.2em;">Scroll to Top</button>
+    <button onclick="toggleDarkMode()" style="padding: 10px 20px; font-size: 1.2em;">Toggle Dark Mode</button>
   </footer>
 
   <!-- Loading JavaScript Last: why some pages load and don't seem to 'work' -->
   <script src='Website Dependancies/script.js'></script>
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
 
 </body>
 <!--  -->
