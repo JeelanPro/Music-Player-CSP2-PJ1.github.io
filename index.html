@@ -245,8 +245,6 @@
       <div id="jeelanpro-player" style="background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; border-radius: 20px; display: inline-block; width: auto;">
         <button id="play-pause" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
 
-        
-
         <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar').style.width='85px';" onmouseleave="this.style.width='35px'; document.getElementById('seek-bar').style.width='200px';" style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; /*width: 190px;*/ width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;"> <!-- Style here -->
           <button id="volume-button" style="padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
           <input type="range" id="volume-bar" value="100" style="width: 100px; margin: 0 10px;">
@@ -261,6 +259,8 @@
           <option value="1.5">1.5x</option>
           <option value="2">2x</option>
         </select>
+
+        <a id="download-button" href="Music/qaseda.mp3" download style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer; text-decoration: none;">⬇️</a>
       </div>
       <audio id="jeelanpro-audio" src="Music/qaseda.mp3"></audio>
     </div>
