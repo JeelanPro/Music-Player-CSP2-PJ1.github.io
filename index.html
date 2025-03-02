@@ -270,13 +270,13 @@
         <button id="play-pause"
           style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
 
-        <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar').style.width='85px';"
-          onmouseleave="this.style.width='35px'; document.getElementById('seek-bar').style.width='200px';"
+        <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar').style.width='85px'; document.getElementById('volume-bar').style.opacity = '1'"
+          onmouseleave="this.style.width='35px'; document.getElementById('seek-bar').style.width='200px'; document.getElementById('volume-bar').style.opacity = '0'"
           style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; /*width: 190px;*/ width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
           <!-- Style here -->
           <button id="volume-button"
             style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
-          <input type="range" id="volume-bar" value="100" style="width: 100px; margin: 0 10px;">
+          <input type="range" id="volume-bar" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
         </div>
 
         <input type="range" id="seek-bar" value="0"
@@ -632,12 +632,14 @@
       } else {
         previousVolume = audio.volume;
         audio.muted = true;
+        volumeBar.value = 0;
         volumeButton.textContent = '🔇';
       }
     });
 
     volumeBar.addEventListener('input', () => {
       audio.volume = volumeBar.value / 100;
+      audio.muted = false; // Ensure audio is not muted when volume is adjusted
       updateVolumeIcon();
     });
 
