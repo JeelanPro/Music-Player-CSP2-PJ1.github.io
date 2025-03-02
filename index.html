@@ -109,6 +109,12 @@
       <span style="text-decoration: underline;">hosting</span> 
       <span style="font-size: 4vw;">server</span>
     </h1>
+    <div style="text-align: center; margin-top: 20px;">
+      <button onclick="scrollToTop()" style="padding: 10px 20px; font-size: 1em;">Scroll to Top</button>
+      <button onclick="toggleDarkMode()" style="padding: 10px 20px; font-size: 1em;">Toggle Dark Mode</button>
+      <button onclick="changeBackgroundColor()" style="padding: 10px 20px; font-size: 1em;">Surprise Me!</button>
+      <button onclick="resetBackgroundColor()" style="padding: 10px 20px; font-size: 1em;">Reset</button>
+    </div>
   </header>
 
   <!-- Portfolio Section -->
@@ -215,6 +221,48 @@
         <a href="https://jeelanpro.github.io" target="_blank" style="color: rgb(30, 144, 255);">jeelanpro.github.io</a>
         and explore our comprehensive guide to get the most out of your music experience.
       </p>
+    </div>
+  </section>
+
+  <!-- Qaseda Song Section -->
+  <section>
+    <div style="text-align: center; padding: 20px;">
+      <h2>Now Playing: <span style="color: red;">Qaseda</span></h2>
+      <audio controls>
+        <source src="Music/qaseda.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <p style="margin-top: 20px;">
+        This is the only song I have included so far. Due to religious considerations, I have chosen to add an Islamic song, which aligns with my beliefs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Custom JeelanPro GUI Song Section -->
+  <section>
+    <div style="text-align: center; padding: 20px; display: block;">
+      <h2 style="display: block;">Now Playing: <span style="color: red;">Qaseda</span> (JeelanPro GUI)</h2>
+      <div id="jeelanpro-player" style="background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; border-radius: 20px; display: inline-block; width: auto;">
+        <button id="play-pause" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
+
+        
+
+        <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar').style.width='85px';" onmouseleave="this.style.width='35px'; document.getElementById('seek-bar').style.width='200px';" style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; /*width: 190px;*/ width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;"> <!-- Style here -->
+          <button id="volume-button" style="padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
+          <input type="range" id="volume-bar" value="100" style="width: 100px; margin: 0 10px;">
+        </div>
+
+        <input type="range" id="seek-bar" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
+        <span id="current-time" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
+
+        <select id="speed-control" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
+          <option value="0.5">0.5x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+      </div>
+      <audio id="jeelanpro-audio" src="Music/qaseda.mp3"></audio>
     </div>
   </section>
 
@@ -416,7 +464,7 @@
   </section>
 
   <!--  -->
-  <footer id="incomplete" style="padding: 20px; text-align: center;">
+  <footer id="incomplete" style="padding: 20px; text-align: center; height: auto;">
     <p style="font-size: 1.5em;">
       <span style="font-weight: bold;">This</span> 
       <span style="font-style: italic;">footer</span> 
@@ -444,7 +492,12 @@
     </p>
     <button onclick="scrollToTop()" style="padding: 10px 20px; font-size: 1.2em;">Scroll to Top</button>
     <button onclick="toggleDarkMode()" style="padding: 10px 20px; font-size: 1.2em;">Toggle Dark Mode</button>
+    <button onclick="changeBackgroundColor()" style="padding: 10px 20px; font-size: 1.2em;">Surprise Me!</button>
+    <button onclick="resetBackgroundColor()" style="padding: 10px 20px; font-size: 1.2em;">Reset</button>
   </footer>
+
+  <!-- Confetti Animation -->
+  <div id="confetti-container"></div>
 
   <!-- Loading JavaScript Last: why some pages load and don't seem to 'work' -->
   <script src='Website Dependancies/script.js'></script>
@@ -454,8 +507,124 @@
     }
 
     function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
+      const jpbElement = document.querySelector('.JPB');
+      if (jpbElement.classList.contains('dark-mode')) {
+        jpbElement.classList.remove('dark-mode');
+        jpbElement.style.animation = 'gradientTransition 1s forwards';
+        jpbElement.style.background = 'linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%)';
+      } else {
+        jpbElement.classList.add('dark-mode');
+        jpbElement.style.animation = 'gradientTransition 1s forwards';
+        jpbElement.style.background = 'linear-gradient(145deg, rgba(128,0,0,1) 0%, rgba(0,64,64,1) 32%, rgba(64,64,0,1) 66%, rgba(0,32,32,1) 100%)';
+      }
     }
+
+    function changeBackgroundColor() {
+      const randomColor1 = '#' + Math.floor(Math.random()*16777215).toString(16);
+      const randomColor2 = '#' + Math.floor(Math.random()*16777215).toString(16);
+      const jpbElement = document.querySelector('.JPB');
+      jpbElement.style.animation = 'gradientTransition 1s forwards';
+      jpbElement.style.background = `linear-gradient(145deg, ${randomColor1} 0%, ${randomColor2} 100%)`;
+      showConfetti();
+    }
+
+    function resetBackgroundColor() {
+      const jpbElement = document.querySelector('.JPB');
+      jpbElement.style.animation = 'gradientTransition 1s forwards';
+      jpbElement.style.background = 'linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%)';
+    }
+
+    function showConfetti() {
+      const confettiContainer = document.getElementById('confetti-container');
+      confettiContainer.innerHTML = '';
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+        confettiContainer.appendChild(confetti);
+      }
+      setTimeout(() => {
+        confettiContainer.innerHTML = '';
+      }, 5000);
+    }
+
+    // Custom JeelanPro GUI Player Script
+    const audio = document.getElementById('jeelanpro-audio');
+    const playPauseButton = document.getElementById('play-pause');
+    const seekBar = document.getElementById('seek-bar');
+    const currentTimeElement = document.getElementById('current-time');
+    const durationElement = document.getElementById('duration');
+    const volumeButton = document.getElementById('volume-button');
+    const volumeBar = document.getElementById('volume-bar');
+    const speedControl = document.getElementById('speed-control');
+    let previousVolume = audio.volume;
+
+    playPauseButton.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseButton.textContent = '⏸';
+      } else {
+        audio.pause();
+        playPauseButton.textContent = '▶';
+      }
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const currentTime = audio.currentTime;
+      const duration = audio.duration;
+      seekBar.value = (currentTime / duration) * 100;
+      currentTimeElement.textContent = formatTime(currentTime);
+      durationElement.textContent = formatTime(duration);
+    });
+
+    seekBar.addEventListener('input', () => {
+      const seekTime = (seekBar.value / 100) * audio.duration;
+      audio.currentTime = seekTime;
+    });
+
+    volumeButton.addEventListener('click', () => {
+      if (audio.muted || audio.volume === 0) {
+        audio.muted = false;
+        audio.volume = previousVolume;
+        volumeBar.value = previousVolume * 100;
+        volumeButton.textContent = '🔊';
+      } else {
+        previousVolume = audio.volume;
+        audio.muted = true;
+        volumeButton.textContent = '🔇';
+      }
+    });
+
+    volumeBar.addEventListener('input', () => {
+      audio.volume = volumeBar.value / 100;
+      if (audio.volume === 0) {
+        volumeButton.textContent = '🔇';
+      } else {
+        volumeButton.textContent = '🔊';
+      }
+    });
+
+    speedControl.addEventListener('change', () => {
+      audio.playbackRate = speedControl.value;
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      durationElement.textContent = formatTime(audio.duration);
+    });
+
+    function formatTime(time) {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60);
+      return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    // Load the duration when the page is loaded
+    window.addEventListener('load', () => {
+      if (audio.readyState >= 1) {
+        durationElement.textContent = formatTime(audio.duration);
+      }
+    });
   </script>
 
 </body>
