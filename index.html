@@ -261,12 +261,12 @@
     </div>
   </section>
 
-  <!-- Custom JeelanPro GUI Song Section -->
+  <!-- Custom JeelanPro GUI Song Section Code:ya26e1 -->
   <section>
     <div style="text-align: center; padding: 20px; display: block;">
       <h2 style="display: block;">Now Playing: <span style="color: red;">Qaseda</span> (JeelanPro GUI)</h2>
       <div id="jeelanpro-player"
-        style="background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; border-radius: 20px; display: inline-block; width: auto;">
+        style=" user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; border-radius: 20px; display: inline-block; width: auto;">
         <button id="play-pause"
           style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
 
@@ -293,7 +293,7 @@
         </select>
 
         <a id="download-button" href="Music/qaseda.mp3" download
-          style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer; text-decoration: none;">⬇️</a>
+          style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer; text-decoration: none;">&#x1F4E5;</a>
       </div>
       <audio id="jeelanpro-audio" src="Music/qaseda.mp3"></audio>
     </div>
@@ -628,7 +628,7 @@
         audio.muted = false;
         audio.volume = previousVolume;
         volumeBar.value = previousVolume * 100;
-        volumeButton.textContent = '🔊';
+        updateVolumeIcon();
       } else {
         previousVolume = audio.volume;
         audio.muted = true;
@@ -638,11 +638,7 @@
 
     volumeBar.addEventListener('input', () => {
       audio.volume = volumeBar.value / 100;
-      if (audio.volume === 0) {
-        volumeButton.textContent = '🔇';
-      } else {
-        volumeButton.textContent = '🔊';
-      }
+      updateVolumeIcon();
     });
 
     speedControl.addEventListener('change', () => {
@@ -657,6 +653,18 @@
       const minutes = Math.floor(time / 60);
       const seconds = Math.floor(time % 60);
       return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    }
+
+    function updateVolumeIcon() {
+      if (audio.volume === 0 || audio.muted) {
+        volumeButton.textContent = '🔇';
+      } else if (audio.volume > 0 && audio.volume <= 0.33) {
+        volumeButton.textContent = '🔈';
+      } else if (audio.volume > 0.33 && audio.volume <= 0.66) {
+        volumeButton.textContent = '🔉';
+      } else {
+        volumeButton.textContent = '🔊';
+      }
     }
 
     // Load the duration when the page is loaded
