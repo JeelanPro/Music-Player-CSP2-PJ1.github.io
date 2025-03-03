@@ -496,6 +496,79 @@
     </div>
   </section>
 
+  <!-- Custom Video Players Section -->
+  <section>
+    <div style="text-align: center; padding: 20px;">
+      <h2>Custom Video Players</h2>
+      <div class="video-player" id="video-player-1" style="margin: 20px;">
+        <video id="video-1" src="Video/Installing Windows 11 in Ubuntu.mp4" width="600"></video>
+        <div class="controls" style="user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px;  display: inline-block; width: auto;">
+          <button id="play-pause-1" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
+          <input type="range" id="seek-bar-1" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
+          <span id="current-time-1" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration-1" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
+          <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar-1').style.width='85px'; document.getElementById('volume-bar-1').style.opacity = '1'"
+            onmouseleave="this.style.width='35px'; document.getElementById('seek-bar-1').style.width='200px'; document.getElementById('volume-bar-1').style.opacity = '0'"
+            style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
+            <button id="mute-1" style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
+            <input type="range" id="volume-bar-1" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
+          </div>
+          <select id="speed-control-1" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+          <button id="fullscreen-1" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">⛶</button>
+          <button id="pip-1" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">📺</button>
+        </div>
+      </div>
+      <div class="video-player" id="video-player-2" style="margin: 20px;">
+        <video id="video-2" src="Video/Roblox Hecking.mp4" width="600"></video>
+        <div class="controls" style=" user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; display: inline-block; width: auto;">
+          <button id="play-pause-2" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
+          <input type="range" id="seek-bar-2" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
+          <span id="current-time-2" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration-2" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
+          <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar-2').style.width='85px'; document.getElementById('volume-bar-2').style.opacity = '1'"
+            onmouseleave="this.style.width='35px'; document.getElementById('seek-bar-2').style.width='200px'; document.getElementById('volume-bar-2').style.opacity = '0'"
+            style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
+            <button id="mute-2" style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
+            <input type="range" id="volume-bar-2" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
+          </div>
+          <select id="speed-control-2" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+          <button id="fullscreen-2" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">⛶</button>
+          <button id="pip-2" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">📺</button>
+        </div>
+      </div>
+      <div class="video-player" id="video-player-3" style="margin: 20px;">
+        <video id="video-3" src="Video/Ubuntu to Windows 10.mp4" width="600"></video>
+        <div class="controls" style=" user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; display: inline-block; width: auto;">
+          <button id="play-pause-3" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
+          <input type="range" id="seek-bar-3" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
+          <span id="current-time-3" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration-3" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
+          <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar-3').style.width='85px'; document.getElementById('volume-bar-3').style.opacity = '1'"
+            onmouseleave="this.style.width='35px'; document.getElementById('seek-bar-3').style.width='200px'; document.getElementById('volume-bar-3').style.opacity = '0'"
+            style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
+            <button id="mute-3" style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
+            <input type="range" id="volume-bar-3" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
+          </div>
+          <select id="speed-control-3" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+          <button id="fullscreen-3" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">⛶</button>
+          <button id="pip-3" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">📺</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!--  -->
   <footer id="incomplete" style="padding: 20px; text-align: center; height: auto;">
     <p style="font-size: 1.5em;">
@@ -716,6 +789,96 @@
         });
       });
     });
+
+    // Custom Video Player Scripts
+    const videoPlayers = [
+      { video: document.getElementById('video-1'), playPauseButton: document.getElementById('play-pause-1'), seekBar: document.getElementById('seek-bar-1'), currentTimeElement: document.getElementById('current-time-1'), durationElement: document.getElementById('duration-1'), muteButton: document.getElementById('mute-1'), volumeBar: document.getElementById('volume-bar-1'), speedControl: document.getElementById('speed-control-1'), fullscreenButton: document.getElementById('fullscreen-1'), pipButton: document.getElementById('pip-1') },
+      { video: document.getElementById('video-2'), playPauseButton: document.getElementById('play-pause-2'), seekBar: document.getElementById('seek-bar-2'), currentTimeElement: document.getElementById('current-time-2'), durationElement: document.getElementById('duration-2'), muteButton: document.getElementById('mute-2'), volumeBar: document.getElementById('volume-bar-2'), speedControl: document.getElementById('speed-control-2'), fullscreenButton: document.getElementById('fullscreen-2'), pipButton: document.getElementById('pip-2') },
+      { video: document.getElementById('video-3'), playPauseButton: document.getElementById('play-pause-3'), seekBar: document.getElementById('seek-bar-3'), currentTimeElement: document.getElementById('current-time-3'), durationElement: document.getElementById('duration-3'), muteButton: document.getElementById('mute-3'), volumeBar: document.getElementById('volume-bar-3'), speedControl: document.getElementById('speed-control-3'), fullscreenButton: document.getElementById('fullscreen-3'), pipButton: document.getElementById('pip-3') }
+    ];
+
+    videoPlayers.forEach(player => {
+      player.playPauseButton.addEventListener('click', () => {
+        if (player.video.paused) {
+          player.video.play();
+          player.playPauseButton.textContent = '⏸';
+        } else {
+          player.video.pause();
+          player.playPauseButton.textContent = '▶';
+        }
+      });
+
+      player.video.addEventListener('timeupdate', () => {
+        const currentTime = player.video.currentTime;
+        const duration = player.video.duration;
+        player.seekBar.value = (currentTime / duration) * 100;
+        player.currentTimeElement.textContent = formatTime(currentTime);
+        player.durationElement.textContent = formatTime(duration);
+      });
+
+      player.seekBar.addEventListener('input', () => {
+        const seekTime = (player.seekBar.value / 100) * player.video.duration;
+        player.video.currentTime = seekTime;
+      });
+
+      player.muteButton.addEventListener('click', () => {
+        if (player.video.muted || player.video.volume === 0) {
+          player.video.muted = false;
+          player.video.volume = player.volumeBar.value / 100;
+          updateVolumeIcon(player);
+        } else {
+          player.video.muted = true;
+          player.volumeBar.value = 0;
+          player.muteButton.textContent = '🔇';
+        }
+      });
+
+      player.volumeBar.addEventListener('input', () => {
+        player.video.volume = player.volumeBar.value / 100;
+        player.video.muted = false; // Ensure video is not muted when volume is adjusted
+        updateVolumeIcon(player);
+      });
+
+      player.speedControl.addEventListener('change', () => {
+        player.video.playbackRate = player.speedControl.value;
+      });
+
+      player.fullscreenButton.addEventListener('click', () => {
+        if (player.video.requestFullscreen) {
+          player.video.requestFullscreen();
+        } else if (player.video.mozRequestFullScreen) { // Firefox
+          player.video.mozRequestFullScreen();
+        } else if (player.video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+          player.video.webkitRequestFullscreen();
+        } else if (player.video.msRequestFullscreen) { // IE/Edge
+          player.video.msRequestFullscreen();
+        }
+      });
+
+      player.pipButton.addEventListener('click', () => {
+        if (player.video !== document.pictureInPictureElement) {
+          player.video.requestPictureInPicture();
+        } else {
+          document.exitPictureInPicture();
+        }
+      });
+
+      player.video.addEventListener('loadedmetadata', () => {
+        player.durationElement.textContent = formatTime(player.video.duration);
+      });
+    });
+
+    function updateVolumeIcon(player) {
+      if (player.video.volume === 0 || player.video.muted) {
+        player.muteButton.textContent = '🔇';
+      } else if (player.video.volume > 0 && player.video.volume <= 0.33) {
+        player.muteButton.textContent = '🔈';
+      } else if (player.video.volume > 0.33 && player.video.volume <= 0.66) {
+        player.muteButton.textContent = '🔉';
+      } else {
+        player.muteButton.textContent = '🔊';
+      }
+    }
   </script>
 
 </body>

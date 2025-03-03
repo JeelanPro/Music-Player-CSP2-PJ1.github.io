@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Audio Player</title>
+    <style>
+        #ac {
+            display: inline-flex;
+            background: #d9d9d9;
+            margin: 10px;
+            box-shadow: 0 0 10px 2px black;
+            border-radius: 10px;
+            height: 60px;
+            width: 600px;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        #a, #b, #c, #d {
+            color: #7f7f7f;
+            display: inline-block;
+            background-color: transparent;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            align-content: center;
+            border-radius: 10px;
+            font-size: 20px;
+            position: relative;
+            margin-left: 5px;
+            margin-top: 5px;
+            padding: 0px;
+            user-select: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #a:hover, #b:hover, #d:hover {
+            background-color: #bfbfbf;
+            box-shadow: 0 0 10px 2px black;
+            font-size: 26px;
+        }
+
+        #c {
+            width: 425px;
+            cursor: auto;
+        }
+
+        #c input[type=range] {
+            -webkit-appearance: none;
+            /* appearance: none; */
+            width: 100%;
+            border-radius: 50px;
+            background: #ff00007c;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        #c input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            /* appearance: none; */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: relative;
+            top: 50%;
+            transform: translate(0%, -50%);
+            background: #4CAF50;
+        }
+
+        #c input[type=range]::-webkit-slider-runnable-track {
+            height: 10px;
+            cursor: pointer;
+            background: #0000007c;
+            border-radius: 50px;
+        }
+        
+        #c input[type=range]:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="ac">
+        <div id="a">▶</div>
+        <div id="b">🔊</div>
+        <div id="c">
+            <input type="range" min="0" max="100" value="50" id="volumeRange">
+        </div>
+        <div id="d">☰</div>
+    </div>
+</body>
+</html>

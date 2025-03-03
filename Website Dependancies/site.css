@@ -300,3 +300,54 @@ footer:hover {
 	border-radius: 50px;
 	margin: 50px;
 }
+
+.video-player {
+  margin: 20px auto;
+  width: 600px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.video-player video {
+  width: 100%;
+  display: block;
+}
+
+.video-player .controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #444;
+  border-radius: 20px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.video-player .controls button,
+.video-player .controls select {
+  background-color: #0c1350ad;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.video-player .controls button:hover,
+.video-player .controls select:hover {
+  background-color: #0a0e3a;
+}
+
+.video-player .controls input[type="range"] {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.video-player .controls span {
+  color: white;
+  font-family: Consolas, monospace;
+}

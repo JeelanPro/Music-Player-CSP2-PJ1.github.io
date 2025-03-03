@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JeelanPro Audio Player Library</title>
+  <style>
+    #jeelanpro-player {
+      user-select: none;
+      background: linear-gradient(145deg, rgb(255, 71, 71) 0%, rgb(140, 254, 218) 32%, rgb(255, 254, 139) 66%, rgb(180, 255, 171) 100%);
+      padding: 10px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      height: 80px;
+      transition: 0.3s;
+    }
+
+    #jeelanpro-player button,
+    #jeelanpro-player select,
+    #jeelanpro-player a {
+      padding: 0px;
+      margin: 0px;
+      font-size: 1.2em;
+      background-color: rgba(12, 19, 80, 0.68);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      transition: 0.3s;
+      cursor: pointer;
+      height: 40px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #volume-container {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      width: 50px;
+      padding: 0px;
+      margin: 0px;
+      background-color: #0c1350ad;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      transition: 0.3s;
+      height: 40px;
+    }
+
+    #volume-container:hover {
+      width: 150px;
+    }
+
+    #volume-bar {
+      width: 100px;
+      margin: 0 10px;
+      transition: 0.3s;
+      opacity: 0;
+      height: 40px;
+    }
+
+    #volume-container:hover #volume-bar {
+      opacity: 1;
+    }
+
+    #seek-bar {
+      font-size: 20px;
+      font-family: Consolas;
+      transition: 0.3s;
+      width: 200px;
+      margin: 0 10px;
+      height: 40px;
+    }
+
+    #current-time,
+    #duration {
+      font-size: 20px;
+      font-family: Consolas;
+      color: black;
+      margin: 0px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="jeelanpro-player-container"></div>
+
+  <script>
+    class JeelanProAudioPlayer {
+      constructor(audioSrc, containerElement) {
+        this.audioSrc = audioSrc;
+        this.container = containerElement;
+        this.audio = new Audio(audioSrc);
+        this.createPlayer();
+        this.addEventListeners();
+      }
+
+      createPlayer() {
+        this.container.innerHTML = `
+          <div id="jeelanpro-player">
+            <button id="play-pause">▶</button>
+            <div id="volume-container">
+              <button id="volume-button">🔊</button>
+              <input type="range" id="volume-bar" value="100">
+            </div>
+            <input type="range" id="seek-bar" value="0">
+            <span id="current-time">0:00</span> / <span id="duration">0:00</span>
+            <select id="speed-control">
+              <option value="0.5">0.5x</option>
+              <option value="0.75">0.75x</option>
+              <option value="1" selected>1x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
+              <option value="1.75">1.75x</option>
+              <option value="2">2x</option>
+            </select>
+            <a id="download-button" href="${this.audioSrc}" download>&#x1F4E5;</a>
+            <button id="loop-button">🔁</button>
+            <button id="shuffle-button">🔀</button>
+          </div>
+        `;
+      }
+
+      addEventListeners() {
+        const playPauseButton = this.container.querySelector('#play-pause');
+        const seekBar = this.container.querySelector('#seek-bar');
+        const currentTimeElement = this.container.querySelector('#current-time');
+        const durationElement = this.container.querySelector('#duration');
+        const volumeButton = this.container.querySelector('#volume-button');
+        const volumeBar = this.container.querySelector('#volume-bar');
+        const speedControl = this.container.querySelector('#speed-control');
+        const loopButton = this.container.querySelector('#loop-button');
+        const shuffleButton = this.container.querySelector('#shuffle-button');
+        let previousVolume = this.audio.volume;
+
+        playPauseButton.addEventListener('click', () => {
+          if (this.audio.paused) {
+            this.audio.play();
+            playPauseButton.textContent = '⏸';
+          } else {
+            this.audio.pause();
+            playPauseButton.textContent = '▶';
+          }
+        });
+
+        this.audio.addEventListener('timeupdate', () => {
+          const currentTime = this.audio.currentTime;
+          const duration = this.audio.duration;
+          seekBar.value = (currentTime / duration) * 100;
+          currentTimeElement.textContent = this.formatTime(currentTime);
+          durationElement.textContent = this.formatTime(duration);
+        });
+
+        seekBar.addEventListener('input', () => {
+          const seekTime = (seekBar.value / 100) * this.audio.duration;
+          this.audio.currentTime = seekTime;
+        });
+
+        volumeButton.addEventListener('click', () => {
+          if (this.audio.muted || this.audio.volume === 0) {
+            this.audio.muted = false;
+            this.audio.volume = previousVolume;
+            volumeBar.value = previousVolume * 100;
+            this.updateVolumeIcon(volumeButton);
+          } else {
+            previousVolume = this.audio.volume;
+            this.audio.muted = true;
+            volumeBar.value = 0;
+            volumeButton.textContent = '🔇';
+          }
+        });
+
+        volumeBar.addEventListener('input', () => {
+          this.audio.volume = volumeBar.value / 100;
+          this.audio.muted = false; // Ensure audio is not muted when volume is adjusted
+          this.updateVolumeIcon(volumeButton);
+        });
+
+        speedControl.addEventListener('change', () => {
+          this.audio.playbackRate = speedControl.value;
+        });
+
+        loopButton.addEventListener('click', () => {
+          this.audio.loop = !this.audio.loop;
+          loopButton.style.backgroundColor = this.audio.loop ? '#0a0e3a' : '#0c1350ad';
+        });
+
+        shuffleButton.addEventListener('click', () => {
+          this.shufflePlaylist();
+          shuffleButton.style.backgroundColor = '#0a0e3a';
+          setTimeout(() => {
+            shuffleButton.style.backgroundColor = '#0c1350ad';
+          }, 500);
+        });
+
+        this.audio.addEventListener('loadedmetadata', () => {
+          durationElement.textContent = this.formatTime(this.audio.duration);
+        });
+
+        window.addEventListener('load', () => {
+          if (this.audio.readyState >= 1) {
+            durationElement.textContent = this.formatTime(this.audio.duration);
+          }
+        });
+      }
+
+      formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      }
+
+      updateVolumeIcon(volumeButton) {
+        if (this.audio.volume === 0 || this.audio.muted) {
+          volumeButton.textContent = '🔇';
+        } else if (this.audio.volume > 0 && this.audio.volume <= 0.33) {
+          volumeButton.textContent = '🔈';
+        } else if (this.audio.volume > 0.33 && this.audio.volume <= 0.66) {
+          volumeButton.textContent = '🔉';
+        } else {
+          volumeButton.textContent = '🔊';
+        }
+      }
+
+      shufflePlaylist() {
+        // Implement shuffle functionality if you have a playlist
+        console.log('Shuffle playlist');
+      }
+    }
+
+    // Example usage
+    const containerElement = document.querySelector('.jeelanpro-player-container');
+    new JeelanProAudioPlayer('../Music/qaseda.mp3', containerElement);
+  </script>
+</body>
+</html>
