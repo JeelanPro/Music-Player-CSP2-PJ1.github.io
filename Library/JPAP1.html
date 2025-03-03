@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,9 +16,13 @@
             width: 600px;
             transition: 0.3s;
             position: relative;
+            flex-wrap: wrap;
         }
 
-        #a, #b, #c, #d {
+        #a,
+        #b,
+        #c,
+        #d {
             color: #7f7f7f;
             display: inline-block;
             background-color: transparent;
@@ -36,29 +41,47 @@
             transition: 0.3s;
         }
 
-        #a:hover, #b:hover, #d:hover {
+        #a:hover,
+        #d:hover {
             background-color: #bfbfbf;
             box-shadow: 0 0 10px 2px black;
             font-size: 26px;
         }
 
+        #b:hover {
+            background-color: #bfbfbf;
+            box-shadow: 0 0 10px 2px black;
+            font-size: 26px;
+            width: 150px;
+        }
+
+        #b:hover + #c {
+            width: calc(425px - 100px);
+        }
+
         #c {
             width: 425px;
             cursor: auto;
+            transition: 0.3s;
         }
 
         #c input[type=range] {
-            -webkit-appearance: none;
-            appearance: none;
+            /* -webkit-appearance: none;
+            appearance: none; */
             width: 100%;
             border-radius: 50px;
             background: #ff00007c;
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            transition: 0.3s;
         }
-        
-        #c input[type=range]::-webkit-slider-thumb {
+
+        #c input[type=range]:hover {
+            box-shadow: 0 0 10px 2px black;
+        }
+
+        /* #c input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
             width: 20px;
@@ -79,9 +102,10 @@
         
         #c input[type=range]:focus {
             outline: none;
-        }
+        } */
     </style>
 </head>
+
 <body>
     <div id="ac">
         <div id="a">▶</div>
@@ -92,4 +116,5 @@
         <div id="d">☰</div>
     </div>
 </body>
+
 </html>
