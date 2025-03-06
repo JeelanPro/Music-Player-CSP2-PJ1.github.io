@@ -38,6 +38,7 @@
             right: 50%;
             box-shadow: 0 0 10px 1px #00000042;
             box-shadow: 0 0 10px 1px #00000000;
+            transition: 0.3s box-shadow;
         }
 
         #d {
@@ -94,37 +95,19 @@
         let f = document.getElementById('f');
 
         a.addEventListener('mouseenter', (e) => {
-            d.style.opacity = 1;
+            d.style.opacity = 0.5;
             f.style.opacity = 1;
-
-            let x = e.clientX - a.getBoundingClientRect().left;
-            let y = e.clientY - a.getBoundingClientRect().top;
-
-            f.style.right = ((-x) + 150) + 'px';
+            a.addEventListener('mousemove', (e) => {
+                
+            });
         });
 
         e.addEventListener("mouseenter", (e) => {
-            c.style.transition = '0.3s';
-            setTimeout(() => {
-                c.style.boxShadow = '0 0 10px 1px #00000042';
-                function a() {
-                    c.style.transition = '0s';
-                    c.removeEventListener('ontransitionend', a);
-                }
-                c.addEventListener('ontransitionend', a);
-            }, 10);
+            c.style.boxShadow = '0 0 10px 1px #00000042';
         });
 
         e.addEventListener('mouseleave', (e) => {
-            c.style.transition = '0.3s';
-            setTimeout(() => {
-                c.style.boxShadow = '0 0 10px 1px #00000000';
-                function a() {
-                    c.style.transition = '0s';
-                    c.removeEventListener('ontransitionend', a);
-                }
-                c.addEventListener('ontransitionend', a);
-            }, 10);
+            c.style.boxShadow = '0 0 10px 1px #00000000';
         });
 
         a.addEventListener('mouseleave', (e) => {
