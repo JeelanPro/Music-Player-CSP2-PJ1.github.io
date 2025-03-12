@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>p5.js Example</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script>
+
+    let imageX, ImageY, imageWidth, imageHeight;
+    let ANP = 0.0571428571;
+    let BNP = 0.0666666667;
+    let MW = 800;
+    let MH = 800;
+    
+    // This project involves extensive conversion tasks from Java to JavaScript. 
+    // For instance, variables and structures that were originally designed in Java 
+    // are being re-implemented in JavaScript to meet the project requirements.
+
+    // The variables 'displayWidth' and 'displayHeight' are operational but are excessively large in value, 
+    // making them inconvenient to use in this context.
+
+    function setup() {
+      // Assigning the values of 'MW' and 'MH' to adjusted dimensions relative to the display size.
+      // 'displayWidth' and 'displayHeight' may not perform as expected across different devices and scenarios.
+      // It is recommended to utilize 'window.innerWidth' and 'window.innerHeight' for more consistent behavior.
+      // For instance, the following adjustment can be made:
+      // MW = window.innerWidth - 20;
+      // MH = window.innerHeight - 20;
+
+      createCanvas(MW, MH); // Sets up the canvas for the web application with appropriate dimensions.
+      
+      // Attempting to use the 'fullscreen()' function has not been successful, hence it has been excluded from the implementation.
+
+      let appWidth = MW;  // Application width set to the canvas width (MW).
+      let appHeight = MH; // Application height set to the canvas height (MH).
+      
+      // Calculating the position and dimensions of an image based on application size proportions.
+      imageX = appWidth * 0.17;
+      imageY = appHeight * 0.20;
+      imageWidth = appWidth * 0.67;
+      imageHeight = appHeight * 0.15;
+      
+      background(200); // Sets the initial background color required specifically for web-based implementations.
+
+      // Rendering rectangles based on specific parameters to define their position and size on the canvas.
+      mr(0.5, 0.5, 1, 1.5);
+      mr(4.5, 0.5, 8.5, 1.5);
+      mr(14.5, 0.5, 2.5, 1.5);
+
+      mr(0.5, 2.5, 16.5, 9.5);
+
+      let ButtonsXValue = [0.5, 2, 3.5, 5, 6.5]; // Array defining X-axis positions for button elements.
+      for (let i = 0; i < ButtonsXValue.length; i++) {
+        const ButtonXValue = ButtonsXValue[i];
+        mr(ButtonXValue, 12.5, 1, 1); // Rendering buttons at specified positions.
+      }
+      mr(8, 12.5, 1.5, 1); // Rendering a larger button at a defined location.
+
+      // Rendering additional button elements shifted along the X-axis by an offset value of 9.5.
+      for (let i = 0; i < ButtonsXValue.length; i++) {
+        const ButtonXValue = ButtonsXValue[i];
+        mr(ButtonXValue + 9.5, 12.5, 1, 1);
+      }
+      
+      mr(0.5, 14, 16.5, 0.5); // Rendering a horizontal separator line near the bottom of the canvas.
+    }
+
+    // Function responsible for drawing a rectangle on the canvas with dynamically calculated dimensions and positions.
+    // The parameters 'x', 'y', 'w', 'h' represent the proportions relative to the canvas dimensions.
+    function mr(x, y, w, h) {
+      rect(
+        MW * ANP * x,
+        MH * BNP * y,
+        MW * ANP * w,
+        MH * BNP * h
+      );
+    }
+
+    function draw() {
+      // Code for dynamic rendering can be included here. For example:
+      // Uncomment the line below to draw a rectangle based on the calculated image dimensions and position.
+      // rect(imageX, imageY, imageWidth, imageHeight);
+    }
+
+    function mousePressed() {
+      // Implement behavior for mouse press events here if required.
+    }
+    function keyPressed() {
+      // Implement behavior for key press events here if required.
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
