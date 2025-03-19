@@ -6,14 +6,16 @@
 int appWidth, appHeight;
 float imageX, imageY, imageWidth, imageHeight;
 //
-float ANP = 0.05714285714285714; // 1 cm for Width (1/17.5)
-float BNP = 0.06666666666666667; // 1 cm for Height (1/15)
+float ANP; // 1 cm for Width
+float BNP; // 1 cm for Height
 
 void setup() {
   // Display
   fullScreen();
   appWidth = displayWidth;
   appHeight = displayHeight;
+  ANP = 0.05714285714285714; // 1 cm for Width (1/17.5)
+  BNP = 0.06666666666666667; // 1 cm for Height (1/15)
   //
   imageX = displayWidth * (ANP * 0.5);
   imageY = displayHeight * (ANP * 0.5);
@@ -48,7 +50,7 @@ void mr(float x, float y, float w, float h) {
 }
 
 //
-void draw() {
+void draw() { // Loop Function
   // Main rectangle
   //rect(imageX, imageY, imageWidth, imageHeight);
   
