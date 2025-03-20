@@ -42,7 +42,7 @@ void setup() {
   //rect( X, Y, Width, Height );
   //triangle( X1, Y1, X2, Y2, X3, Y3 );
   //rect( divX, divY, divWidth, divHeight );
-  //rect( musicButtonX, musicButtonY, musicButtonWidth, musicButtonHeight );
+  rect( musicButtonX, musicButtonY, musicButtonWidth, musicButtonHeight );
   //Shapes to turn off
   //rect( stopX, stopY, stopWidth, stopHeight );
   //triangle( playX1, playY1, playX2, playY2, playX3, playY3 );
