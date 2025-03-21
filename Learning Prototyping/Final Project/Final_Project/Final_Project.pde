@@ -26,12 +26,7 @@ void setup() {
   playButtonY = appHeight / 2 - playButtonHeight / 2;
 
   // Draw
-  background(0);
-  fill(255);
   rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
-  PImage img;
-  img = loadImage("smooth-gray-background_53876-108462.avif");
-  background(img);
   
 
   // Template rect(X, Y, Width, Height)
