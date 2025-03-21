@@ -11,6 +11,8 @@ float playButtonY;
 float playButtonWidth;
 float playButtonHeight;
 
+PImage test;
+
 // End Global Variable
 //
 void setup() {
@@ -18,6 +20,8 @@ void setup() {
   fullScreen();
   appHeight = displayHeight;
   appWidth = displayWidth;
+  
+  test = loadImage("https://img.freepik.com/free-photo/smooth-gray-background_53876-108462.jpg");
 
   // Play
   playButtonWidth = appWidth / 4;
@@ -29,9 +33,6 @@ void setup() {
   background(0);
   fill(255);
   rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
-  PImage img;
-  img = loadImage("smooth-gray-background_53876-108462.avif");
-  background(img);
   
 
   // Template rect(X, Y, Width, Height)
