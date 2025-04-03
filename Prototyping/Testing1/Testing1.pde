@@ -42,15 +42,22 @@ void setup() {
   for (int i = 0; i < 5; i++) {
     //mr(bottomBtnA[i], 12.5, 1, 1);
     mrc(bottomBtnA[i], 12.5, 1, 1);
-    mrcf(("a" + str(i + 1)), bottomBtnA[i], 12.5, 1, 1);
+    //mrcf(("a" + str(i + 1)), bottomBtnA[i], 12.5, 1, 1);
+    mrcf(a("a", i), bottomBtnA[i], 12.5, 1, 1);
   }
-  mr(8, 12.5, 1.5, 1);
+  //mr(8, 12.5, 1.5, 1);
   mrc(8, 12.5, 1.5, 1);
+  mrcf(a("c", 0), 8, 12.5, 1.5, 1);
   for (int i = 0; i < 5; i++) {
-    mr(9.5 + bottomBtnA[i], 12.5, 1, 1);
+    //mr(9.5 + bottomBtnA[i], 12.5, 1, 1);
     mrc(9.5 + bottomBtnA[i], 12.5, 1, 1);
+    mrcf(a("b", i), 9.5 + bottomBtnA[i], 12.5, 1, 1);
   }
   mr(0.5, 14, 16.5, 0.5);
+}
+
+String a(String section, int num) {
+  return section + str(num + 1);
 }
 
 void mr(float x, float y, float w, float h) {
@@ -128,7 +135,7 @@ void mrcf(String op, float x, float y, float w, float h) {
       gridSelectorY * 2  // Height
     );
   }
-  else if (op.equals("a4")) {
+  else if (op.equals("a4")) { // Fast Backward
     /*rect(
       innerX + finalInnerX + (gridSelectorX * 4),
       innerY + (gridSelectorY * 1),
@@ -150,7 +157,7 @@ void mrcf(String op, float x, float y, float w, float h) {
       innerX + finalInnerX + gsx*3, innerY + gsy*2
     );
   }
-  else if (op.equals("a3")) {
+  else if (op.equals("a3")) { // Fast Forward
     /*rect(
       innerX + finalInnerX + (gridSelectorX * 4),
       innerY + (gridSelectorY * 1),
@@ -179,6 +186,102 @@ void mrcf(String op, float x, float y, float w, float h) {
       gridSelectorX * 2, // Width
       gridSelectorY * 2  // Height
     );*/
+    gridSelectorX = smallerSide/4;
+    gridSelectorY = smallerSide/4;
+    float gsx = gridSelectorX;
+    float gsy = gridSelectorY;
+    triangle(
+      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
+      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
+      innerX + finalInnerX + gsx*3, innerY + gsy*2
+    );
+  }
+  else if (op.equals("b1")) {
+    rect(
+      innerX + finalInnerX + (smallerSide/4 * 1),
+      innerY + (smallerSide/4 * 1),
+      smallerSide/4 * 2,
+      smallerSide/4 * 2
+    );
+  }
+  else if (op.equals("b2")) {
+    gridSelectorX = smallerSide/16;
+    gridSelectorY = smallerSide/4;
+    rect(
+      innerX + finalInnerX + (gridSelectorX * 4),
+      innerY + (gridSelectorY * 1),
+      gridSelectorX * 2, // Width
+      gridSelectorY * 2  // Height
+    );
+    rect(
+      innerX + finalInnerX + (gridSelectorX * 10),
+      innerY + (gridSelectorY * 1),
+      gridSelectorX * 2, // Width
+      gridSelectorY * 2  // Height
+    );
+  }
+  else if (op.equals("b4")) {
+    /*rect(
+      innerX + finalInnerX + (gridSelectorX * 4),
+      innerY + (gridSelectorY * 1),
+      gridSelectorX * 2, // Width
+      gridSelectorY * 2  // Height
+    );*/
+    gridSelectorX = smallerSide/4;
+    gridSelectorY = smallerSide/4;
+    float gsx = gridSelectorX;
+    float gsy = gridSelectorY;
+    triangle(
+      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
+      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
+      innerX + finalInnerX + gsx*2, innerY + gsy*2
+    );
+    triangle(
+      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
+      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
+      innerX + finalInnerX + gsx*3, innerY + gsy*2
+    );
+  }
+  else if (op.equals("b3")) {
+    /*rect(
+      innerX + finalInnerX + (gridSelectorX * 4),
+      innerY + (gridSelectorY * 1),
+      gridSelectorX * 2, // Width
+      gridSelectorY * 2  // Height
+    );*/
+    gridSelectorX = smallerSide/4;
+    gridSelectorY = smallerSide/4;
+    float gsx = gridSelectorX;
+    float gsy = gridSelectorY;
+    triangle(
+      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
+      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
+      innerX + finalInnerX + gsx*1, innerY + gsy*2
+    );
+    triangle(
+      innerX + finalInnerX + gsx*3, innerY + gsy*1, 
+      innerX + finalInnerX + gsx*3, innerY + gsy*3, 
+      innerX + finalInnerX + gsx*2, innerY + gsy*2
+    );
+  }
+  else if (op.equals("b5")) {
+    /*rect(
+      innerX + finalInnerX + (gridSelectorX * 4),
+      innerY + (gridSelectorY * 1),
+      gridSelectorX * 2, // Width
+      gridSelectorY * 2  // Height
+    );*/
+    gridSelectorX = smallerSide/4;
+    gridSelectorY = smallerSide/4;
+    float gsx = gridSelectorX;
+    float gsy = gridSelectorY;
+    triangle(
+      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
+      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
+      innerX + finalInnerX + gsx*3, innerY + gsy*2
+    );
+  }
+  else if (op.equals("c1")) {
     gridSelectorX = smallerSide/4;
     gridSelectorY = smallerSide/4;
     float gsx = gridSelectorX;
