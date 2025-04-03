@@ -295,6 +295,10 @@ void mrcf(String op, float x, float y, float w, float h) {
       innerX + finalInnerX + gsx*1, innerY + gsy*3, 
       innerX + finalInnerX + gsx*3, innerY + gsy*2
     );*/
+    gridSelectorX = smallerSide/4;
+    gridSelectorY = smallerSide/4;
+    float gsx = gridSelectorX;
+    float gsy = gridSelectorY;
   }
   else if (op.equals("c1")) { // Play
     gridSelectorX = smallerSide/4;
