@@ -38,6 +38,7 @@ void setup() {
   mr(14.5, 0.5, 2.5, 1.5);
   mrc(14.5, 0.5, 2.5, 1.5);
   mr(0.5, 2.5, 16.5, 9.5);
+  mrcft("a1", 0.5, 2.5, 16.5, 9.5);
   float[] bottomBtnA = {0.5, 2, 3.5, 5, 6.5};
   for (int i = 0; i < 5; i++) {
     //mr(bottomBtnA[i], 12.5, 1, 1);
@@ -321,6 +322,63 @@ void mrcf(String op, float x, float y, float w, float h) {
   }
 }
 
+void mrcft(String op, float x, float y, float w, float h) {
+  float smallerSide = 
+  ((displayWidth * ANP * w) < 
+  (displayHeight * BNP * h)) ? 
+  (displayWidth * ANP * w) : 
+  (displayHeight * BNP * h);
+  float biggerSide = 
+  ((displayWidth * ANP * w) > 
+  (displayHeight * BNP * h)) ? 
+  (displayWidth * ANP * w) : 
+  (displayHeight * BNP * h);
+  float innerX = displayWidth * ANP * x;
+  float innerY = displayHeight * BNP * y;
+  
+  float finalInnerX = (biggerSide - smallerSide)/2;
+  float gridSelectorX;
+  float gridSelectorY;
+  
+  if (op.equals("a1")) { // Image
+    /*rect(
+      innerX + finalInnerX,
+      innerY,
+      smallerSide,
+      smallerSide
+    );
+    rect(
+      innerX + finalInnerX + (smallerSide/4 * 1),
+      innerY + (smallerSide/4 * 1),
+      smallerSide/4 * 2,
+      smallerSide/4 * 2
+    );*/
+    if ((displayWidth * ANP * w) > (displayHeight * BNP * h)) {
+      rect(
+        innerX + finalInnerX,
+        innerY,
+        displayHeight * BNP * h,
+        displayHeight * BNP * h
+      );
+    } else {
+      rect(
+        innerX + finalInnerX,
+        innerY,
+        displayWidth * ANP * w,
+        displayWidth * ANP * w
+      );
+    }
+  }
+  else {
+    rect(
+      innerX + finalInnerX + (smallerSide/4 * 1),
+      innerY + (smallerSide/4 * 1),
+      smallerSide/4 * 2,
+      smallerSide/4 * 2
+    );
+  }
+}
+
 //
 void draw() { // Loop Function
   // Main rectangle
@@ -331,7 +389,7 @@ void draw() { // Loop Function
 } // End draw
 
 //
-PImage img;
+//PImage img;
 void mousePressed() {
   /*file = new SoundFile(this, "skibidi-toilet.mp3");
   file.play();
