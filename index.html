@@ -1,889 +1,222 @@
-<!DOCTYPE HTML>
-<html lang=en xml:lang=en xmlns='http://www.w3.org/1999/xhtml'>
-<!-- Big Website Ideas-->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset=utf-8>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Keyboard & Dynamic Window -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JeelanPro</title>
+    <link rel="shortcut icon" href="JeelanPro Logo.png" type="image/x-icon">
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: white;
+			margin: 0;
+			padding: 0;
+		}
 
+		#app {
+			position: fixed;
+			left: 0px;
+			right: 0px;
+			height: 100%;
+			width: 100%;
+			background-color: #111111;
+            overflow: auto;
+		}
 
-  <noscript>Parents, please enable Javascript in your browser in order to expereince your student demo to
-    properly</noscript>
-  <!-- JavaScript Security Feedback-->
+        #topMenu {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20px;
+            border-radius: 15px;
+            width: calc(100% - 40px);
+            height: 70px;
+            background-color: #4d4d4d48;
+            backdrop-filter: blur(4px);
+            max-width: calc(1280px - 40px);
+            animation: fadeIn 2s ease-in-out;
+            user-select: none;
+        }
 
-  <link href="Website Dependancies/site.css" rel=stylesheet>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <!-- Note: what does INTEGRITY mean? -->
-  <!--- -->
+        #topMenu img {
+            position: absolute;
+            left: 10px;
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            border-radius: 10px;
+            transform: translateY(-50%);
+            user-select: none;
+        }
 
-  <title>JeelanPro Music Player</title>
-  <link rel="icon" type="image/x-icon" href="Website Dependancies/favicon/JeelanPro Logo.ico">
-  <!--  https://icons8.com/icon/set/kitchen/family-animated--animated, 20250116 -->
-  <!-- Favicon is a Pathway and Image File, not from a server. Goes into computer. -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="JeelanPro Music Player - Your ultimate music streaming experience with high-quality audio, personalized recommendations, and seamless integration with your favorite devices.">
-  <meta name="keywords"
-    content="JeelanPro, Music Player, Music Streaming, High-Quality Audio, Personalized Recommendations, Cross-Platform Support">
-  <meta name="author" content="Jeelan">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="JeelanPro Music Player">
-  <meta property="og:description"
-    content="Join JeelanPro Music Player for high-definition audio streaming, curated playlists, offline listening, and more.">
-  <meta property="og:image"
-    content="https://img.freepik.com/premium-vector/music-player-vector-ui-design-with-buttons-track-title-vector-illustration-isolated-audio-player_505988-687.jpg">
-  <meta property="og:url" content="https://jeelanpro.github.io">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JeelanPro Music Player">
-  <meta name="twitter:description"
-    content="Experience the best music streaming with JeelanPro Music Player. Sign up today!">
-  <meta name="twitter:image"
-    content="https://img.freepik.com/premium-vector/music-player-vector-ui-design-with-buttons-track-title-vector-illustration-isolated-audio-player_505988-687.jpg">
-  <title>JeelanPro Music Player</title>
-  <style>
-    @media only screen and (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
+        #topMenu #title {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 70px;
+            font-size: 30px;
+            height: 30px;
+            color: #ebebeb;
+            user-select: none;
+        }
 
-      h2,
-      h3,
-      h4 {
-        font-size: 1.5rem;
-      }
+        #page {
+            position: relative;
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 1280px;
+            margin-top: 110px;
+        }
 
-      p {
-        font-size: 1.2em;
-      }
+        #headerA {
+            position: relative;
+            width: calc(100% - 40px);
+            left: 50%;
+            transform: translateX(-50%);
+            height: 600px;
+            background-color: #4d4d4d48;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            /* Adding animation */
+            animation: fadeIn 2s ease-in-out;
+            user-select: none;
+        }
 
-      /* img {
-        width: 100%;
-        height: auto;
-      } */
-    }
+        #headerA img {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            object-fit: cover;
+            bottom: 0px;
+            filter: blur(10px) brightness(0.2);
+            /* box-shadow: inset 0px 0px 2000px 10000px rgb(255, 255, 255); */
+            /* animation: animationA 20s linear infinite; */
+            user-select: none;
+        }
 
-    @media only screen and (min-width: 601px) and (max-width: 1200px) {
-      h1 {
-        font-size: 2.5rem;
-      }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-      h2,
-      h3,
-      h4 {
-        font-size: 1.7rem;
-      }
+        @keyframes animationA {
+            0% {
+                filter: blur(10px) brightness(0.2);
+            }
+            50% {
+                filter: blur(2px) brightness(0.2);
+            }
+            100% {
+                filter: blur(10px) brightness(0.2);
+            }
+        }
 
-      p {
-        font-size: 1.3em;
-      }
+        @media screen and (max-width: 600px) {
+            #headerA img {
+                width: auto;
+                height: 100%;
+            }
+        }
 
-      /* img {
-        width: 75%;
-        height: auto;
-      } */
-    }
-
-    @media only screen and (min-width: 1201px) {
-      h1 {
-        font-size: 3rem;
-      }
-
-      h2,
-      h3,
-      h4 {
-        font-size: 1.8rem;
-      }
-
-      p {
-        font-size: 1.4em;
-      }
-
-      /* img {
-        width: 50%;
-        height: auto;
-      } */
-    }
-  </style>
+        #headerA #title {
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            height: auto;
+            text-align: center;
+            font-weight: bold;
+            align-content: center;
+            background: #26283b;
+            background: linear-gradient(149deg, rgba(38, 40, 59, 1) 0%, rgba(196, 196, 196, 1) 30%, rgba(196, 196, 196, 1) 69%, rgba(92, 83, 55, 1) 100%);
+            color: transparent;
+            background-clip: text;
+            word-wrap: break-word;
+            user-select: none;
+        }
+	</style>
 </head>
-<!-- -->
-
-<!-- -->
-
 <body>
-
-  <div class="JPB"></div>
-
-  <header id="incomplete" style="font-size:3vw">
-    <h1 style="font-size:3vw">
-      <span style="color: blue;">JeelanPro</span>
-      <span style="font-weight: bold;">Is</span>
-      <span style="font-style: italic;">a</span>
-      <span style="text-decoration: underline;">hosting</span>
-      <span style="font-size: 4vw;">server</span>
-    </h1>
-    <div style="text-align: center; margin-top: 20px;">
-      <button onclick="scrollToTop()"
-        style="padding: 10px 20px; font-size: 1em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Scroll
-        to Top</button>
-      <button onclick="toggleDarkMode()"
-        style="padding: 10px 20px; font-size: 1em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Toggle
-        Dark Mode</button>
-      <button onclick="changeBackgroundColor()"
-        style="padding: 10px 20px; font-size: 1em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Surprise
-        Me!</button>
-      <button onclick="resetBackgroundColor()"
-        style="padding: 10px 20px; font-size: 1em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Reset</button>
-    </div>
-  </header>
-
-  <!-- Portfolio Section -->
-  <section>
-    <div id="incomplete">
-      <h2>My Name is <span style="color: red;">Brooooooooo</span></h2>
-      <h3>I'm in Grade <span style="font-size: 2em;">9999999999</span></h3>
-    </div>
-    <div id="incomplete">
-      <h4>My Interests Are:</h4>
-      <ul>
-        <li>My hobbies are <span style="font-weight: bold;">Coding</span></li>
-        <li>My Sports Are <span style="font-style: italic;">Tennis</span></li>
-        <li>....................== <span style="text-decoration: underline;">:)</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Music Player Images Section -->
-  <section>
-    <div>
-      <!-- Date Accessed: ??? -->
-      <!-- Date Accessed: ??? -->
-      <!-- <image src="https://queenelizabeth.epsb.ca/media/styleassets-schools/queenelizabeth/QueenE_T4_logo_white.png"> This is line working -->
-      <!-- Date Accessed: ??? -->
-      <!-- Date Accessed: ??? -->
-      <img class="clickable-image"
-        src="https://queenelizabeth.epsb.ca/media/styleassets-schools/queenelizabeth/QueenE_T4_logo_white.png"
-        alt="Case Study">
-      <img class="clickable-image" src="https://avatars.githubusercontent.com/u/133474801?v=4"
-        alt="Repeat for more images" />
-      <img class="clickable-image"
-        src="https://img.freepik.com/premium-vector/music-player-vector-ui-design-with-buttons-track-title-vector-illustration-isolated-audio-player_505988-687.jpg"
-        alt="Repeat for more images">
-      <img class="clickable-image" src="Images/QueenE_T4_logo_white.png" alt="The queeny from lal"
-        title="Local Image ever discover">
-      <img class="clickable-image" src="https://cdn-icons-png.flaticon.com/512/0/747.png" alt="Apple image"
-        title="Add hishover if you can">
-      <img class="clickable-image"
-        src="https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/RWCZER-Legal-IP-Trademarks-CP-MS-logo-740x417-1?wid=406&hei=230&fit=crop"
-        alt="Microsoft image" title="Add hishover if you can">
-      <img class="clickable-image" src="Images/Google__G__logo.svg.png" alt="Microsoft image"
-        title="Add hishover if you can">
-      <img class="clickable-image"
-        src="https://queenelizabeth.epsb.ca/media/styleassets-schools/queenelizabeth/QueenE_T4_logo_white.png"
-        alt="Case Study">
-      <img class="clickable-image" src="https://avatars.githubusercontent.com/u/133474801?v=4"
-        alt="Repeat for more images" />
-      <img class="clickable-image"
-        src="https://img.freepik.com/premium-vector/music-player-vector-ui-design-with-buttons-track-title-vector-illustration-isolated-audio-player_505988-687.jpg"
-        alt="Repeat for more images">
-      <img class="clickable-image" src="Images/MyMusicPlayer Image.jpeg" alt="">
-    </div>
-    <div style="color: rgb(146, 146, 146);">
-      <p style="color: rgb(198, 198, 198);"><strong>Welcome to <em style="color: rgb(255, 165, 0);">JeelanPro Music
-            Player</em></strong>, your ultimate music streaming experience. Enjoy a wide variety of songs and playlists
-        tailored to your taste. Explore our features, including <u style="color: rgb(0, 128, 0);">high-quality
-          audio</u>, personalized recommendations, and seamless integration with your favorite devices. Join us and
-        elevate your music journey with JeelanPro. Visit our website at <a href="https://jeelanpro.github.io"
-          target="_blank" style="color: rgb(30, 144, 255);">jeelanpro.github.io</a> for more information.</p>
-      <p style="color: rgb(198, 198, 198); font-family: 'Arial', sans-serif;">
-        <span style="font-weight: bold;">I</span>
-        <span style="font-style: italic;">love</span>
-        <span style="text-decoration: underline;">these</span>
-        <span style="color: blue;">images</span>
-        <span style="font-size: 1.2em;">because</span>
-        <span style="font-weight: bold; font-style: italic;">they</span>
-        <span style="text-decoration: line-through;">represent</span>
-        <span style="color: red;">my</span>
-        <span style="font-size: 1.3em;">music</span>
-        <span style="font-weight: bold; text-decoration: underline;">designs</span>,
-        <span style="font-style: italic; color: green;">models</span>,
-        <span style="font-size: 1.4em;">logos</span>,
-        <span style="font-weight: bold; color: purple;">my</span>
-        <span style="text-decoration: underline;">school</span>,
-        <span style="font-style: italic; color: orange;">and</span>
-        <span style="font-size: 1.5em;">some</span>
-        <span style="font-weight: bold; color: blue;">famous</span>
-        <span style="text-decoration: underline;">companies</span>
-        <span style="font-style: italic; color: red;">that</span>
-        <span style="font-size: 1.6em;">I</span>
-        <span style="font-weight: bold; color: green;">admire</span>.
-        <span style="text-decoration: underline;">These</span>
-        <span style="font-style: italic; color: purple;">images</span>
-        <span style="font-size: 1.7em;">reflect</span>
-        <span style="font-weight: bold; color: orange;">my</span>
-        <span style="text-decoration: underline;">interests</span>
-        <span style="font-style: italic; color: blue;">and</span>
-        <span style="font-size: 1.8em;">inspirations</span>
-        <span style="font-weight: bold; color: red;">in</span>
-        <span style="text-decoration: underline;">the</span>
-        <span style="font-style: italic; color: green;">world</span>
-        <span style="font-size: 1.9em;">of</span>
-        <span style="font-weight: bold; color: purple;">music</span>
-        <span style="text-decoration: underline;">and</span>
-        <span style="font-style: italic; color: orange;">technology</span>.
-      </p>
-      <p style="color: rgb(237, 237, 237);">Our platform offers <strong style="color: rgb(255, 69, 0);">high-definition
-          audio streaming</strong>, curated playlists for every mood and occasion, offline listening capabilities,
-        cross-platform support for all your devices, regular updates with the latest hits and classic tracks, a
-        user-friendly interface for easy navigation, and exclusive content and early access to new releases. <a
-          href="https://www.jeelanpro.com/signup" target="_blank" style="color: rgb(255, 20, 147);">Sign up today</a>
-        and start your musical adventure with JeelanPro Music Player! For detailed instructions and more features, visit
-        <a href="https://jeelanpro.github.io" target="_blank" style="color: rgb(30, 144, 255);">jeelanpro.github.io</a>
-        and explore our comprehensive guide to get the most out of your music experience.
-      </p>
-    </div>
-  </section>
-
-  <!-- Qaseda Song Section -->
-  <section>
-    <div style="text-align: center; padding: 20px;">
-      <h2>Now Playing: <span style="color: red;">Qaseda</span></h2>
-      <audio controls>
-        <source src="Music/qaseda.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-      <p style="margin-top: 20px;">
-        This is the only song I have included so far. Due to religious considerations, I have chosen to add an Islamic
-        song, which aligns with my beliefs.
-      </p>
-    </div>
-  </section>
-
-  <!-- Custom JeelanPro GUI Song Section Code:ya26e1 -->
-  <section>
-    <div style="text-align: center; padding: 20px; display: block;">
-      <h2 style="display: block;">Now Playing: <span style="color: red;">Qaseda</span> (JeelanPro GUI)</h2>
-      <div id="jeelanpro-player"
-        style=" user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; border-radius: 20px; display: inline-block; width: auto;">
-        <button id="play-pause"
-          style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
-
-        <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar').style.width='85px'; document.getElementById('volume-bar').style.opacity = '1'"
-          onmouseleave="this.style.width='35px'; document.getElementById('seek-bar').style.width='200px'; document.getElementById('volume-bar').style.opacity = '0'"
-          style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; /*width: 190px;*/ width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
-          <!-- Style here -->
-          <button id="volume-button"
-            style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
-          <input type="range" id="volume-bar" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
+	<div id="app">
+        <div id="topMenu">
+            <img draggable="false" src="https://avatars.githubusercontent.com/u/133474801?v=4" alt="Logo">
+            <div id="title">JeelanPro</div>
         </div>
+        <div id="page">
+            <div id="headerA">
+                <div id="title">Coming Soon</div>
+                <img draggable="false" src="https://avatars.githubusercontent.com/u/133474801?v=4" alt="View">
+            </div>
 
-        <input type="range" id="seek-bar" value="0"
-          style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
-        <span id="current-time" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span
-          id="duration" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
-
-        <select id="speed-control"
-          style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
-          <option value="0.5">0.5x</option>
-          <option value="1" selected>1x</option>
-          <option value="1.5">1.5x</option>
-          <option value="2">2x</option>
-        </select>
-
-        <a id="download-button" href="Music/qaseda.mp3" download
-          style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer; text-decoration: none;">&#x1F4E5;</a>
-      </div>
-      <audio id="jeelanpro-audio" src="Music/qaseda.mp3"></audio>
-    </div>
-  </section>
-
-  <!-- Color Choice Section -->
-  <section>
-    <div style="color: rgb(146, 146, 146); text-align: center; padding: 20px;">
-      <p style="font-size: 1.5em;">
-        <span style="font-weight: bold;">I</span>
-        <span style="font-style: italic;">selected</span>
-        <span style="text-decoration: underline;">this</span>
-        <span style="color: blue;">color</span>
-        <span style="font-size: 1.2em;">palette</span>
-        <span style="font-weight: bold; font-style: italic;">because</span>
-        <span style="text-decoration: line-through;">it</span>
-        <span style="color: red;">conveys</span>
-        <span style="font-size: 1.3em;">a</span>
-        <span style="font-weight: bold; text-decoration: underline;">professional</span>
-        <span style="font-style: italic; color: green;">and</span>
-        <span style="font-size: 1.4em;">formal</span>
-        <span style="font-weight: bold; color: purple;">aesthetic</span>.
-        <span style="text-decoration: underline;">Additionally</span>,
-        <span style="font-style: italic; color: orange;">it</span>
-        <span style="font-size: 1.5em;">enhances</span>
-        <span style="font-weight: bold; color: blue;">the</span>
-        <span style="text-decoration: line-through;">overall</span>
-        <span style="font-size: 1.6em;">appearance</span>
-        <span style="font-style: italic; color: red;">of</span>
-        <span style="font-weight: bold;">the</span>
-        <span style="text-decoration: underline;">website</span>
-        <span style="font-size: 1.7em;">and</span>
-        <span style="font-style: italic; color: green;">makes</span>
-        <span style="font-weight: bold;">it</span>
-        <span style="text-decoration: line-through;">more</span>
-        <span style="font-size: 1.8em;">appealing</span>
-        <span style="font-style: italic; color: purple;">and</span>
-        <span style="font-weight: bold;">engaging</span>.
-        <span style="text-decoration: underline;">This</span>
-        <span style="font-size: 1.9em;">choice</span>
-        <span style="font-style: italic; color: orange;">reflects</span>
-        <span style="font-weight: bold;">our</span>
-        <span style="text-decoration: line-through;">commitment</span>
-        <span style="font-size: 2em;">to</span>
-        <span style="font-style: italic; color: blue;">providing</span>
-        <span style="font-weight: bold;">an</span>
-        <span style="text-decoration: underline;">exceptional</span>
-        <span style="font-size: 2.1em;">user</span>
-        <span style="font-style: italic; color: red;">experience</span>.
-      </p>
-    </div>
-  </section>
-
-  <!-- GitHub Copilot Section -->
-  <section>
-    <div style="color: rgb(146, 146, 146); text-align: center; padding: 20px;">
-      <p style="font-size: 1.5em;">
-        <span style="font-weight: bold;">This</span>
-        <span style="font-style: italic;">project</span>
-        <span style="text-decoration: underline;">was</span>
-        <span style="color: blue;">generated</span>
-        <span style="font-size: 1.2em;">using</span>
-        <span style="font-weight: bold; font-style: italic;">GitHub's</span>
-        <span style="color: red;">innovative</span>
-        <span style="font-size: 1.3em;">tool</span>,
-        <span style="font-weight: bold; text-decoration: underline;">GitHub</span>
-        <span style="font-style: italic; color: green;">Copilot</span>.
-        <span style="font-size: 1.4em;">It</span>
-        <span style="font-weight: bold; color: purple;">utilizes</span>
-        <span style="text-decoration: underline;">GitHub</span>
-        <span style="font-style: italic; color: orange;">Copilot</span>
-        <span style="font-size: 1.5em;">Edits</span>
-        <span style="font-weight: bold; color: blue;">and</span>
-        <span style="font-size: 1.6em;">incorporates</span>
-        <span style="font-style: italic; color: red;">GPT-4</span>
-        <span style="font-weight: bold;">technology</span>
-        <span style="text-decoration: underline;">from</span>
-        <span style="font-size: 1.7em;">ChatGPT</span>.
-        <span style="font-style: italic; color: green;">Additionally</span>,
-        <span style="font-weight: bold;">it</span>
-        <span style="font-size: 1.8em;">leverages</span>
-        <span style="font-style: italic; color: purple;">other</span>
-        <span style="font-weight: bold;">AI</span>
-        <span style="text-decoration: underline;">technologies</span>
-        <span style="font-size: 1.9em;">such</span>
-        <span style="font-style: italic; color: orange;">as</span>
-        <span style="font-weight: bold;">Deepseek</span>
-        <span style="text-decoration: underline;">R1</span>.
-        <span style="font-size: 2em;">This</span>
-        <span style="font-style: italic; color: blue;">is</span>
-        <span style="font-weight: bold;">the</span>
-        <span style="text-decoration: underline;">world's</span>
-        <span style="font-size: 2.1em;">most</span>
-        <span style="font-style: italic; color: red;">powerful</span>
-        <span style="font-weight: bold;">code</span>
-        <span style="text-decoration: underline;">assistant</span>.
-        <span style="font-size: 2.2em;">While</span>
-        <span style="font-style: italic; color: green;">Codium</span>
-        <span style="font-weight: bold;">is</span>
-        <span style="font-size: 2.3em;">an</span>
-        <span style="font-style: italic; color: purple;">option</span>,
-        <span style="font-weight: bold;">GitHub</span>
-        <span style="text-decoration: underline;">Copilot</span>
-        <span style="font-size: 2.4em;">remains</span>
-        <span style="font-style: italic; color: orange;">the</span>
-        <span style="font-weight: bold;">best</span>
-        <span style="text-decoration: underline;">choice</span>
-        <span style="font-size: 2.5em;">with</span>
-        <span style="font-style: italic; color: blue;">its</span>
-        <span style="font-weight: bold;">Copilot</span>
-        <span style="text-decoration: underline;">Edits</span>.
-      </p>
-    </div>
-  </section>
-
-  <!-- Video & YouTube API Section -->
-  <section>
-    <div>
-      <p style="font-size: 1.5em;">
-        <span style="font-weight: bold;">I</span>
-        <span style="font-style: italic;">chose</span>
-        <span style="text-decoration: underline;">these</span>
-        <span style="color: blue;">videos</span>
-        <span style="font-size: 1.2em;">because</span>
-        <span style="font-weight: bold; font-style: italic;">I</span>
-        <span style="text-decoration: line-through;">am</span>
-        <span style="color: red;">interested</span>
-        <span style="font-size: 1.3em;">in</span>
-        <span style="font-weight: bold; text-decoration: underline;">them</span>.
-        <span style="font-style: italic; color: green;">They</span>
-        <span style="font-size: 1.4em;">represent</span>
-        <span style="font-weight: bold;">my</span>
-        <span style="text-decoration: underline; color: purple;">passion</span>
-        <span style="font-style: italic;">for</span>
-        <span style="font-size: 1.5em;">gaming</span>,
-        <span style="font-weight: bold; color: orange;">music</span>,
-        <span style="text-decoration: line-through;">and</span>
-        <span style="font-style: italic; font-size: 1.6em;">technology</span>.
-        <span style="font-weight: bold; color: blue;">Watching</span>
-        <span style="text-decoration: underline;">these</span>
-        <span style="font-size: 1.7em;">videos</span>
-        <span style="font-style: italic; color: red;">inspires</span>
-        <span style="font-weight: bold;">me</span>
-        <span style="text-decoration: line-through;">to</span>
-        <span style="font-size: 1.8em;">learn</span>
-        <span style="font-style: italic; color: green;">more</span>
-        <span style="font-weight: bold;">and</span>
-        <span style="text-decoration: underline;">improve</span>
-        <span style="font-size: 1.9em;">my</span>
-        <span style="font-style: italic; color: purple;">skills</span>
-        <span style="font-weight: bold;">in</span>
-        <span style="text-decoration: line-through;">these</span>
-        <span style="font-size: 2em;">areas</span>.
-        <span style="font-style: italic; color: orange;">I</span>
-        <span style="font-weight: bold;">enjoy</span>
-        <span style="text-decoration: underline;">exploring</span>
-        <span style="font-size: 2.1em;">different</span>
-        <span style="font-style: italic; color: blue;">content</span>
-        <span style="font-weight: bold;">and</span>
-        <span style="text-decoration: line-through;">gaining</span>
-        <span style="font-size: 2.2em;">new</span>
-        <span style="font-style: italic; color: red;">insights</span>
-        <span style="font-weight: bold;">from</span>
-        <span style="text-decoration: underline;">various</span>
-        <span style="font-size: 2.3em;">creators</span>.
-        <span style="font-style: italic; color: green;">These</span>
-        <span style="font-weight: bold;">videos</span>
-        <span style="text-decoration: line-through;">also</span>
-        <span style="font-size: 2.4em;">provide</span>
-        <span style="font-style: italic; color: purple;">entertainment</span>
-        <span style="font-weight: bold;">and</span>
-        <span style="text-decoration: underline;">relaxation</span>,
-        <span style="font-size: 2.5em;">making</span>
-        <span style="font-style: italic; color: orange;">them</span>
-        <span style="font-weight: bold;">an</span>
-        <span style="text-decoration: line-through;">essential</span>
-        <span style="font-size: 2.6em;">part</span>
-        <span style="font-style: italic; color: blue;">of</span>
-        <span style="font-weight: bold;">my</span>
-        <span style="text-decoration: underline;">daily</span>
-        <span style="font-size: 2.7em;">routine</span>.
-      </p>
-    </div>
-    <div>
-      <iframe style="margin-top: 20px;" width="560" height="315"
-        src="https://drive.google.com/file/d/1K7m6UjbSzaQyno_-YP-6z0VE9bVA4JMt/preview" title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <!-- YouTube API, see SHARE -->
-      <iframe width="853" height="480" src="https://www.youtube.com/embed/_KuXRXkqhsY"
-        title="Minecraft Speedrun Be Like..." frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/l7lH_OfzIQs?si=3ZwEKfV39aiba33B"
-        title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      <!-- Date Accessed: ??? -->
-    </div>
-  </section>
-
-  <!-- Custom Video Players Section -->
-  <section>
-    <div style="text-align: center; padding: 20px; display: block;">
-      <h2>Custom Video Players</h2>
-      <div class="video-player" id="video-player-1" style="margin: 20px;">
-        <video id="video-1" src="Video/Installing Windows 11 in Ubuntu.mp4" width="600"></video>
-        <div class="controls" style="user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px;  display: inline-block; width: auto;">
-          <button id="play-pause-1" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
-          <input type="range" id="seek-bar-1" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
-          <span id="current-time-1" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration-1" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
-          <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar-1').style.width='85px'; document.getElementById('volume-bar-1').style.opacity = '1'"
-            onmouseleave="this.style.width='35px'; document.getElementById('seek-bar-1').style.width='200px'; document.getElementById('volume-bar-1').style.opacity = '0'"
-            style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
-            <button id="mute-1" style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
-            <input type="range" id="volume-bar-1" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
-          </div>
-          <select id="speed-control-1" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
-            <option value="0.5">0.5x</option>
-            <option value="1" selected>1x</option>
-            <option value="1.5">1.5x</option>
-            <option value="2">2x</option>
-          </select>
-          <button id="fullscreen-1" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">⛶</button>
-          <button id="pip-1" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">📺</button>
         </div>
-      </div>
-      <div class="video-player" id="video-player-2" style="margin: 20px;">
-        <video id="video-2" src="Video/Roblox Hecking.mp4" width="600"></video>
-        <div class="controls" style=" user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; display: inline-block; width: auto;">
-          <button id="play-pause-2" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
-          <input type="range" id="seek-bar-2" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
-          <span id="current-time-2" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration-2" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
-          <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar-2').style.width='85px'; document.getElementById('volume-bar-2').style.opacity = '1'"
-            onmouseleave="this.style.width='35px'; document.getElementById('seek-bar-2').style.width='200px'; document.getElementById('volume-bar-2').style.opacity = '0'"
-            style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
-            <button id="mute-2" style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
-            <input type="range" id="volume-bar-2" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
-          </div>
-          <select id="speed-control-2" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
-            <option value="0.5">0.5x</option>
-            <option value="1" selected>1x</option>
-            <option value="1.5">1.5x</option>
-            <option value="2">2x</option>
-          </select>
-          <button id="fullscreen-2" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">⛶</button>
-          <button id="pip-2" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">📺</button>
-        </div>
-      </div>
-      <div class="video-player" id="video-player-3" style="margin: 20px;">
-        <video id="video-3" src="Video/Ubuntu to Windows 10.mp4" width="600"></video>
-        <div class="controls" style=" user-select: none; background: linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%); padding: 20px; display: inline-block; width: auto;">
-          <button id="play-pause-3" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">▶</button>
-          <input type="range" id="seek-bar-3" value="0" style="font-size: 20px; font-family: Consolas; transition: 0.3s; width: 200px; margin: 0 10px;">
-          <span id="current-time-3" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span> / <span id="duration-3" style="font-size: 20px; font-family: Consolas; color: black;">0:00</span>
-          <div onmouseover="this.style.width='150px'; document.getElementById('seek-bar-3').style.width='85px'; document.getElementById('volume-bar-3').style.opacity = '1'"
-            onmouseleave="this.style.width='35px'; document.getElementById('seek-bar-3').style.width='200px'; document.getElementById('volume-bar-3').style.opacity = '0'"
-            style="overflow: hidden; display: inline-flex; flex-wrap: nowrap; justify-content: left; width: 35px; padding: 10px 10px; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s;">
-            <button id="mute-3" style="font-family: Consolas; padding: 0px 5px; font-size: 1.2em; background-color: transparent; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">🔊</button>
-            <input type="range" id="volume-bar-3" value="100" style="width: 100px; margin: 0 10px; transition: 0.3s;">
-          </div>
-          <select id="speed-control-3" style="padding: 10px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">
-            <option value="0.5">0.5x</option>
-            <option value="1" selected>1x</option>
-            <option value="1.5">1.5x</option>
-            <option value="2">2x</option>
-          </select>
-          <button id="fullscreen-3" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">⛶</button>
-          <button id="pip-3" style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">📺</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--  -->
-  <footer id="incomplete" style="padding: 20px; text-align: center; height: auto;">
-    <p style="font-size: 1.5em;">
-      <span style="font-weight: bold;">This</span>
-      <span style="font-style: italic;">footer</span>
-      <span style="text-decoration: underline;">contains</span>
-      <span style="color: blue;">a</span>
-      <span style="font-size: 1.2em;">variety</span>
-      <span style="font-weight: bold; font-style: italic;">of</span>
-      <span style="text-decoration: line-through;">styles</span>
-      <span style="color: red;">to</span>
-      <span style="font-size: 1.3em;">showcase</span>
-      <span style="font-weight: bold; text-decoration: underline;">different</span>
-      <span style="font-style: italic; color: green;">text</span>
-      <span style="font-size: 1.4em;">formats</span>.
-      <span style="font-weight: bold; color: purple;">Enjoy</span>
-      <span style="text-decoration: underline;">exploring</span>
-      <span style="font-style: italic; color: orange;">our</span>
-      <span style="font-size: 1.5em;">website</span>
-      <span style="font-weight: bold; color: blue;">and</span>
-      <span style="text-decoration: line-through;">discover</span>
-      <span style="font-size: 1.6em;">all</span>
-      <span style="font-style: italic; color: red;">the</span>
-      <span style="font-weight: bold;">features</span>
-      <span style="text-decoration: underline;">we</span>
-      <span style="font-size: 1.7em;">offer</span>!
-    </p>
-    <button onclick="scrollToTop()"
-      style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Scroll
-      to Top</button>
-    <button onclick="toggleDarkMode()"
-      style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Toggle
-      Dark Mode</button>
-    <button onclick="changeBackgroundColor()"
-      style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Surprise
-      Me!</button>
-    <button onclick="resetBackgroundColor()"
-      style="padding: 10px 20px; font-size: 1.2em; background-color: #0c1350ad; color: white; border: none; border-radius: 50px; transition: 0.3s; cursor: pointer;">Reset</button>
-  </footer>
-
-  <!-- Confetti Animation -->
-  <div id="confetti-container"></div>
-
-  <!-- Loading JavaScript Last: why some pages load and don't seem to 'work' -->
-  <script src='Website Dependancies/script.js'></script>
-  <script>
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function toggleDarkMode() {
-      const jpbElement = document.querySelector('.JPB');
-      if (jpbElement.classList.contains('dark-mode')) {
-        jpbElement.classList.remove('dark-mode');
-        jpbElement.style.animation = 'gradientTransition 1s forwards';
-        jpbElement.style.background = 'linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%)';
-      } else {
-        jpbElement.classList.add('dark-mode');
-        jpbElement.style.animation = 'gradientTransition 1s forwards';
-        jpbElement.style.background = 'linear-gradient(145deg, rgba(128,0,0,1) 0%, rgba(0,64,64,1) 32%, rgba(64,64,0,1) 66%, rgba(0,32,32,1) 100%)';
-      }
-    }
-
-    function changeBackgroundColor() {
-      const randomColor1 = '#' + Math.floor(Math.random() * 16777215).toString(16);
-      const randomColor2 = '#' + Math.floor(Math.random() * 16777215).toString(16);
-      const jpbElement = document.querySelector('.JPB');
-      jpbElement.style.animation = 'gradientTransition 1s forwards';
-      jpbElement.style.background = `linear-gradient(145deg, ${randomColor1} 0%, ${randomColor2} 100%)`;
-      showConfetti();
-    }
-
-    function resetBackgroundColor() {
-      const jpbElement = document.querySelector('.JPB');
-      jpbElement.style.animation = 'gradientTransition 1s forwards';
-      jpbElement.style.background = 'linear-gradient(145deg, rgba(255,71,71,1) 0%, rgba(140,254,218,1) 32%, rgba(255,254,139,1) 66%, rgba(180,255,171,1) 100%)';
-    }
-
-    function showConfetti() {
-      const confettiContainer = document.getElementById('confetti-container');
-      confettiContainer.innerHTML = '';
-      for (let i = 0; i < 100; i++) {
-        const confetti = document.createElement('div');
-        confetti.classList.add('confetti');
-        confetti.style.left = Math.random() * 100 + 'vw';
-        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
-        confettiContainer.appendChild(confetti);
-      }
-      setTimeout(() => {
-        confettiContainer.innerHTML = '';
-      }, 5000);
-    }
-
-    // Custom JeelanPro GUI Player Script
-    const audio = document.getElementById('jeelanpro-audio');
-    const playPauseButton = document.getElementById('play-pause');
-    const seekBar = document.getElementById('seek-bar');
-    const currentTimeElement = document.getElementById('current-time');
-    const durationElement = document.getElementById('duration');
-    const volumeButton = document.getElementById('volume-button');
-    const volumeBar = document.getElementById('volume-bar');
-    const speedControl = document.getElementById('speed-control');
-    let previousVolume = audio.volume;
-
-    playPauseButton.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        playPauseButton.textContent = '⏸';
-      } else {
-        audio.pause();
-        playPauseButton.textContent = '▶';
-      }
-    });
-
-    audio.addEventListener('timeupdate', () => {
-      const currentTime = audio.currentTime;
-      const duration = audio.duration;
-      seekBar.value = (currentTime / duration) * 100;
-      currentTimeElement.textContent = formatTime(currentTime);
-      durationElement.textContent = formatTime(duration);
-    });
-
-    seekBar.addEventListener('input', () => {
-      const seekTime = (seekBar.value / 100) * audio.duration;
-      audio.currentTime = seekTime;
-    });
-
-    volumeButton.addEventListener('click', () => {
-      if (audio.muted || audio.volume === 0) {
-        audio.muted = false;
-        audio.volume = previousVolume;
-        volumeBar.value = previousVolume * 100;
-        updateVolumeIcon();
-      } else {
-        previousVolume = audio.volume;
-        audio.muted = true;
-        volumeBar.value = 0;
-        volumeButton.textContent = '🔇';
-      }
-    });
-
-    volumeBar.addEventListener('input', () => {
-      audio.volume = volumeBar.value / 100;
-      audio.muted = false; // Ensure audio is not muted when volume is adjusted
-      updateVolumeIcon();
-    });
-
-    speedControl.addEventListener('change', () => {
-      audio.playbackRate = speedControl.value;
-    });
-
-    audio.addEventListener('loadedmetadata', () => {
-      durationElement.textContent = formatTime(audio.duration);
-    });
-
-    function formatTime(time) {
-      const minutes = Math.floor(time / 60);
-      const seconds = Math.floor(time % 60);
-      return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    }
-
-    function updateVolumeIcon() {
-      if (audio.volume === 0 || audio.muted) {
-        volumeButton.textContent = '🔇';
-      } else if (audio.volume > 0 && audio.volume <= 0.33) {
-        volumeButton.textContent = '🔈';
-      } else if (audio.volume > 0.33 && audio.volume <= 0.66) {
-        volumeButton.textContent = '🔉';
-      } else {
-        volumeButton.textContent = '🔊';
-      }
-    }
-
-    // Load the duration when the page is loaded
-    window.addEventListener('load', () => {
-      if (audio.readyState >= 1) {
-        durationElement.textContent = formatTime(audio.duration);
-      }
-    });
-
-    // Enlarge image on click
-    const images = document.querySelectorAll('.clickable-image');
-    images.forEach(image => {
-      image.addEventListener('click', () => {
-        if (document.querySelector('.image-overlay')) return;
-
-        const overlay = document.createElement('div');
-        overlay.classList.add('image-overlay');
-        document.body.appendChild(overlay);
-
-        const clonedImage = image.cloneNode(true);
-        clonedImage.classList.add('enlarged');
-        overlay.appendChild(clonedImage);
-
-        const closeButton = document.createElement('button');
-        closeButton.classList.add('close-button');
-        closeButton.textContent = '✖';
-        overlay.appendChild(closeButton);
-
-        closeButton.addEventListener('click', () => {
-          overlay.remove();
-        });
-
-        overlay.addEventListener('click', (e) => {
-          if (e.target === overlay) {
-            overlay.remove();
-          }
-        });
-
-        clonedImage.addEventListener('click', () => {
-          if (clonedImage.classList.contains('enlarged')) {
-            clonedImage.classList.remove('enlarged');
-            clonedImage.classList.add('super-enlarged');
-          } else if (clonedImage.classList.contains('super-enlarged')) {
-            clonedImage.classList.remove('super-enlarged');
-            clonedImage.classList.add('enlarged');
-          }
-        });
-      });
-    });
-
-    // Custom Video Player Scripts
-    const videoPlayers = [
-      { video: document.getElementById('video-1'), playPauseButton: document.getElementById('play-pause-1'), seekBar: document.getElementById('seek-bar-1'), currentTimeElement: document.getElementById('current-time-1'), durationElement: document.getElementById('duration-1'), muteButton: document.getElementById('mute-1'), volumeBar: document.getElementById('volume-bar-1'), speedControl: document.getElementById('speed-control-1'), fullscreenButton: document.getElementById('fullscreen-1'), pipButton: document.getElementById('pip-1') },
-      { video: document.getElementById('video-2'), playPauseButton: document.getElementById('play-pause-2'), seekBar: document.getElementById('seek-bar-2'), currentTimeElement: document.getElementById('current-time-2'), durationElement: document.getElementById('duration-2'), muteButton: document.getElementById('mute-2'), volumeBar: document.getElementById('volume-bar-2'), speedControl: document.getElementById('speed-control-2'), fullscreenButton: document.getElementById('fullscreen-2'), pipButton: document.getElementById('pip-2') },
-      { video: document.getElementById('video-3'), playPauseButton: document.getElementById('play-pause-3'), seekBar: document.getElementById('seek-bar-3'), currentTimeElement: document.getElementById('current-time-3'), durationElement: document.getElementById('duration-3'), muteButton: document.getElementById('mute-3'), volumeBar: document.getElementById('volume-bar-3'), speedControl: document.getElementById('speed-control-3'), fullscreenButton: document.getElementById('fullscreen-3'), pipButton: document.getElementById('pip-3') }
-    ];
-
-    videoPlayers.forEach(player => {
-      player.playPauseButton.addEventListener('click', () => {
-        if (player.video.paused) {
-          player.video.play();
-          player.playPauseButton.textContent = '⏸';
+	</div>
+    <!-- <script>
+        // adding theme system
+        const app = document.getElementById('app');
+        const topMenu = document.getElementById('topMenu');
+        const headerA = document.getElementById('headerA');
+        const title = document.getElementById('title');
+        const logo = document.querySelector('#topMenu img');
+        const headerImg = document.querySelector('#headerA img');
+        const theme = localStorage.getItem('theme') || 'dark'; 
+        if (theme === 'dark') {
+            app.style.backgroundColor = '#111111';
+            topMenu.style.backgroundColor = '#4d4d4d48';
+            headerA.style.backgroundColor = '#4d4d4d48';
+            title.style.color = '#ebebeb';
+            logo.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
+            headerImg.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
         } else {
-          player.video.pause();
-          player.playPauseButton.textContent = '▶';
+            app.style.backgroundColor = '#ffffff';
+            topMenu.style.backgroundColor = '#ffffff';
+            headerA.style.backgroundColor = '#ffffff';
+            title.style.color = '#000000';
+            logo.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
+            headerImg.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
         }
-      });
+        // adding theme toggle button
+        const themeToggle = document.createElement('button');
+        themeToggle.innerText = 'Toggle Theme';
+        themeToggle.style.position = 'absolute';
+        themeToggle.style.top = '10px';
+        themeToggle.style.right = '10px';
+        themeToggle.style.padding = '10px';
+        themeToggle.style.border = 'none';
+        themeToggle.style.borderRadius = '5px';
+        themeToggle.style.backgroundColor = '#4d4d4d48';
+        themeToggle.style.color = '#ffffff';
+        themeToggle.style.cursor = 'pointer';
+        themeToggle.style.zIndex = '1000';
+        themeToggle.addEventListener('click', () => {
+            if (theme === 'dark') {
+                localStorage.setItem('theme', 'light');
+                app.style.backgroundColor = '#ffffff';
+                topMenu.style.backgroundColor = '#ffffff';
+                headerA.style.backgroundColor = '#ffffff';
+                title.style.color = '#000000';
+                logo.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
+                headerImg.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
+            } else {
+                localStorage.setItem('theme', 'dark');
+                app.style.backgroundColor = '#111111';
+                topMenu.style.backgroundColor = '#4d4d4d48';
+                headerA.style.backgroundColor = '#4d4d4d48';
+                title.style.color = '#ebebeb';
+                logo.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
+                headerImg.src = 'https://avatars.githubusercontent.com/u/133474801?v=4';
+            }
+        });
+        document.body.appendChild(themeToggle);
 
-      player.video.addEventListener('timeupdate', () => {
-        const currentTime = player.video.currentTime;
-        const duration = player.video.duration;
-        player.seekBar.value = (currentTime / duration) * 100;
-        player.currentTimeElement.textContent = formatTime(currentTime);
-        player.durationElement.textContent = formatTime(duration);
-      });
-
-      player.seekBar.addEventListener('input', () => {
-        const seekTime = (player.seekBar.value / 100) * player.video.duration;
-        player.video.currentTime = seekTime;
-      });
-
-      player.muteButton.addEventListener('click', () => {
-        if (player.video.muted || player.video.volume === 0) {
-          player.video.muted = false;
-          player.video.volume = player.volumeBar.value / 100;
-          updateVolumeIcon(player);
-        } else {
-          player.video.muted = true;
-          player.volumeBar.value = 0;
-          player.muteButton.textContent = '🔇';
-        }
-      });
-
-      player.volumeBar.addEventListener('input', () => {
-        player.video.volume = player.volumeBar.value / 100;
-        player.video.muted = false; // Ensure video is not muted when volume is adjusted
-        updateVolumeIcon(player);
-      });
-
-      player.speedControl.addEventListener('change', () => {
-        player.video.playbackRate = player.speedControl.value;
-      });
-
-      player.fullscreenButton.addEventListener('click', () => {
-        if (player.video.requestFullscreen) {
-          player.video.requestFullscreen();
-        } else if (player.video.mozRequestFullScreen) { // Firefox
-          player.video.mozRequestFullScreen();
-        } else if (player.video.webkitRequestFullscreen) { // Chrome, Safari and Opera
-          player.video.webkitRequestFullscreen();
-        } else if (player.video.msRequestFullscreen) { // IE/Edge
-          player.video.msRequestFullscreen();
-        }
-      });
-
-      player.pipButton.addEventListener('click', () => {
-        if (player.video !== document.pictureInPictureElement) {
-          player.video.requestPictureInPicture();
-        } else {
-          document.exitPictureInPicture();
-        }
-      });
-
-      player.video.addEventListener('loadedmetadata', () => {
-        player.durationElement.textContent = formatTime(player.video.duration);
-      });
-    });
-
-    function updateVolumeIcon(player) {
-      if (player.video.volume === 0 || player.video.muted) {
-        player.muteButton.textContent = '🔇';
-      } else if (player.video.volume > 0 && player.video.volume <= 0.33) {
-        player.muteButton.textContent = '🔈';
-      } else if (player.video.volume > 0.33 && player.video.volume <= 0.66) {
-        player.muteButton.textContent = '🔉';
-      } else {
-        player.muteButton.textContent = '🔊';
-      }
-    }
-  </script>
-
+    </script> -->
 </body>
-<!--  -->
-
-<!-- End of HTML Page -->
-
 </html>
