@@ -9,9 +9,9 @@ float imageX, imageY, imageWidth, imageHeight;
 float ANP; // 1 cm for Width
 float BNP; // 1 cm for Height
 
-import processing.sound.*;
+// import processing.sound.*;
 // import processing.video.*;
-SoundFile file;
+// SoundFile file;
 
 void setup() {
   // Display
@@ -360,12 +360,26 @@ void mrcft(String op, float x, float y, float w, float h) {
         displayHeight * BNP * h,
         displayHeight * BNP * h
       );
+      ImageToDiv(
+        innerX + finalInnerX,
+        innerY,
+        displayHeight * BNP * h,
+        displayHeight * BNP * h,
+        "JeelanPro.jpg"
+      );
     } else {
       rect(
         innerX + finalInnerX,
         innerY,
         displayWidth * ANP * w,
         displayWidth * ANP * w
+      );
+      ImageToDiv(
+        innerX + finalInnerX,
+        innerY,
+        displayWidth * ANP * w,
+        displayWidth * ANP * w,
+        "JeelanPro.jpg"
       );
     }
   }
@@ -376,7 +390,22 @@ void mrcft(String op, float x, float y, float w, float h) {
       smallerSide/4 * 2,
       smallerSide/4 * 2
     );
+    ImageToDiv(
+      innerX + finalInnerX + (smallerSide/4 * 1), 
+      innerY + (smallerSide/4 * 1), 
+      smallerSide/4 * 2, 
+      smallerSide/4 * 2, 
+      "JeelanPro.jpg"
+    );
   }
+}
+
+void ImageToDiv (float x, float y, float w, float h, String f) {
+  ITD (x, y, w, h, f);
+}
+
+void ITD (float x, float y, float w, float h, String f) {
+  image(loadImage(f), x+1, y+1, w-2, h-2);
 }
 
 //
