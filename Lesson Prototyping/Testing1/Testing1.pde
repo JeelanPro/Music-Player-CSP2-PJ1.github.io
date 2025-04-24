@@ -38,7 +38,8 @@ void setup() {
   mr(14.5, 0.5, 2.5, 1.5);
   mrc(14.5, 0.5, 2.5, 1.5);
   mr(0.5, 2.5, 16.5, 9.5);
-  mrcft("a1", 0.5, 2.5, 16.5, 9.5);
+  mrcf(a("d", 0), 0.5, 2.5, 16.5, 9.5); 
+  // mrcft("a1", 0.5, 2.5, 16.5, 9.5);
   float[] bottomBtnA = {0.5, 2, 3.5, 5, 6.5};
   for (int i = 0; i < 5; i++) {
     //mr(bottomBtnA[i], 12.5, 1, 1);
@@ -312,6 +313,19 @@ void mrcf(String op, float x, float y, float w, float h) {
       innerX + finalInnerX + gsx*3, innerY + gsy*2
     );
   }
+  else if (op.equals("d1")) {
+    /*
+    displayWidth * ANP * w) < 
+  (displayHeight * BNP
+    */
+    ImageToDiv(
+        x * displayWidth * ANP,
+        y * displayHeight * BNP,
+        w * displayWidth * ANP,
+        h * displayHeight * BNP,
+        "JeelanPro.jpg"
+      );
+  }
   else {
     rect(
       innerX + finalInnerX + (smallerSide/4 * 1),
@@ -360,13 +374,13 @@ void mrcft(String op, float x, float y, float w, float h) {
         displayHeight * BNP * h,
         displayHeight * BNP * h
       );
-      ImageToDiv(
+      /*ImageToDiv(
         innerX + finalInnerX,
         innerY,
         displayHeight * BNP * h,
         displayHeight * BNP * h,
         "JeelanPro.jpg"
-      );
+      );*/
     } else {
       rect(
         innerX + finalInnerX,
@@ -374,13 +388,13 @@ void mrcft(String op, float x, float y, float w, float h) {
         displayWidth * ANP * w,
         displayWidth * ANP * w
       );
-      ImageToDiv(
+      /*ImageToDiv(
         innerX + finalInnerX,
         innerY,
         displayWidth * ANP * w,
         displayWidth * ANP * w,
         "JeelanPro.jpg"
-      );
+      );*/
     }
   }
   else {
@@ -390,13 +404,13 @@ void mrcft(String op, float x, float y, float w, float h) {
       smallerSide/4 * 2,
       smallerSide/4 * 2
     );
-    ImageToDiv(
+    /*ImageToDiv(
       innerX + finalInnerX + (smallerSide/4 * 1), 
       innerY + (smallerSide/4 * 1), 
       smallerSide/4 * 2, 
       smallerSide/4 * 2, 
       "JeelanPro.jpg"
-    );
+    );*/
   }
 }
 
