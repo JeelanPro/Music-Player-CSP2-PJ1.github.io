@@ -35,6 +35,7 @@ void setup() {
   mr(0.5, 0.5, 1, 1.5);
   mrc(0.5, 0.5, 1, 1.5);
   mr(4.5, 0.5, 8.5, 1.5);
+  textToDiv(4.5, 0.5, 8.5, 1.5, "JeelanPro Song", #000000);
   mr(14.5, 0.5, 2.5, 1.5);
   mrc(14.5, 0.5, 2.5, 1.5);
   mr(0.5, 2.5, 16.5, 9.5);
@@ -452,6 +453,37 @@ void ImageToDiv(float x, float y, float w, float h, String f) {
   float offsetY = (h - newImgH) / 2;
 
   ITD(x + offsetX, y + offsetY, newImgW, newImgH, f);
+}
+
+// Mr. Mercer Modified Version
+void textToDiv(float x, float y, float w, float h, String t, color c) {
+  /*
+   println("Start of Console");
+   String[] fontList = PFont.list();
+   printArray(fontList);
+  */
+  PFont appFont;
+  float fontSize;
+  String title = t;
+
+  int shorterSide = ( appWidth >= appHeight ) ? appHeight : appWidth ;
+  fontSize = shorterSide;
+  fontSize = h * 1;
+  appFont = createFont("Arial", fontSize);
+  
+  textFont(appFont, fontSize);
+  println( textWidth(title), w );
+  while ( textWidth(title) > w  ) {
+    fontSize = fontSize * 0.99;
+    textFont(appFont, fontSize);
+  }
+  color colors = c;
+  fill(colors);
+  textAlign (CENTER, CENTER);
+  textFont(appFont, fontSize);
+  text(title, x, y, w, h);
+  color whiteInk = #FFFFFF;
+  fill(whiteInk);
 }
 
 /* AI Version

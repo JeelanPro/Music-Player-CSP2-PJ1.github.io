@@ -17,9 +17,8 @@ void setup() {
   titleHeight = appHeight*1/10;
   rect(titleX, titleY, titleWidth, titleHeight);
   textToDiv(titleX, titleY, titleWidth, titleHeight, "Hello", #000000);
-  
-  
 } //End Setup
+
 void textToDiv(float x, float y, float w, float h, String t, color c) {
   /*
    println("Start of Console");
@@ -36,8 +35,8 @@ void textToDiv(float x, float y, float w, float h, String t, color c) {
   appFont = createFont("Arial", fontSize);
   
   textFont(appFont, fontSize);
-  println( textWidth(title), titleWidth );
-  while ( textWidth(title) > titleWidth  ) {
+  println( textWidth(title), w );
+  while ( textWidth(title) > w  ) {
     fontSize = fontSize * 0.99;
     textFont(appFont, fontSize);
   }
@@ -45,7 +44,7 @@ void textToDiv(float x, float y, float w, float h, String t, color c) {
   fill(colors);
   textAlign (CENTER, CENTER);
   textFont(appFont, fontSize);
-  text(title, titleX, titleY, titleWidth, titleHeight);
+  text(title, x, y, w, h);
   color whiteInk = #FFFFFF;
   fill(whiteInk);
 }
