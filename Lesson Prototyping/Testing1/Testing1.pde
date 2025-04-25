@@ -325,6 +325,20 @@ void mrcf(String op, float x, float y, float w, float h) {
         h * displayHeight * BNP,
         "JeelanPro.jpg"
       );
+    //ImageToDiv(
+    //    x * displayWidth * ANP,
+    //    y * displayHeight * BNP,
+    //    w * displayWidth * ANP,
+    //    h * displayHeight * BNP,
+    //    "bike.jpg"
+    //  );
+    //ImageToDiv(
+    //    x * displayWidth * ANP,
+    //    y * displayHeight * BNP,
+    //    w * displayWidth * ANP,
+    //    h * displayHeight * BNP,
+    //    "portrait.jpg"
+    //  );
   }
   else {
     rect(
@@ -414,9 +428,55 @@ void mrcft(String op, float x, float y, float w, float h) {
   }
 }
 
-void ImageToDiv (float x, float y, float w, float h, String f) {
-  ITD (x, y, w, h, f);
+//void ImageToDiv (float x, float y, float w, float h, String f) {
+//  float imageH = loadImage(f).height;
+//  float imageW = loadImage(f).width;
+//  ITD (x, y, w, h, f);
+//  if (h > w) {
+//    print("hello World");
+//  } else {
+//  }
+//}
+
+void ImageToDiv(float x, float y, float w, float h, String f) {
+  PImage img = loadImage(f);
+  float imgW = img.width;
+  float imgH = img.height;
+
+  float scale = ((w / imgW) > (h / imgH)) ? (h / imgH) : (w / imgW);
+
+  float newImgW = imgW * scale;
+  float newImgH = imgH * scale;
+
+  float offsetX = (w - newImgW) / 2;
+  float offsetY = (h - newImgH) / 2;
+
+  ITD(x + offsetX, y + offsetY, newImgW, newImgH, f);
 }
+
+/* AI Version
+
+void ImageToDiv(float x, float y, float w, float h, String f) {
+  PImage img = loadImage(f); // Load the image
+  float imgW = img.width;   // Original image width
+  float imgH = img.height;  // Original image height
+
+  // Calculate scaling factor to fit the image within the given width and height
+  float scale = min(w / imgW, h / imgH);
+
+  // Calculate the new width and height of the image after scaling
+  float newImgW = imgW * scale;
+  float newImgH = imgH * scale;
+
+  // Calculate offsets to center the image
+  float offsetX = (w - newImgW) / 2;
+  float offsetY = (h - newImgH) / 2;
+
+  // Draw the image at the calculated position
+  image(img, x + offsetX, y + offsetY, newImgW, newImgH);
+}
+
+*/
 
 void ITD (float x, float y, float w, float h, String f) {
   image(loadImage(f), x+1, y+1, w-2, h-2);
