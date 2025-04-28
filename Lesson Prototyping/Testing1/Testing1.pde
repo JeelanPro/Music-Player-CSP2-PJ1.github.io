@@ -35,7 +35,7 @@ void setup() {
   mr(0.5, 0.5, 1, 1.5);
   mrc(0.5, 0.5, 1, 1.5);
   mr(4.5, 0.5, 8.5, 1.5);
-  textToDiv(4.5, 0.5, 8.5, 1.5, "JeelanPro Song", #000000);
+  textToDiv(4.5, 0.5, 8.5, 1.5, "JeelanPro Nuclear Test Sound", #000000);
   mr(14.5, 0.5, 2.5, 1.5);
   mrc(14.5, 0.5, 2.5, 1.5);
   mr(0.5, 2.5, 16.5, 9.5);
@@ -456,19 +456,24 @@ void ImageToDiv(float x, float y, float w, float h, String f) {
 }
 
 // Mr. Mercer Modified Version
-void textToDiv(float x, float y, float w, float h, String t, color c) {
+void textToDiv(float Ax, float Ay, float Aw, float Ah, String t, color c) {
   /*
    println("Start of Console");
    String[] fontList = PFont.list();
    printArray(fontList);
   */
+  float x, y, w, h;
+  x = Ax * appWidth * ANP;
+  y = Ay * appHeight * BNP;
+  w = Aw * appWidth * ANP;
+  h = Ah * appHeight * BNP;
   PFont appFont;
   float fontSize;
   String title = t;
 
   int shorterSide = ( appWidth >= appHeight ) ? appHeight : appWidth ;
   fontSize = shorterSide;
-  fontSize = h * 1;
+  fontSize = h * 0.6;
   appFont = createFont("Arial", fontSize);
   
   textFont(appFont, fontSize);

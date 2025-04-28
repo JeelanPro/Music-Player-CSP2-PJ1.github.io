@@ -7,10 +7,10 @@ float titleX, titleY, titleWidth, titleHeight;
 int appWidth; //displayWidth
 int appHeight; //displayHeight
 void setup() {
-  size(700, 500);
-  appWidth = width; //displayWidth
-  appHeight = height; //displayHeight
-  int shorterSide = ( appWidth >= appHeight ) ? appHeight : appWidth ;
+  //size(700, 500);
+  fullScreen();
+  appWidth = displayWidth; //displayWidth
+  appHeight = displayHeight; //displayHeight
   titleX = appWidth*1/4;
   titleY = appHeight*1/4;
   titleWidth = appWidth*1/2;
