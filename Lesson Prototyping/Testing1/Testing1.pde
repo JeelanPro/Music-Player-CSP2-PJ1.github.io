@@ -9,15 +9,19 @@ import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
 // Global Variables
+Minim minim;
+int numberOfSongs = 3;
+AudioPlayer[] playList = new AudioPlayer[ numberOfSongs ];
 int appWidth, appHeight;
 float imageX, imageY, imageWidth, imageHeight;
 //
 float ANP; // 1 cm for Width
 float BNP; // 1 cm for Height
 
-// import processing.sound.*;
+ //import processing.sound.*;
 // import processing.video.*;
-SoundFile file;
+//SoundFile file;
+//SoundFile
 
 void setup() {
   // Display
@@ -26,11 +30,18 @@ void setup() {
   appHeight = displayHeight;
   ANP = 0.05714285714285714; // 1 cm for Width (1/17.5)
   BNP = 0.06666666666666667; // 1 cm for Height (1/15)
+  minim = new Minim(this);
   //
   imageX = displayWidth * (ANP * 0.5);
   imageY = displayHeight * (ANP * 0.5);
   imageWidth = displayWidth * (ANP * 1);
   imageHeight = displayHeight * (ANP * 1.5);
+  
+  playList[0] = minim.loadFile( "Songs/skibidi-toilet.mp3" );
+  playList[1] = minim.loadFile( "Songs/qaseda.mp3" );
+  playList[2] = minim.loadFile( "Songs/Virus.mp3" );
+  //playList[2].play();
+  
   
   
   // file = new SoundFile(this, "skibidi-toilet.mp3");
@@ -38,10 +49,14 @@ void setup() {
   // rect(X, Y Width, Height);
   //
   
+  //println("JeelanPro");
+  //println(playList[1].getMetaData().title());
+  //println("JeelanPro");
+  
   mr(0.5, 0.5, 1, 1.5);
   mrc(0.5, 0.5, 1, 1.5);
   mr(4.5, 0.5, 8.5, 1.5);
-  textToDiv(4.5, 0.5, 8.5, 1.5, "JeelanPro Nuclear Test Sound", #000000);
+  textToDiv(4.5, 0.5, 8.5, 1.5, playList[1].getMetaData().title(), #000000);
   mr(14.5, 0.5, 2.5, 1.5);
   mrc(14.5, 0.5, 2.5, 1.5);
   mr(0.5, 2.5, 16.5, 9.5);
@@ -62,7 +77,8 @@ void setup() {
     mrc(9.5 + bottomBtnA[i], 12.5, 1, 1);
     mrcf(a("b", i), 9.5 + bottomBtnA[i], 12.5, 1, 1);
   }
-  mr(0.5, 14, 16.5, 0.5);
+  mr(0.5, 14, 14.0, 0.5);
+  mr(15.5, 13.7, 1.5, 1);
 }
 
 String a(String section, int num) {
@@ -445,6 +461,22 @@ void mrcft(String op, float x, float y, float w, float h) {
 //  }
 //}
 
+//void ImageToDiv(float x, float y, float w, float h, String f) {
+//  PImage img = loadImage(f);
+//  float imgW = img.width;
+//  float imgH = img.height;
+
+//  float scale = ((w / imgW) > (h / imgH)) ? (h / imgH) : (w / imgW);
+
+//  float newImgW = imgW * scale;
+//  float newImgH = imgH * scale;
+
+//  float offsetX = (w - newImgW) / 2;
+//  float offsetY = (h - newImgH) / 2;
+
+//  ITD(x + offsetX, y + offsetY, newImgW, newImgH, f);
+//}
+
 void ImageToDiv(float x, float y, float w, float h, String f) {
   PImage img = loadImage(f);
   float imgW = img.width;
@@ -483,7 +515,7 @@ void textToDiv(float Ax, float Ay, float Aw, float Ah, String t, color c) {
   appFont = createFont("Arial", fontSize);
   
   textFont(appFont, fontSize);
-  println( textWidth(title), w );
+  //println( textWidth(title), w );
   while ( textWidth(title) > w  ) {
     fontSize = fontSize * 0.99;
     textFont(appFont, fontSize);
@@ -536,11 +568,21 @@ void draw() { // Loop Function
 
 //
 //PImage img;
+boolean isPlay = false;
 void mousePressed() {
   /*file = new SoundFile(this, "skibidi-toilet.mp3");
   file.play();
   img = loadImage("https://media.tenor.com/cwubAnd8gN4AAAAj/skibidi-skibidi-toilet.gif");
   image(img, 0, 0);*/
+  //playList[1].loop();
+  
+  if (isPlay) {
+     isPlay = false;
+     playList[1].pause();
+  } else {
+     isPlay = true;
+     playList[1].play();
+  }
 } // End mousePressed
 //
 void keyPressed() {
@@ -549,6 +591,15 @@ void keyPressed() {
   //file.play();
   //img = loadImage("https://media.tenor.com/cwubAnd8gN4AAAAj/skibidi-skibidi-toilet.gif");
   //image(img, 0, 0);
+  if (key==' ') {
+    if (isPlay) {
+      isPlay = false;
+       playList[1].pause();
+    } else {
+      isPlay = true;
+       playList[1].play();
+    }
+  }
 } // End keyPressed
 //
 // End Main Program
