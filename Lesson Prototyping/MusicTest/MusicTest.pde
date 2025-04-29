@@ -50,7 +50,7 @@ void setup() {
   String file = musicDirectory + pongWorld + fileExtension_mp3; //relative pathway or directory
   println( file );
   //Create a FOR loop to loadFile() a changing songName
-  playList[ currentSong ] = minim.loadFile( "skibidi-toilet.mp3" ); //ERROR: Verify Spelling & Library installed, Sketch / Import Library
+  playList[ currentSong ] = minim.loadFile( "Test/skibidi-toilet.mp3" ); //ERROR: Verify Spelling & Library installed, Sketch / Import Library
   //Music Testing
   //playList[currentSong].play();
   //

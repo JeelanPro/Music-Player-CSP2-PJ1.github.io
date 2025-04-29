@@ -17,7 +17,7 @@ float BNP; // 1 cm for Height
 
 // import processing.sound.*;
 // import processing.video.*;
-// SoundFile file;
+SoundFile file;
 
 void setup() {
   // Display
@@ -544,11 +544,11 @@ void mousePressed() {
 } // End mousePressed
 //
 void keyPressed() {
-  /*file = new SoundFile(this, "skibidi-toilet.mp3");
+  //file = new SoundFile(this, "skibidi-toilet.mp3");
   // file.jumpTo(3);
-  file.play();
-  img = loadImage("https://media.tenor.com/cwubAnd8gN4AAAAj/skibidi-skibidi-toilet.gif");
-  image(img, 0, 0);*/
+  //file.play();
+  //img = loadImage("https://media.tenor.com/cwubAnd8gN4AAAAj/skibidi-skibidi-toilet.gif");
+  //image(img, 0, 0);
 } // End keyPressed
 //
 // End Main Program
