@@ -15,6 +15,7 @@ AudioPlayer[] playList = new AudioPlayer[ numberOfSongs ];
 int appWidth, appHeight;
 float imageX, imageY, imageWidth, imageHeight;
 String imagePath;
+int currentAudio = 0;
 //
 float ANP; // 1 cm for Width
 float BNP; // 1 cm for Height
@@ -32,6 +33,8 @@ void setup() {
   ANP = 0.05714285714285714; // 1 cm for Width (1/17.5)
   BNP = 0.06666666666666667; // 1 cm for Height (1/15)
   minim = new Minim(this);
+  
+  currentAudio = 2;
   //
   imageX = displayWidth * (ANP * 0.5);
   imageY = displayHeight * (ANP * 0.5);
@@ -43,7 +46,9 @@ void setup() {
   playList[2] = minim.loadFile( "Songs/Virus.mp3" );
   //playList[2].play();
   
-  imagePath = "Images/JeelanPro.jpg";
+  //imagePath = "Images/JeelanPro.jpg";
+  imagePath = "Images/Virus.jpg";
+  //imagePath = "Images/Skibidi.jpg";
   
   
   
@@ -59,7 +64,7 @@ void setup() {
   mr(0.5, 0.5, 1, 1.5);
   mrc(0.5, 0.5, 1, 1.5);
   mr(4.5, 0.5, 8.5, 1.5);
-  textToDiv(4.5, 0.5, 8.5, 1.5, playList[1].getMetaData().title(), #000000);
+  textToDiv(4.5, 0.5, 8.5, 1.5, playList[currentAudio].getMetaData().title(), #000000);
   mr(14.5, 0.5, 2.5, 1.5);
   mrc(14.5, 0.5, 2.5, 1.5);
   mr(0.5, 2.5, 16.5, 9.5);
@@ -581,10 +586,10 @@ void mousePressed() {
   
   if (isPlay) {
      isPlay = false;
-     playList[1].pause();
+     playList[currentAudio].pause();
   } else {
      isPlay = true;
-     playList[1].play();
+     playList[currentAudio].play();
   }
 } // End mousePressed
 //
@@ -597,10 +602,10 @@ void keyPressed() {
   if (key==' ') {
     if (isPlay) {
       isPlay = false;
-       playList[1].pause();
+       playList[currentAudio].pause();
     } else {
       isPlay = true;
-       playList[1].play();
+       playList[currentAudio].play();
     }
   }
 } // End keyPressed
