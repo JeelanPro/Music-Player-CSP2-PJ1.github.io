@@ -14,7 +14,7 @@ int numberOfSongs = 3;
 AudioPlayer[] playList = new AudioPlayer[ numberOfSongs ];
 int appWidth, appHeight;
 float imageX, imageY, imageWidth, imageHeight;
-String imagePath;
+String[] imagePath = new String[numberOfSongs];
 int currentAudio = 0;
 //
 float ANP; // 1 cm for Width
@@ -46,9 +46,9 @@ void setup() {
   playList[2] = minim.loadFile( "Songs/Virus.mp3" );
   //playList[2].play();
   
-  //imagePath = "Images/JeelanPro.jpg";
-  imagePath = "Images/Virus.jpg";
-  //imagePath = "Images/Skibidi.jpg";
+  imagePath[0] = "Images/JeelanPro.jpg";
+  imagePath[1] = "Images/Virus.jpg";
+  imagePath[2] = "Images/Skibidi.jpg";
   
   
   
@@ -354,7 +354,7 @@ void mrcf(String op, float x, float y, float w, float h) {
         y * displayHeight * BNP,
         w * displayWidth * ANP,
         h * displayHeight * BNP,
-        imagePath
+        imagePath[currentAudio]
       );
     //ImageToDiv(
     //    x * displayWidth * ANP,
