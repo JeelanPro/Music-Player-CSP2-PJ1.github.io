@@ -485,21 +485,74 @@ void mrcft(String op, float x, float y, float w, float h) {
 //  ITD(x + offsetX, y + offsetY, newImgW, newImgH, f);
 //}
 
+//
+// Function: ImageToDiv
 void ImageToDiv(float x, float y, float w, float h, String f) {
+  // Load the image
   PImage img = loadImage(f);
-  float imgW = img.width;
-  float imgH = img.height;
+  int imgW = img.width;
+  int imgH = img.height;
 
-  float scale = ((w / imgW) > (h / imgH)) ? (h / imgH) : (w / imgW);
+  // Aspect Ratio Calculation: This correctly determines the ratio
+  float imageAspectRatio = float(imgW) / float(imgH); // Width-to-height ratio
 
-  float newImgW = imgW * scale;
-  float newImgH = imgH * scale;
+  // Declare variables for adjusted image size
+  float imageWidthChanged, imageHeightChanged;
+  float offsetX, offsetY; // Variables for centering
 
-  float offsetX = (w - newImgW) / 2;
-  float offsetY = (h - newImgH) / 2;
+  // Size Resampling Algorithm with Corrected Aspect Ratio Logic
+  if (imgW > imgH) { // Landscape image
+    imageWidthChanged = w; 
+    imageHeightChanged = imageWidthChanged / imageAspectRatio;
 
-  ITD(x + offsetX, y + offsetY, newImgW, newImgH, f);
+    // Error handling: Prevents incorrect scaling
+    if (imageHeightChanged > h) {
+      imageHeightChanged = h;
+      imageWidthChanged = imageHeightChanged * imageAspectRatio;
+    }
+  } else { // Portrait image
+    imageHeightChanged = h; 
+    imageWidthChanged = imageHeightChanged * imageAspectRatio;
+
+    // Error handling: Prevents incorrect scaling
+    if (imageWidthChanged > w) {
+      imageWidthChanged = w;
+      imageHeightChanged = imageWidthChanged / imageAspectRatio;
+    }
+  }
+
+  // Centering the Image in the Div
+  offsetX = (w - imageWidthChanged) / 2;
+  offsetY = (h - imageHeightChanged) / 2;
+
+  // Draw the image inside the div using the ITD function
+  ITD(x + offsetX, y + offsetY, imageWidthChanged, imageHeightChanged, f);
+
+  // ================================================================
+  // This function was created with AI assistance
+  // Microsoft Copilot was used to generate and refine this code
+  // ================================================================
 }
+//
+// End ImageToDiv Function
+
+
+
+//void ImageToDiv(float x, float y, float w, float h, String f) {
+//  PImage img = loadImage(f);
+//  float imgW = img.width;
+//  float imgH = img.height;
+
+//  float scale = ((w / imgW) > (h / imgH)) ? (h / imgH) : (w / imgW);
+
+//  float newImgW = imgW * scale;
+//  float newImgH = imgH * scale;
+
+//  float offsetX = (w - newImgW) / 2;
+//  float offsetY = (h - newImgH) / 2;
+
+//  ITD(x + offsetX, y + offsetY, newImgW, newImgH, f);
+//}
 
 // Mr. Mercer Modified Version
 void textToDiv(float Ax, float Ay, float Aw, float Ah, String t, color c) {
