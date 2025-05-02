@@ -34,7 +34,7 @@ void setup() {
   BNP = 0.06666666666666667; // 1 cm for Height (1/15)
   minim = new Minim(this);
   
-  currentAudio = 2;
+  currentAudio = 0;
   //
   imageX = displayWidth * (ANP * 0.5);
   imageY = displayHeight * (ANP * 0.5);
@@ -46,9 +46,9 @@ void setup() {
   playList[2] = minim.loadFile( "Songs/Virus.mp3" );
   //playList[2].play();
   
-  imagePath[0] = "Images/JeelanPro.jpg";
-  imagePath[1] = "Images/Virus.jpg";
-  imagePath[2] = "Images/Skibidi.jpg";
+  imagePath[0] = "Images/Skibidi.jpg";
+  imagePath[1] = "Images/JeelanPro.jpg";
+  imagePath[2] = "Images/Virus.jpg";
   
   
   
