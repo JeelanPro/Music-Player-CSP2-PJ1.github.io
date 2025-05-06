@@ -38,9 +38,6 @@ void setup() {
   // Draw
   rect(divX, divY, divWidth, divHeight);
   
-  // Playing Audio
-  playList[currentAudio].play();
-  
 } // End Setup
 
 void draw() {
@@ -50,4 +47,7 @@ void mousePressed() {
 } // End mousePressed
 
 void keyPressed() {
+	if (key == ' ') {
+		playList[currentAudio].play();
+	}
 } // End keyPressed
