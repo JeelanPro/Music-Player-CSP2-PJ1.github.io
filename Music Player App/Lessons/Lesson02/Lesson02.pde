@@ -64,11 +64,23 @@ void keyPressed() {
   */
 
   // Play
+  if (key == 'p') {}
+
   // Pause
+  if (key == 'o') {}
+
   // Stop
+  if (key == 's') {}
+
   // Loop Once
+  if (key == 'l') {}
+  
   // Loop Infinite
+  if (key == 'i') {}
+  
   // Fast Forward
+  if (key == 'i') {}
+  
   // Fast Rewind
   // Mute
   // Next Song
