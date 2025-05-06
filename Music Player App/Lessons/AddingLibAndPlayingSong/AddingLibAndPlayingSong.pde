@@ -11,7 +11,7 @@ int appWidth, appHeight;
 
 Minim minim;
 int numberOfAudio = 3;
-int CurrentAudio;
+int currentAudio;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
 
 float divX, divY, divWidth, divHeight;
@@ -37,6 +37,9 @@ void setup() {
   
   // Draw
   rect(divX, divY, divWidth, divHeight);
+  
+  // Playing Audio
+  playList[currentAudio].play();
   
 } // End Setup
 
