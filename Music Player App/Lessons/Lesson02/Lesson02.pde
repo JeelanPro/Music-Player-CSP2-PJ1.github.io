@@ -22,14 +22,15 @@ void setup() {
   fullScreen();
   appWidth = displayWidth;
   appHeight = displayHeight;
+
+  // Population
+  currentAudio = 0;
   
-  // Music Population
   minim = new Minim(this);
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
   playList[0] = minim.loadFile("Audio/Virus.mp3");
-  
-  // Display Population
+
   divX = appWidth/4 * 1;
   divY = appHeight/4 * 1;
   divWidth = appWidth/4 * 2;
@@ -47,19 +48,32 @@ void mousePressed() {
 } // End mousePressed
 
 void keyPressed() {
-	if (key == ' ') {
-		if (playList[currentAudio].isPlaying()) {
-			playList[currentAudio].play();
-		} else {
-			playList[currentAudio].pause();
-		}
-	}
-	
-	if (key == 'p') {
-		playList[currentAudio].play();
-	}
-	
-	if (key == 'o') {
-		playList[currentAudio].pause();
-	}
+  /* 12 important buttons based on the keyboard
+   - Play
+   - Pause
+   - Stop
+   - Loop Once
+   - Loop Infinite
+   - Fast Forward
+   - Fast Rewind
+   - Mute
+   - Next Song
+   - Previous Song
+   - Shuffle
+   - Exit
+  */
+
+  // Play
+  // Pause
+  // Stop
+  // Loop Once
+  // Loop Infinite
+  // Fast Forward
+  // Fast Rewind
+  // Mute
+  // Next Song
+  // Previous Song
+  // Shuffle
+  // Exit
+  
 } // End keyPressed

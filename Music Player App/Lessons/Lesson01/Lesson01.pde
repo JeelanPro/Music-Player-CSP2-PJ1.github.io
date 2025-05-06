@@ -22,6 +22,9 @@ void setup() {
   fullScreen();
   appWidth = displayWidth;
   appHeight = displayHeight;
+
+  // Variable Population
+  currentAudio = 0;
   
   // Music Population
   minim = new Minim(this);
