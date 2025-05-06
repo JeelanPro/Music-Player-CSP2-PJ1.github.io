@@ -48,6 +48,18 @@ void mousePressed() {
 
 void keyPressed() {
 	if (key == ' ') {
+		if (playList[currentAudio].isPlaying()) {
+			playList[currentAudio].play();
+		} else {
+			playList[currentAudio].pause();
+		}
+	}
+	
+	if (key == 'p') {
 		playList[currentAudio].play();
+	}
+	
+	if (key == 'o') {
+		playList[currentAudio].pause();
 	}
 } // End keyPressed
