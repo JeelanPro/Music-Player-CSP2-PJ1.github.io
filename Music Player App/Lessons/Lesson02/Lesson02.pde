@@ -20,9 +20,12 @@ float divX, divY, divWidth, divHeight;
 
 void setup() {
   // Display
-  fullScreen();
-  appWidth = displayWidth;
-  appHeight = displayHeight;
+  size(500, 500);
+  appWidth = 500;
+  appHeight = 500;
+  // fullScreen();
+  // appWidth = displayWidth;
+  // appHeight = displayHeight;
 
 
   // Population
@@ -52,7 +55,7 @@ void mousePressed() {
 } // End mousePressed
 
 void keyPressed() {
-  /* 12 important buttons based on the keyboard
+  /*12 important buttons based on the keyboard
    - Play
    - Pause
    - Stop

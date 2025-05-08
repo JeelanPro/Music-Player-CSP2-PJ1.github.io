@@ -30,7 +30,7 @@ void setup() {
   minim = new Minim(this);
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
-  playList[0] = minim.loadFile("Audio/Virus.mp3");
+  playList[2] = minim.loadFile("Audio/Virus.mp3");
   
   // Display Population
   divX = appWidth/4 * 1;
