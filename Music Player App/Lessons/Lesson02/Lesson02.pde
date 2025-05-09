@@ -11,7 +11,7 @@ import ddf.minim.ugens.*;
 int appWidth, appHeight;
 
 Minim minim;
-int numberOfAudio = 3;
+int numberOfAudio = 4;
 int currentAudio;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
 
@@ -35,6 +35,7 @@ void setup() {
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
   playList[2] = minim.loadFile("Audio/Virus.mp3");
+  playList[3] = minim.loadFile("Audio/skibidi-toilet.mp3");
 
   divX = appWidth/4 * 1;
   divY = appHeight/4 * 1;
@@ -70,22 +71,22 @@ void keyPressed() {
    - Exit
    keyBoard shotcut:
    Command       | Shotcut
-   Play          | p, P, [SPACE]
+   Play          | p, P, [SPACE], [ENTER]
    Pause         | o, O
    Stop          | s, S
    Loop Once     | l, L
    Loop Infinite | i, I
-   Fast Forward  | f, F
-   Fast Rewind   | r, R
+Fast Forward  | f, F, [RIGHT ARROW]
+   Fast Rewind   | r, R, [LEFT ARROW]
    Mute          | m, M
-   Next Song     | n, N
-   Previous Song | b, B
+   Next Song     | n, N, [DOWN ARROW]
+   Previous Song | b, B, [UP ARROW]
    Shuffle       | h, H
    Exit          | q, Q, [ESC]
   */
 
   // Play
-  if (key == 'p' || key == 'P') {
+  if (key == 'p' || key == 'P' || key == ENTER || key == RETURN) {
     playList[currentAudio].play();
   }
   if (key == ' ') {
@@ -122,12 +123,12 @@ void keyPressed() {
   }
 
   // Fast Forward
-  if (key == 'f' || key == 'F') {
+  if (key == 'f' || key == 'F' || keyCode == RIGHT) {
     playList[currentAudio].skip(1000);
   }
 
   // Fast Rewind
-  if (key == 'r' || key == 'R') {
+  if (key == 'r' || key == 'R' || keyCode == LEFT) {
     playList[currentAudio].skip(-1000);
   }
 
@@ -141,7 +142,7 @@ void keyPressed() {
   }
 
   // Next Song
-  if (key == 'n' || key == 'N') {
+  if (key == 'n' || key == 'N' || keyCode == DOWN) {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
@@ -164,7 +165,7 @@ void keyPressed() {
   }
 
   // Previous Song
-  if (key == 'b' || key == 'B') {
+  if (key == 'b' || key == 'B' || keyCode == UP) {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();

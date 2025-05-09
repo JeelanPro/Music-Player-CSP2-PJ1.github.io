@@ -25,9 +25,13 @@ float timeX, timeY, timeWidth, timeHeight;
 
 void setup() {
   // Display
+  //size(1280, 720);
+  
   size(500, 500);
   appWidth = 500;
   appHeight = 500;
+  surface.setAlwaysOnTop(true);
+
   // fullScreen();
   // appWidth = displayWidth;
   // appHeight = displayHeight;
@@ -35,12 +39,55 @@ void setup() {
   
   // Population
   // logo
-  logoX = appWidth/4 * 1;
-  logoY = appHeight/4 * 1;
-  logoWidth = appWidth/4 * 2;
-  logoHeight = appHeight/4 * 1;
+  logoX = appWidth/50 * 1; 
+  logoY = appHeight/50 * 1;
+  logoWidth = appWidth/50 * 4;
+  logoHeight = appHeight/50 * 4;
 
-    // title
+  // title
+  titleX = appWidth/50 * 6;
+  titleY = appHeight/50 * 1;
+  titleWidth = appWidth/50 * 38;
+  titleHeight = appHeight/50 * 4;
+
+  // image
+  imageX = appWidth/50 * 1;
+  imageY = appHeight/50 * 6;
+  imageWidth = appWidth/50 * 48;
+  imageHeight = appHeight/50 * 4;
+
+  // playButton
+
+  // pauseButton
+
+  // stopButton
+
+  // loopOnceButton
+
+  // loopInifinitButton
+
+  // fastForwardButton
+
+  // fastRewindButton
+
+  // muteButton
+
+  // nextButton
+
+  // previousButton
+
+  // shuffleButton
+
+  // exitButton
+  exitButtonX = appWidth/50 * (50 - 5);
+  exitButtonY = appHeight/50 * 1;
+  exitButtonWidth = appWidth/50 * 4;
+  exitButtonHeight = appHeight/50 * 4;
+
+  // timeLine
+
+  // time
+
 
 
   // Draw
@@ -77,4 +124,3 @@ void mousePressed() {
 
 void keyPressed() {
 } // End keyPressed
-
