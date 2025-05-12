@@ -71,12 +71,12 @@ void keyPressed() {
    - Exit
    keyBoard shotcut:
    Command       | Shotcut
-   Play          | p, P, [SPACE], [ENTER]
+   Play          | p, P
    Pause         | o, O
    Stop          | s, S
    Loop Once     | l, L
    Loop Infinite | i, I
-Fast Forward  | f, F, [RIGHT ARROW]
+   Fast Forward  | f, F, [RIGHT ARROW]
    Fast Rewind   | r, R, [LEFT ARROW]
    Mute          | m, M
    Next Song     | n, N, [DOWN ARROW]
@@ -86,7 +86,7 @@ Fast Forward  | f, F, [RIGHT ARROW]
   */
 
   // Play
-  if (key == 'p' || key == 'P' || key == ENTER || key == RETURN) {
+  if (key == 'p' || key == 'P') {
     playList[currentAudio].play();
   }
   if (key == ' ') {
@@ -123,12 +123,18 @@ Fast Forward  | f, F, [RIGHT ARROW]
   }
 
   // Fast Forward
-  if (key == 'f' || key == 'F' || keyCode == RIGHT) {
+  if (key == 'f' || key == 'F') {
+    playList[currentAudio].skip(1000);
+  }
+  if (key == CODED || key == RIGHT) {
     playList[currentAudio].skip(1000);
   }
 
   // Fast Rewind
-  if (key == 'r' || key == 'R' || keyCode == LEFT) {
+  if (key == 'r' || key == 'R') {
+    playList[currentAudio].skip(-1000);
+  }
+  if (key == CODED || key == LEFT) {
     playList[currentAudio].skip(-1000);
   }
 
@@ -142,7 +148,28 @@ Fast Forward  | f, F, [RIGHT ARROW]
   }
 
   // Next Song
-  if (key == 'n' || key == 'N' || keyCode == DOWN) {
+  if (key == 'n' || key == 'N') {
+    if (playList[currentAudio].isPlaying()) {
+      playList[currentAudio].pause();
+      playList[currentAudio].rewind();
+      if  (currentAudio == numberOfAudio - 1) {
+        currentAudio = 0;
+      } else {
+        currentAudio++;
+      }
+      playList[currentAudio].play();
+
+    } else {
+      playList[currentAudio].rewind();
+      if  (currentAudio == numberOfAudio - 1) {
+        currentAudio = 0;
+      } else {
+        currentAudio++;
+      }
+
+    }
+  }
+  if (key == CODED && keyCode == DOWN) {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
@@ -165,7 +192,28 @@ Fast Forward  | f, F, [RIGHT ARROW]
   }
 
   // Previous Song
-  if (key == 'b' || key == 'B' || keyCode == UP) {
+  if (key == 'b' || key == 'B') {
+    if (playList[currentAudio].isPlaying()) {
+      playList[currentAudio].pause();
+      playList[currentAudio].rewind();
+      if  (currentAudio == 0) {
+        currentAudio = numberOfAudio - 1;
+      } else {
+        currentAudio--;
+      }
+      playList[currentAudio].play();
+
+    } else {
+      playList[currentAudio].rewind();
+      if  (currentAudio == 0) {
+        currentAudio = numberOfAudio - 1;
+      } else {
+        currentAudio--;
+      }
+
+    }
+  }
+  if (key == CODED && keyCode == UP) {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
