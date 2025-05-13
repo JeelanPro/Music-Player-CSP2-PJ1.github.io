@@ -12,18 +12,21 @@ float imageX, imageY, imageWidth, imageHeight;
 
 float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
 float playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight;
-float playButtonLogoTriangleX, playButtonLogoTriangleY, playButtonLogoTriangleWidth, playButtonLogoTriangleHeight;
+float playButtonLogoTringleX1, playButtonLogoTringleY1, playButtonLogoTringleX2, playButtonLogoTringleY2, playButtonLogoTringleX3, playButtonLogoTringleY3;
 
 float pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight;
 float pauseButtonLogoBoxX, pauseButtonLogoBoxY, pauseButtonLogoBoxWidth, pauseButtonLogoBoxHeight;
+float pauseButtonLogoBoxShape1X, pauseButtonLogoBoxShape1Y, pauseButtonLogoBoxShape1Width, pauseButtonLogoBoxShape1Height;
+float pauseButtonLogoBoxShape2X, pauseButtonLogoBoxShape2Y, pauseButtonLogoBoxShape2Width, pauseButtonLogoBoxShape2Height;
 
 float stopButtonX, stopButtonY, stopButtonWidth, stopButtonHeight;
 float stopButtonLogoBoxX, stopButtonLogoBoxY, stopButtonLogoBoxWidth, stopButtonLogoBoxHeight;
+float stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWidth, stopButtonLogoBoxShapeHeight;
 
 float loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight;
 float loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight;
 
-float loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight; // Corrected typo from loopInifinitButton
+float loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight;
 float loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight;
 
 float fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight;
@@ -103,11 +106,13 @@ void setup() {
   playButtonLogoBoxY = playButtonY + (playButtonHeight - playButtonLogoBoxSamllerSide) / 2;
   playButtonLogoBoxWidth = playButtonLogoBoxSamllerSide;
   playButtonLogoBoxHeight = playButtonLogoBoxSamllerSide;
-  // playButtonLogoTriangle
-  playButtonLogoTriangleX = playButtonX + (playButtonWidth - playButtonLogoBoxSamllerSide) / 2;
-  playButtonLogoTriangleY = playButtonY + (playButtonHeight - playButtonLogoBoxSamllerSide) / 2;
-  playButtonLogoTriangleWidth = playButtonLogoBoxSamllerSide;
-  playButtonLogoTriangleHeight = playButtonLogoBoxSamllerSide * 0.5; // Adjusted to make it smaller than the logo box
+  // playButtonLogoTringle
+  playButtonLogoTringleX1 = (playButtonLogoBoxWidth/4 * 1) + playButtonLogoBoxX;
+  playButtonLogoTringleY1 = (playButtonLogoBoxHeight/4 * 1) + playButtonLogoBoxY;
+  playButtonLogoTringleX2 = (playButtonLogoBoxWidth/4 * 1) + playButtonLogoBoxX;
+  playButtonLogoTringleY2 = (playButtonLogoBoxHeight/4 * 3) + playButtonLogoBoxY;
+  playButtonLogoTringleX3 = (playButtonLogoBoxWidth/4 * 3) + playButtonLogoBoxX;
+  playButtonLogoTringleY3 = (playButtonLogoBoxHeight/4 * 2) + playButtonLogoBoxY;
 
   // pauseButton
   pauseButtonX = appWidth/50 * 30;
@@ -120,6 +125,16 @@ void setup() {
   pauseButtonLogoBoxY = pauseButtonY + (pauseButtonHeight - pauseButtonLogoBoxSmallerSide) / 2;
   pauseButtonLogoBoxWidth = pauseButtonLogoBoxSmallerSide;
   pauseButtonLogoBoxHeight = pauseButtonLogoBoxSmallerSide;
+  // pauseButtonLogoBoxShape1
+  pauseButtonLogoBoxShape1X = (pauseButtonLogoBoxWidth/8 * 2) + pauseButtonLogoBoxX;
+  pauseButtonLogoBoxShape1Y = (pauseButtonLogoBoxHeight/8 * 2) + pauseButtonLogoBoxY;
+  pauseButtonLogoBoxShape1Width = (pauseButtonLogoBoxWidth/8 * 1);
+  pauseButtonLogoBoxShape1Height = (pauseButtonLogoBoxHeight/8 * 4);
+  // pauseButtonLogoBoxShape2
+  pauseButtonLogoBoxShape2X = (pauseButtonLogoBoxWidth/4 * 3) + pauseButtonLogoBoxX;
+  pauseButtonLogoBoxShape2Y = (pauseButtonLogoBoxHeight/4 * 1) + pauseButtonLogoBoxY;
+  pauseButtonLogoBoxShape2Width = (pauseButtonLogoBoxWidth/4 * 2);
+  pauseButtonLogoBoxShape2Height = (pauseButtonLogoBoxHeight/4 * 2);
 
   // stopButton
   stopButtonX = appWidth/50 * 17;
@@ -132,6 +147,11 @@ void setup() {
   stopButtonLogoBoxY = stopButtonY + (stopButtonHeight - stopButtonLogoBoxSmallerSide) / 2;
   stopButtonLogoBoxWidth = stopButtonLogoBoxSmallerSide;
   stopButtonLogoBoxHeight = stopButtonLogoBoxSmallerSide;
+  // stopButtonLogoBoxShape
+  stopButtonLogoBoxShapeX = (stopButtonLogoBoxWidth/4 * 1) + stopButtonLogoBoxX;
+  stopButtonLogoBoxShapeY = (stopButtonLogoBoxHeight/4 * 1) + stopButtonLogoBoxY;
+  stopButtonLogoBoxShapeWidth = (stopButtonLogoBoxWidth/4 * 2);
+  stopButtonLogoBoxShapeHeight = (stopButtonLogoBoxHeight/4 * 2);
 
   // loopOnceButton
   loopOnceButtonX = appWidth/50 * 34;
@@ -276,13 +296,16 @@ void setup() {
 
   // rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
   rect(playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight);
-  rect(playButtonLogoTriangleX, playButtonLogoTriangleY, playButtonLogoTriangleWidth, playButtonLogoTriangleHeight);
+  triangle(playButtonLogoTringleX1, playButtonLogoTringleY1, playButtonLogoTringleX2, playButtonLogoTringleY2, playButtonLogoTringleX3, playButtonLogoTringleY3);
 
   // rect(pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight);
   rect(pauseButtonLogoBoxX, pauseButtonLogoBoxY, pauseButtonLogoBoxWidth, pauseButtonLogoBoxHeight);
+  rect(pauseButtonLogoBoxShape1X, pauseButtonLogoBoxShape1Y, pauseButtonLogoBoxShape1Width, pauseButtonLogoBoxShape1Height);
+  rect(pauseButtonLogoBoxShape2X, pauseButtonLogoBoxShape2Y, pauseButtonLogoBoxShape2Width, pauseButtonLogoBoxShape2Height);
 
   // rect(stopButtonX, stopButtonY, stopButtonWidth, stopButtonHeight);
   rect(stopButtonLogoBoxX, stopButtonLogoBoxY, stopButtonLogoBoxWidth, stopButtonLogoBoxHeight);
+  rect(stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWidth, stopButtonLogoBoxShapeHeight);
 
   // rect(loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight);
   rect(loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight);
