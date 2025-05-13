@@ -131,10 +131,11 @@ void setup() {
   pauseButtonLogoBoxShape1Width = (pauseButtonLogoBoxWidth/8 * 1);
   pauseButtonLogoBoxShape1Height = (pauseButtonLogoBoxHeight/8 * 4);
   // pauseButtonLogoBoxShape2
-  pauseButtonLogoBoxShape2X = (pauseButtonLogoBoxWidth/4 * 3) + pauseButtonLogoBoxX;
-  pauseButtonLogoBoxShape2Y = (pauseButtonLogoBoxHeight/4 * 1) + pauseButtonLogoBoxY;
-  pauseButtonLogoBoxShape2Width = (pauseButtonLogoBoxWidth/4 * 2);
-  pauseButtonLogoBoxShape2Height = (pauseButtonLogoBoxHeight/4 * 2);
+  pauseButtonLogoBoxShape2X = (pauseButtonLogoBoxWidth/8 * 5) + pauseButtonLogoBoxX;
+  pauseButtonLogoBoxShape2Y = (pauseButtonLogoBoxHeight/8 * 2) + pauseButtonLogoBoxY;
+  pauseButtonLogoBoxShape2Width = (pauseButtonLogoBoxWidth/8 * 1);
+  pauseButtonLogoBoxShape2Height = (pauseButtonLogoBoxHeight/8 * 4);
+  
 
   // stopButton
   stopButtonX = appWidth/50 * 17;
