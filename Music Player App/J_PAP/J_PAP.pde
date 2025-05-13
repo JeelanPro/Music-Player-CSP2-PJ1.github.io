@@ -94,368 +94,246 @@ String a(String section, int num) {
 }
 
 void mr(float x, float y, float w, float h) {
-  rect(
-    displayWidth * ANP * x,
-    displayHeight * BNP * y,
-    displayWidth * ANP * w,
-    displayHeight * BNP * h
-  );
+  float pixelX = displayWidth * ANP * x;
+  float pixelY = displayHeight * BNP * y;
+  float pixelW = displayWidth * ANP * w;
+  float pixelH = displayHeight * BNP * h;
+  rect(pixelX, pixelY, pixelW, pixelH);
 }
 
 void mrc(float x, float y, float w, float h) {
-  float smallerSide = 
-  ((displayWidth * ANP * w) < 
-  (displayHeight * BNP * h)) ? 
-  (displayWidth * ANP * w) : 
-  (displayHeight * BNP * h);
-  float biggerSide = 
-  ((displayWidth * ANP * w) > 
-  (displayHeight * BNP * h)) ? 
-  (displayWidth * ANP * w) : 
-  (displayHeight * BNP * h);
-  float innerX = displayWidth * ANP * x;
-  float innerY = displayHeight * BNP * y;
+  float pixelX = displayWidth * ANP * x;
+  float pixelY = displayHeight * BNP * y;
+  float pixelW = displayWidth * ANP * w;
+  float pixelH = displayHeight * BNP * h;
+
+  float logoBoxSide = min(pixelW, pixelH);
+  float logoBoxX = pixelX + (pixelW - logoBoxSide) / 2.0;
+  float logoBoxY = pixelY + (pixelH - logoBoxSide) / 2.0;
   
-  float finalInnerX = (biggerSide - smallerSide)/2;
-  
-  rect(
-    innerX + finalInnerX,
-    innerY,
-    smallerSide,
-    smallerSide
-  );
+  rect(logoBoxX, logoBoxY, logoBoxSide, logoBoxSide);
 }
 
 void mrcf(String op, float x, float y, float w, float h) {
-  float smallerSide = 
-  ((displayWidth * ANP * w) < 
-  (displayHeight * BNP * h)) ? 
-  (displayWidth * ANP * w) : 
-  (displayHeight * BNP * h);
-  float biggerSide = 
-  ((displayWidth * ANP * w) > 
-  (displayHeight * BNP * h)) ? 
-  (displayWidth * ANP * w) : 
-  (displayHeight * BNP * h);
-  float innerX = displayWidth * ANP * x;
-  float innerY = displayHeight * BNP * y;
+  float pixelX = displayWidth * ANP * x;
+  float pixelY = displayHeight * BNP * y;
+  float pixelW = displayWidth * ANP * w;
+  float pixelH = displayHeight * BNP * h;
+
+  float logoBoxSide = min(pixelW, pixelH);
+  float logoBoxActualX = pixelX + (pixelW - logoBoxSide) / 2.0;
+  float logoBoxActualY = pixelY + (pixelH - logoBoxSide) / 2.0;
   
-  float finalInnerX = (biggerSide - smallerSide)/2;
-  float gridSelectorX;
-  float gridSelectorY;
+  float gridSelectorX; // Will be based on logoBoxSide
+  float gridSelectorY; // Will be based on logoBoxSide
   
   if (op.equals("a1")) { // Stop
     rect(
-      innerX + finalInnerX + (smallerSide/4 * 1),
-      innerY + (smallerSide/4 * 1),
-      smallerSide/4 * 2,
-      smallerSide/4 * 2
+      logoBoxActualX + (logoBoxSide / 4.0 * 1.0),
+      logoBoxActualY + (logoBoxSide / 4.0 * 1.0),
+      logoBoxSide / 4.0 * 2.0,
+      logoBoxSide / 4.0 * 2.0
     );
   }
   else if (op.equals("a2")) { // Pause
-    gridSelectorX = smallerSide/16;
-    gridSelectorY = smallerSide/4;
+    gridSelectorX = logoBoxSide / 16.0;
+    gridSelectorY = logoBoxSide / 4.0;
     rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
+      logoBoxActualX + (gridSelectorX * 4.0),
+      logoBoxActualY + (gridSelectorY * 1.0),
+      gridSelectorX * 2.0, // Width
+      gridSelectorY * 2.0  // Height
     );
     rect(
-      innerX + finalInnerX + (gridSelectorX * 10),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
+      logoBoxActualX + (gridSelectorX * 10.0),
+      logoBoxActualY + (gridSelectorY * 1.0),
+      gridSelectorX * 2.0, // Width
+      gridSelectorY * 2.0  // Height
     );
   }
   else if (op.equals("a3")) { // Fast Forward
-    /*rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
-    );*/
-    /*gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
-    float gsx = gridSelectorX;
-    float gsy = gridSelectorY;
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
+    float gsx = gridSelectorX; // alias for brevity
+    float gsy = gridSelectorY; // alias for brevity
     triangle(
-      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*2
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*2
     );
     triangle(
-      innerX + finalInnerX + gsx*3, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*2
-    );*/
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*2
+    );
   }
   else if (op.equals("a4")) { // Next
-    gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*3, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*1.5, innerY + gsy*2
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*1.5, logoBoxActualY + gsy*2
     );
     rect(
-      innerX + finalInnerX + gsx*1,
-      innerY + gsy*1,
-      gridSelectorX * 0.5, // Width
-      gridSelectorY * 2  // Height
+      logoBoxActualX + gsx*1,
+      logoBoxActualY + gsy*1,
+      gsx * 0.5, // Width
+      gsy * 2    // Height
     );
   }
-  else if (op.equals("a5")) {
-    /*rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
-    );*/
-    gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+  else if (op.equals("a5")) { // (Was Shuffle in Lesson03, now drawing two triangles like Fast Forward)
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*2
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*2
     );
     triangle(
-      innerX + finalInnerX + gsx*3, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*2
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*2
     );
   }
   else if (op.equals("b1")) { // Fast Backward
-    /*rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
-    );*/
-    gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*2
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*2
     );
     triangle(
-      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*2
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*2
     );
   }
   else if (op.equals("b2")) { // Previous
-    gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*2.5, innerY + gsy*2
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*2.5, logoBoxActualY + gsy*2
     );
     rect(
-      innerX + finalInnerX + gsx*2.5,
-      innerY + gsy*1,
-      gridSelectorX * 0.5, // Width
-      gridSelectorY * 2  // Height
+      logoBoxActualX + gsx*2.5,
+      logoBoxActualY + gsy*1,
+      gsx * 0.5, // Width
+      gsy * 2    // Height
     );
   }
-  else if (op.equals("b3")) {
-    /*rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
-    );*/
-    /*gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+  else if (op.equals("b3")) { // (Placeholder, drawing two triangles like Fast Backward)
+     gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*2
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*2
     );
     triangle(
-      innerX + finalInnerX + gsx*3, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*2
-    );*/
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*2
+    );
   }
-  else if (op.equals("b4")) {
-    /*rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
-    );*/
-    /*gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+  else if (op.equals("b4")) { // (Placeholder, drawing two triangles like Fast Backward)
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*2
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*2
     );
     triangle(
-      innerX + finalInnerX + gsx*2, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*2, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*2
-    );*/
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*2, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*2
+    );
   }
-  else if (op.equals("b5")) {
-    /*rect(
-      innerX + finalInnerX + (gridSelectorX * 4),
-      innerY + (gridSelectorY * 1),
-      gridSelectorX * 2, // Width
-      gridSelectorY * 2  // Height
-    );*/
-    /**gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
-    float gsx = gridSelectorX;
-    float gsy = gridSelectorY;
-    triangle(
-      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*2
-    );*/
-    gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
-    float gsx = gridSelectorX;
-    float gsy = gridSelectorY;
+  else if (op.equals("b5")) { // (Placeholder, no specific drawing, was Exit in Lesson03)
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
+    // float gsx = gridSelectorX;
+    // float gsy = gridSelectorY;
+    // Example: draw a simple X for exit
+    // line(logoBoxActualX + gsx*1, logoBoxActualY + gsy*1, logoBoxActualX + gsx*3, logoBoxActualY + gsy*3);
+    // line(logoBoxActualX + gsx*3, logoBoxActualY + gsy*1, logoBoxActualX + gsx*1, logoBoxActualY + gsy*3);
   }
   else if (op.equals("c1")) { // Play
-    gridSelectorX = smallerSide/4;
-    gridSelectorY = smallerSide/4;
+    gridSelectorX = logoBoxSide / 4.0;
+    gridSelectorY = logoBoxSide / 4.0;
     float gsx = gridSelectorX;
     float gsy = gridSelectorY;
     triangle(
-      innerX + finalInnerX + gsx*1, innerY + gsy*1, 
-      innerX + finalInnerX + gsx*1, innerY + gsy*3, 
-      innerX + finalInnerX + gsx*3, innerY + gsy*2
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*1, 
+      logoBoxActualX + gsx*1, logoBoxActualY + gsy*3, 
+      logoBoxActualX + gsx*3, logoBoxActualY + gsy*2
     );
   }
-  else if (op.equals("d1")) {
-    /*
-    displayWidth * ANP * w) < 
-  (displayHeight * BNP
-    */
+  else if (op.equals("d1")) { // Image display area
     ImageToDiv(
-        x * displayWidth * ANP,
-        y * displayHeight * BNP,
-        w * displayWidth * ANP,
-        h * displayHeight * BNP,
+        pixelX, // Use the original bounding box for ImageToDiv
+        pixelY,
+        pixelW,
+        pixelH,
         imagePath[currentAudio]
       );
-    //ImageToDiv(
-    //    x * displayWidth * ANP,
-    //    y * displayHeight * BNP,
-    //    w * displayWidth * ANP,
-    //    h * displayHeight * BNP,
-    //    "bike.jpg"
-    //  );
-    //ImageToDiv(
-    //    x * displayWidth * ANP,
-    //    y * displayHeight * BNP,
-    //    w * displayWidth * ANP,
-    //    h * displayHeight * BNP,
-    //    "portrait.jpg"
-    //  );
   }
-  else {
+  else { // Default shape (e.g., a square if op is unrecognized)
     rect(
-      innerX + finalInnerX + (smallerSide/4 * 1),
-      innerY + (smallerSide/4 * 1),
-      smallerSide/4 * 2,
-      smallerSide/4 * 2
+      logoBoxActualX + (logoBoxSide / 4.0 * 1.0),
+      logoBoxActualY + (logoBoxSide / 4.0 * 1.0),
+      logoBoxSide / 4.0 * 2.0,
+      logoBoxSide / 4.0 * 2.0
     );
   }
 }
 
 void mrcft(String op, float x, float y, float w, float h) {
-  float smallerSide = 
-  ((displayWidth * ANP * w) < 
-  (displayHeight * BNP * h)) ? 
-  (displayWidth * ANP * w) : 
-  (displayHeight * BNP * h);
-  float biggerSide = 
-  ((displayWidth * ANP * w) > 
-  (displayHeight * BNP * h)) ? 
-  (displayWidth * ANP * w) : 
-  (displayHeight * BNP * h);
-  float innerX = displayWidth * ANP * x;
-  float innerY = displayHeight * BNP * y;
+  float pixelX = displayWidth * ANP * x;
+  float pixelY = displayHeight * BNP * y;
+  float pixelW = displayWidth * ANP * w;
+  float pixelH = displayHeight * BNP * h;
+
+  float logoBoxSide = min(pixelW, pixelH);
+  float logoBoxActualX = pixelX + (pixelW - logoBoxSide) / 2.0;
+  float logoBoxActualY = pixelY + (pixelH - logoBoxSide) / 2.0;
   
-  float finalInnerX = (biggerSide - smallerSide)/2;
-  float gridSelectorX;
-  float gridSelectorY;
-  
-  if (op.equals("a1")) { // Image
-    /*rect(
-      innerX + finalInnerX,
-      innerY,
-      smallerSide,
-      smallerSide
-    );
-    rect(
-      innerX + finalInnerX + (smallerSide/4 * 1),
-      innerY + (smallerSide/4 * 1),
-      smallerSide/4 * 2,
-      smallerSide/4 * 2
-    );*/
-    if ((displayWidth * ANP * w) > (displayHeight * BNP * h)) {
-      rect(
-        innerX + finalInnerX,
-        innerY,
-        displayHeight * BNP * h,
-        displayHeight * BNP * h
-      );
-      /*ImageToDiv(
-        innerX + finalInnerX,
-        innerY,
-        displayHeight * BNP * h,
-        displayHeight * BNP * h,
-        "JeelanPro.jpg"
-      );*/
-    } else {
-      rect(
-        innerX + finalInnerX,
-        innerY,
-        displayWidth * ANP * w,
-        displayWidth * ANP * w
-      );
-      /*ImageToDiv(
-        innerX + finalInnerX,
-        innerY,
-        displayWidth * ANP * w,
-        displayWidth * ANP * w,
-        "JeelanPro.jpg"
-      );*/
-    }
+  if (op.equals("a1")) { // Image (draws a centered square box)
+    rect(logoBoxActualX, logoBoxActualY, logoBoxSide, logoBoxSide);
+    // If you intend to draw an image within this centered square:
+    // ImageToDiv(logoBoxActualX, logoBoxActualY, logoBoxSide, logoBoxSide, "SomeImage.jpg");
   }
-  else {
+  else { // Default shape (a smaller square within the centered logo box)
     rect(
-      innerX + finalInnerX + (smallerSide/4 * 1),
-      innerY + (smallerSide/4 * 1),
-      smallerSide/4 * 2,
-      smallerSide/4 * 2
+      logoBoxActualX + (logoBoxSide / 4.0 * 1.0),
+      logoBoxActualY + (logoBoxSide / 4.0 * 1.0),
+      logoBoxSide / 4.0 * 2.0,
+      logoBoxSide / 4.0 * 2.0
     );
-    /*ImageToDiv(
-      innerX + finalInnerX + (smallerSide/4 * 1), 
-      innerY + (smallerSide/4 * 1), 
-      smallerSide/4 * 2, 
-      smallerSide/4 * 2, 
-      "JeelanPro.jpg"
-    );*/
+    // If you intend to draw an image within this smaller square:
+    // ImageToDiv(
+    //   logoBoxActualX + (logoBoxSide / 4.0 * 1.0), 
+    //   logoBoxActualY + (logoBoxSide / 4.0 * 1.0), 
+    //   logoBoxSide / 4.0 * 2.0, 
+    //   logoBoxSide / 4.0 * 2.0, 
+    //   "SomeImage.jpg"
+    // );
   }
 }
 
