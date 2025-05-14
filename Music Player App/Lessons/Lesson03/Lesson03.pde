@@ -36,6 +36,8 @@ float fastForwardButtonTringle2X1, fastForwardButtonTringle2Y1, fastForwardButto
 
 float fastRewindButtonX, fastRewindButtonY, fastRewindButtonWidth, fastRewindButtonHeight;
 float fastRewindButtonLogoBoxX, fastRewindButtonLogoBoxY, fastRewindButtonLogoBoxWidth, fastRewindButtonLogoBoxHeight;
+float fastRewindButtonTringle1X1, fastRewindButtonTringle1Y1, fastRewindButtonTringle1X2, fastRewindButtonTringle1Y2, fastRewindButtonTringle1X3, fastRewindButtonTringle1Y3;
+float fastRewindButtonTringle2X1, fastRewindButtonTringle2Y1, fastRewindButtonTringle2X2, fastRewindButtonTringle2Y2, fastRewindButtonTringle2X3, fastRewindButtonTringle2Y3;
 
 float muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight;
 float muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight;
@@ -52,9 +54,17 @@ float previousButtonLogoTringleX1, previousButtonLogoTringleY1, previousButtonLo
 
 float shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight;
 float shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight;
+float shuffleLine1X1, shuffleLine1Y1, shuffleLine1X2, shuffleLine1Y2;
+float shuffleLine1ArrowAX2, shuffleLine1ArrowAY2;
+float shuffleLine1ArrowBX2, shuffleLine1ArrowBY2;
+float shuffleLine2X1, shuffleLine2Y1, shuffleLine2X2, shuffleLine2Y2;
+float shuffleLine2ArrowAX2, shuffleLine2ArrowAY2;
+float shuffleLine2ArrowBX2, shuffleLine2ArrowBY2;
 
 float exitButtonX, exitButtonY, exitButtonWidth, exitButtonHeight;
 float exitButtonLogoBoxX, exitButtonLogoBoxY, exitButtonLogoBoxWidth, exitButtonLogoBoxHeight;
+float exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2;
+float exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2;
 
 float timeLineX, timeLineY, timeLineWidth, timeLineHeight;
 float currentTimeX, currentTimeY, currentTimeWidth, currentTimeHeight;
@@ -199,14 +209,14 @@ void setup() {
   fastForwardButtonTringle1X1 = (fastForwardButtonLogoBoxWidth/4 * 1) + fastForwardButtonLogoBoxX;
   fastForwardButtonTringle1Y1 = (fastForwardButtonLogoBoxHeight/4 * 1) + fastForwardButtonLogoBoxY;
   fastForwardButtonTringle1X2 = (fastForwardButtonLogoBoxWidth/4 * 1) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle1Y2 = (fastForwardButtonLogoBoxHeight/4 * 2) + fastForwardButtonLogoBoxY;
-  fastForwardButtonTringle1X3 = (fastForwardButtonLogoBoxWidth/4 * 1) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle1Y3 = (fastForwardButtonLogoBoxHeight/4 * 3) + fastForwardButtonLogoBoxY;
+  fastForwardButtonTringle1Y2 = (fastForwardButtonLogoBoxHeight/4 * 3) + fastForwardButtonLogoBoxY;
+  fastForwardButtonTringle1X3 = (fastForwardButtonLogoBoxWidth/4 * 2) + fastForwardButtonLogoBoxX;
+  fastForwardButtonTringle1Y3 = (fastForwardButtonLogoBoxHeight/4 * 2) + fastForwardButtonLogoBoxY;
   // fastForwardButtonTringle2
-  fastForwardButtonTringle2X1 = (fastForwardButtonLogoBoxWidth/4 * 3) + fastForwardButtonLogoBoxX;
+  fastForwardButtonTringle2X1 = (fastForwardButtonLogoBoxWidth/4 * 2) + fastForwardButtonLogoBoxX;
   fastForwardButtonTringle2Y1 = (fastForwardButtonLogoBoxHeight/4 * 1) + fastForwardButtonLogoBoxY;
-  fastForwardButtonTringle2X2 = (fastForwardButtonLogoBoxWidth/4 * 3) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle2Y2 = (fastForwardButtonLogoBoxHeight/4 * 1) + fastForwardButtonLogoBoxY;
+  fastForwardButtonTringle2X2 = (fastForwardButtonLogoBoxWidth/4 * 2) + fastForwardButtonLogoBoxX;
+  fastForwardButtonTringle2Y2 = (fastForwardButtonLogoBoxHeight/4 * 3) + fastForwardButtonLogoBoxY;
   fastForwardButtonTringle2X3 = (fastForwardButtonLogoBoxWidth/4 * 3) + fastForwardButtonLogoBoxX;
   fastForwardButtonTringle2Y3 = (fastForwardButtonLogoBoxHeight/4 * 2) + fastForwardButtonLogoBoxY;
 
@@ -221,6 +231,20 @@ void setup() {
   fastRewindButtonLogoBoxY = fastRewindButtonY + (fastRewindButtonHeight - fastRewindButtonLogoBoxSmallerSide) / 2;
   fastRewindButtonLogoBoxWidth = fastRewindButtonLogoBoxSmallerSide;
   fastRewindButtonLogoBoxHeight = fastRewindButtonLogoBoxSmallerSide;
+  // fastRewindButtonTringle1
+  fastRewindButtonTringle1X1 = (fastRewindButtonLogoBoxWidth/4 * 1) + fastRewindButtonLogoBoxX;
+  fastRewindButtonTringle1Y1 = (fastRewindButtonLogoBoxHeight/4 * 2) + fastRewindButtonLogoBoxY;
+  fastRewindButtonTringle1X2 = (fastRewindButtonLogoBoxWidth/4 * 2) + fastRewindButtonLogoBoxX;
+  fastRewindButtonTringle1Y2 = (fastRewindButtonLogoBoxHeight/4 * 1) + fastRewindButtonLogoBoxY;
+  fastRewindButtonTringle1X3 = (fastRewindButtonLogoBoxWidth/4 * 2) + fastRewindButtonLogoBoxX;
+  fastRewindButtonTringle1Y3 = (fastRewindButtonLogoBoxHeight/4 * 3) + fastRewindButtonLogoBoxY;
+  // fastRewindButtonTringle2
+  fastRewindButtonTringle2X1 = (fastRewindButtonLogoBoxWidth/4 * 3) + fastRewindButtonLogoBoxX;
+  fastRewindButtonTringle2Y1 = (fastRewindButtonLogoBoxHeight/4 * 1) + fastRewindButtonLogoBoxY;
+  fastRewindButtonTringle2X2 = (fastRewindButtonLogoBoxWidth/4 * 2) + fastRewindButtonLogoBoxX;
+  fastRewindButtonTringle2Y2 = (fastRewindButtonLogoBoxHeight/4 * 2) + fastRewindButtonLogoBoxY;
+  fastRewindButtonTringle2X3 = (fastRewindButtonLogoBoxWidth/4 * 3) + fastRewindButtonLogoBoxX;
+  fastRewindButtonTringle2Y3 = (fastRewindButtonLogoBoxHeight/4 * 3) + fastRewindButtonLogoBoxY;
 
   // muteButton
   muteButtonX = appWidth/50 * 42;
@@ -293,6 +317,29 @@ void setup() {
   shuffleButtonLogoBoxY = shuffleButtonY + (shuffleButtonHeight - shuffleButtonLogoBoxSmallerSide) / 2;
   shuffleButtonLogoBoxWidth = shuffleButtonLogoBoxSmallerSide;
   shuffleButtonLogoBoxHeight = shuffleButtonLogoBoxSmallerSide;
+  // Shuffle Symbol Calculations
+  float shufflePadding = shuffleButtonLogoBoxWidth / 4.0;
+  float shuffleArrowHeadSize = shuffleButtonLogoBoxWidth / 5.0;
+  // Line 1: Top-left to Bottom-right
+  shuffleLine1X1 = shuffleButtonLogoBoxX + shufflePadding;
+  shuffleLine1Y1 = shuffleButtonLogoBoxY + shufflePadding;
+  shuffleLine1X2 = shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth - shufflePadding;
+  shuffleLine1Y2 = shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight - shufflePadding;
+  // Arrowhead for Line 1 (at its end: shuffleLine1X2, shuffleLine1Y2)
+  shuffleLine1ArrowAX2 = shuffleLine1X2 - shuffleArrowHeadSize;
+  shuffleLine1ArrowAY2 = shuffleLine1Y2;
+  shuffleLine1ArrowBX2 = shuffleLine1X2;
+  shuffleLine1ArrowBY2 = shuffleLine1Y2 - shuffleArrowHeadSize;
+  // Line 2: Bottom-left to Top-right
+  shuffleLine2X1 = shuffleButtonLogoBoxX + shufflePadding;
+  shuffleLine2Y1 = shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight - shufflePadding;
+  shuffleLine2X2 = shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth - shufflePadding;
+  shuffleLine2Y2 = shuffleButtonLogoBoxY + shufflePadding;
+  // Arrowhead for Line 2 (at its end: shuffleLine2X2, shuffleLine2Y2)
+  shuffleLine2ArrowAX2 = shuffleLine2X2 - shuffleArrowHeadSize;
+  shuffleLine2ArrowAY2 = shuffleLine2Y2;
+  shuffleLine2ArrowBX2 = shuffleLine2X2;
+  shuffleLine2ArrowBY2 = shuffleLine2Y2 + shuffleArrowHeadSize;
 
   // exitButton
   exitButtonX = appWidth/50 * (50 - 5);
@@ -301,10 +348,23 @@ void setup() {
   exitButtonHeight = appHeight/50 * 4;
   // exitButtonLogoBox
   float exitButtonLogoBoxSmallerSide = (exitButtonWidth < exitButtonHeight) ? exitButtonWidth : exitButtonHeight;
-  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide);
-  exitButtonLogoBoxY = exitButtonY + (exitButtonHeight - exitButtonLogoBoxSmallerSide);
+  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide); // Adjusted to be on the right side of the button
+  exitButtonLogoBoxY = exitButtonY; // Adjusted to be at the top of the button
   exitButtonLogoBoxWidth = exitButtonLogoBoxSmallerSide;
   exitButtonLogoBoxHeight = exitButtonLogoBoxSmallerSide;
+  // Exit Symbol ("X") Calculations
+  float exitPadding = exitButtonLogoBoxWidth / 4.0;
+  // Line 1: Top-left to Bottom-right
+  exitLine1X1 = exitButtonLogoBoxX + exitPadding;
+  exitLine1Y1 = exitButtonLogoBoxY + exitPadding;
+  exitLine1X2 = exitButtonLogoBoxX + exitButtonLogoBoxWidth - exitPadding;
+  exitLine1Y2 = exitButtonLogoBoxY + exitButtonLogoBoxHeight - exitPadding;
+  // Line 2: Top-right to Bottom-left
+  exitLine2X1 = exitButtonLogoBoxX + exitButtonLogoBoxWidth - exitPadding;
+  exitLine2Y1 = exitButtonLogoBoxY + exitPadding;
+  exitLine2X2 = exitButtonLogoBoxX + exitPadding;
+  exitLine2Y2 = exitButtonLogoBoxY + exitButtonLogoBoxHeight - exitPadding;
+
 
   // timeLine
   timeLineX = appWidth/50 * 10;
@@ -360,9 +420,13 @@ void setup() {
 
   // rect(fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight);
   rect(fastForwardButtonLogoBoxX, fastForwardButtonLogoBoxY, fastForwardButtonLogoBoxWidth, fastForwardButtonLogoBoxHeight);
+  triangle(fastForwardButtonTringle1X1, fastForwardButtonTringle1Y1, fastForwardButtonTringle1X2, fastForwardButtonTringle1Y2, fastForwardButtonTringle1X3, fastForwardButtonTringle1Y3);
+  triangle(fastForwardButtonTringle2X1, fastForwardButtonTringle2Y1, fastForwardButtonTringle2X2, fastForwardButtonTringle2Y2, fastForwardButtonTringle2X3, fastForwardButtonTringle2Y3);
 
   // rect(fastRewindButtonX, fastRewindButtonY, fastRewindButtonWidth, fastRewindButtonHeight);
   rect(fastRewindButtonLogoBoxX, fastRewindButtonLogoBoxY, fastRewindButtonLogoBoxWidth, fastRewindButtonLogoBoxHeight);
+  triangle(fastRewindButtonTringle1X1, fastRewindButtonTringle1Y1, fastRewindButtonTringle1X2, fastRewindButtonTringle1Y2, fastRewindButtonTringle1X3, fastRewindButtonTringle1Y3);
+  triangle(fastRewindButtonTringle2X1, fastRewindButtonTringle2Y1, fastRewindButtonTringle2X2, fastRewindButtonTringle2Y2, fastRewindButtonTringle2X3, fastRewindButtonTringle2Y3);
 
   // rect(muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight);
   rect(muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight);
@@ -379,9 +443,26 @@ void setup() {
 
   // rect(shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight);
   rect(shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight);
+  pushStyle();
+  stroke(0);
+  strokeWeight(max(1, shuffleButtonLogoBoxWidth / 25.0));
+  line(shuffleLine1X1, shuffleLine1Y1, shuffleLine1X2, shuffleLine1Y2);
+  line(shuffleLine1X2, shuffleLine1Y2, shuffleLine1ArrowAX2, shuffleLine1ArrowAY2);
+  line(shuffleLine1X2, shuffleLine1Y2, shuffleLine1ArrowBX2, shuffleLine1ArrowBY2);
+  line(shuffleLine2X1, shuffleLine2Y1, shuffleLine2X2, shuffleLine2Y2);
+  line(shuffleLine2X2, shuffleLine2Y2, shuffleLine2ArrowAX2, shuffleLine2ArrowAY2);
+  line(shuffleLine2X2, shuffleLine2Y2, shuffleLine2ArrowBX2, shuffleLine2ArrowBY2);
+  popStyle();
+
 
   // rect(exitButtonX, exitButtonY, exitButtonWidth, exitButtonHeight);
   rect(exitButtonLogoBoxX, exitButtonLogoBoxY, exitButtonLogoBoxWidth, exitButtonLogoBoxHeight);
+  pushStyle();
+  stroke(0);
+  strokeWeight(max(1, exitButtonLogoBoxWidth / 15.0));
+  line(exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2);
+  line(exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2);
+  popStyle();
 
   rect(timeLineX, timeLineY, timeLineWidth, timeLineHeight);
   rect(currentTimeX, currentTimeY, currentTimeWidth, currentTimeHeight);
