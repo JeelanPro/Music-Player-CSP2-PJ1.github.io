@@ -42,9 +42,13 @@ float muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButton
 
 float nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight;
 float nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight;
+float nextButtonLogoBoxShapeX, nextButtonLogoBoxShapeY, nextButtonLogoBoxShapeWidth, nextButtonLogoBoxShapeHeight;
+float nextButtonLogoTringleX1, nextButtonLogoTringleY1, nextButtonLogoTringleX2, nextButtonLogoTringleY2, nextButtonLogoTringleX3, nextButtonLogoTringleY3;
 
 float previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight;
 float previousButtonLogoBoxX, previousButtonLogoBoxY, previousButtonLogoBoxWidth, previousButtonLogoBoxHeight;
+float previousButtonLogoBoxShapeX, previousButtonLogoBoxShapeY, previousButtonLogoBoxShapeWidth, previousButtonLogoBoxShapeHeight;
+float previousButtonLogoTringleX1, previousButtonLogoTringleY1, previousButtonLogoTringleX2, previousButtonLogoTringleY2, previousButtonLogoTringleX3, previousButtonLogoTringleY3;
 
 float shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight;
 float shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight;
@@ -241,6 +245,8 @@ void setup() {
   nextButtonLogoBoxY = nextButtonY + (nextButtonHeight - nextButtonLogoBoxSmallerSide) / 2;
   nextButtonLogoBoxWidth = nextButtonLogoBoxSmallerSide;
   nextButtonLogoBoxHeight = nextButtonLogoBoxSmallerSide;
+  // nextButtonLogoBoxShape
+  nextButtonLogoBoxShapeX = (nextButtonLogoBoxWidth/8 * 2) + nextButtonLogoBoxX;
 
   // previousButton
   previousButtonX = appWidth/50 * 1;
@@ -253,6 +259,18 @@ void setup() {
   previousButtonLogoBoxY = previousButtonY + (previousButtonHeight - previousButtonLogoBoxSmallerSide) / 2;
   previousButtonLogoBoxWidth = previousButtonLogoBoxSmallerSide;
   previousButtonLogoBoxHeight = previousButtonLogoBoxSmallerSide;
+  // previousButtonLogoBoxShape
+  previousButtonLogoBoxShapeX = (previousButtonLogoBoxWidth/8 * 2) + previousButtonLogoBoxX;
+  previousButtonLogoBoxShapeY = (previousButtonLogoBoxHeight/8 * 2) + previousButtonLogoBoxY;
+  previousButtonLogoBoxShapeWidth = (previousButtonLogoBoxWidth/8 * 1);
+  previousButtonLogoBoxShapeHeight = (previousButtonLogoBoxHeight/8 * 4);
+  // previousButtonLogoTringle
+  previousButtonLogoTringleX1 = (previousButtonLogoBoxWidth/8 * 6) + previousButtonLogoBoxX;
+  previousButtonLogoTringleY1 = (previousButtonLogoBoxHeight/8 * 2) + previousButtonLogoBoxY;
+  previousButtonLogoTringleX2 = (previousButtonLogoBoxWidth/8 * 6) + previousButtonLogoBoxX;
+  previousButtonLogoTringleY2 = (previousButtonLogoBoxHeight/8 * 6) + previousButtonLogoBoxY;
+  previousButtonLogoTringleX3 = (previousButtonLogoBoxWidth/8 * 3) + previousButtonLogoBoxX;
+  previousButtonLogoTringleY3 = (previousButtonLogoBoxHeight/8 * 4) + previousButtonLogoBoxY;
 
   // shuffleButton
   shuffleButtonX = appWidth/50 * 46;
@@ -341,9 +359,13 @@ void setup() {
 
   // rect(nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight);
   rect(nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight);
+  rect(nextButtonLogoBoxShapeX, nextButtonLogoBoxShapeY, nextButtonLogoBoxShapeWidth, nextButtonLogoBoxShapeHeight);
+  triangle(nextButtonLogoTringleX1, nextButtonLogoTringleY1, nextButtonLogoTringleX2, nextButtonLogoTringleY2, nextButtonLogoTringleX3, nextButtonLogoTringleY3);
 
   // rect(previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight);
   rect(previousButtonLogoBoxX, previousButtonLogoBoxY, previousButtonLogoBoxWidth, previousButtonLogoBoxHeight);
+  rect(previousButtonLogoBoxShapeX, previousButtonLogoBoxShapeY, previousButtonLogoBoxShapeWidth, previousButtonLogoBoxShapeHeight);
+  triangle(previousButtonLogoTringleX1, previousButtonLogoTringleY1, previousButtonLogoTringleX2, previousButtonLogoTringleY2, previousButtonLogoTringleX3, previousButtonLogoTringleY3);
 
   // rect(shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight);
   rect(shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight);
