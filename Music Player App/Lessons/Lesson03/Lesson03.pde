@@ -246,7 +246,17 @@ void setup() {
   nextButtonLogoBoxWidth = nextButtonLogoBoxSmallerSide;
   nextButtonLogoBoxHeight = nextButtonLogoBoxSmallerSide;
   // nextButtonLogoBoxShape
-  nextButtonLogoBoxShapeX = (nextButtonLogoBoxWidth/8 * 2) + nextButtonLogoBoxX;
+  nextButtonLogoBoxShapeX = (nextButtonLogoBoxWidth/8 * 5) + nextButtonLogoBoxX;
+  nextButtonLogoBoxShapeY = (nextButtonLogoBoxHeight/8 * 2) + nextButtonLogoBoxY;
+  nextButtonLogoBoxShapeWidth = (nextButtonLogoBoxWidth/8 * 1);
+  nextButtonLogoBoxShapeHeight = (nextButtonLogoBoxHeight/8 * 4);
+  // nextButtonLogoTringle
+  nextButtonLogoTringleX1 = (nextButtonLogoBoxWidth/8 * 2) + nextButtonLogoBoxX;
+  nextButtonLogoTringleY1 = (nextButtonLogoBoxHeight/8 * 2) + nextButtonLogoBoxY;
+  nextButtonLogoTringleX2 = (nextButtonLogoBoxWidth/8 * 5) + nextButtonLogoBoxX;
+  nextButtonLogoTringleY2 = (nextButtonLogoBoxHeight/8 * 4) + nextButtonLogoBoxY;
+  nextButtonLogoTringleX3 = (nextButtonLogoBoxWidth/8 * 2) + nextButtonLogoBoxX;
+  nextButtonLogoTringleY3 = (nextButtonLogoBoxHeight/8 * 6) + nextButtonLogoBoxY;
 
   // previousButton
   previousButtonX = appWidth/50 * 1;
