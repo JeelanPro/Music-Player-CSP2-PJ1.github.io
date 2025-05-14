@@ -25,9 +25,18 @@ float stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWi
 
 float loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight;
 float loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight;
+// Loop Once Symbol
+float loopOnceArcCenterX, loopOnceArcCenterY, loopOnceArcDiameter;
+float loopOnceArcStartAngle, loopOnceArcStopAngle;
+float loopOnceArrowheadX1, loopOnceArrowheadY1, loopOnceArrowheadX2, loopOnceArrowheadY2, loopOnceArrowheadX3, loopOnceArrowheadY3;
+String loopOnceTextContent = "1";
+float loopOnceTextPosX, loopOnceTextPosY, loopOnceTextSizeVal;
 
 float loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight;
 float loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight;
+// Loop Infinite Symbol (Infinity Sign ∞)
+float loopInfiniteEllipse1X, loopInfiniteEllipse1Y, loopInfiniteEllipse2X, loopInfiniteEllipse2Y;
+float loopInfiniteEllipseWidth, loopInfiniteEllipseHeight;
 
 float fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight;
 float fastForwardButtonLogoBoxX, fastForwardButtonLogoBoxY, fastForwardButtonLogoBoxWidth, fastForwardButtonLogoBoxHeight;
@@ -182,6 +191,28 @@ void setup() {
   loopOnceButtonLogoBoxWidth = loopOnceButtonLogoBoxSmallerSide;
   loopOnceButtonLogoBoxHeight = loopOnceButtonLogoBoxSmallerSide;
 
+  // Loop Once Symbol Calculations
+  loopOnceArcCenterX = loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth / 2.0;
+  loopOnceArcCenterY = loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight / 2.0;
+  loopOnceArcDiameter = min(loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight) * 0.65;
+  loopOnceArcStartAngle = QUARTER_PI; // Start angle for the arc
+  loopOnceArcStopAngle = TWO_PI - HALF_PI;   // End angle for the arc, leaving space for arrowhead
+
+  float tipX = loopOnceArcCenterX + cos(loopOnceArcStopAngle) * (loopOnceArcDiameter / 2.0);
+  float tipY = loopOnceArcCenterY + sin(loopOnceArcStopAngle) * (loopOnceArcDiameter / 2.0);
+  loopOnceArrowheadX1 = tipX;
+  loopOnceArrowheadY1 = tipY;
+  float arrowBaseOffsetAngle = 0.25; // Radians: how far "back" along the arc the arrowhead base is
+  float arrowHalfWidth = loopOnceArcDiameter * 0.12; // How "wide" the arrowhead base is from the arc radius
+  loopOnceArrowheadX2 = loopOnceArcCenterX + (loopOnceArcDiameter/2 - arrowHalfWidth) * cos(loopOnceArcStopAngle - arrowBaseOffsetAngle);
+  loopOnceArrowheadY2 = loopOnceArcCenterY + (loopOnceArcDiameter/2 - arrowHalfWidth) * sin(loopOnceArcStopAngle - arrowBaseOffsetAngle);
+  loopOnceArrowheadX3 = loopOnceArcCenterX + (loopOnceArcDiameter/2 + arrowHalfWidth) * cos(loopOnceArcStopAngle - arrowBaseOffsetAngle);
+  loopOnceArrowheadY3 = loopOnceArcCenterY + (loopOnceArcDiameter/2 + arrowHalfWidth) * sin(loopOnceArcStopAngle - arrowBaseOffsetAngle);
+  
+  loopOnceTextPosX = loopOnceArcCenterX;
+  loopOnceTextPosY = loopOnceArcCenterY;
+  loopOnceTextSizeVal = loopOnceArcDiameter * 0.5;
+
   // loopInfiniteButton (corrected typo)
   loopInfiniteButtonX = appWidth/50 * 38;
   loopInfiniteButtonY = appHeight/50 * 41;
@@ -193,6 +224,16 @@ void setup() {
   loopInfiniteButtonLogoBoxY = loopInfiniteButtonY + (loopInfiniteButtonHeight - loopInfiniteButtonLogoBoxSmallerSide) / 2;
   loopInfiniteButtonLogoBoxWidth = loopInfiniteButtonLogoBoxSmallerSide;
   loopInfiniteButtonLogoBoxHeight = loopInfiniteButtonLogoBoxSmallerSide;
+
+  // Loop Infinite Symbol (Infinity Sign ∞) Calculations
+  float infinitySymbolCenterX = loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth / 2.0;
+  float infinitySymbolCenterY = loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight / 2.0;
+  loopInfiniteEllipseWidth = loopInfiniteButtonLogoBoxWidth * 0.35; // Width of one loop of infinity
+  loopInfiniteEllipseHeight = loopInfiniteButtonLogoBoxHeight * 0.45; // Height of one loop of infinity
+  loopInfiniteEllipse1X = infinitySymbolCenterX - loopInfiniteEllipseWidth / 2.0;
+  loopInfiniteEllipse1Y = infinitySymbolCenterY;
+  loopInfiniteEllipse2X = infinitySymbolCenterX + loopInfiniteEllipseWidth / 2.0;
+  loopInfiniteEllipse2Y = infinitySymbolCenterY;
 
   // fastForwardButton
   fastForwardButtonX = appWidth/50 * 13;
@@ -414,9 +455,33 @@ void setup() {
 
   // rect(loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight);
   rect(loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight);
+  // Draw Loop Once Symbol
+  pushStyle();
+  float commonStrokeWeight = max(1, loopOnceButtonLogoBoxWidth / 22.0);
+  stroke(0);
+  strokeWeight(commonStrokeWeight);
+  noFill();
+  arc(loopOnceArcCenterX, loopOnceArcCenterY, loopOnceArcDiameter, loopOnceArcDiameter, loopOnceArcStartAngle, loopOnceArcStopAngle);
+  fill(0); // Arrowhead filled
+  noStroke();
+  triangle(loopOnceArrowheadX1, loopOnceArrowheadY1, loopOnceArrowheadX2, loopOnceArrowheadY2, loopOnceArrowheadX3, loopOnceArrowheadY3);
+  fill(0); // Text color
+  textAlign(CENTER, CENTER);
+  textSize(loopOnceTextSizeVal);
+  text(loopOnceTextContent, loopOnceTextPosX, loopOnceTextPosY);
+  popStyle();
 
   // rect(loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight);
   rect(loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight);
+  // Draw Loop Infinite Symbol (Infinity Sign ∞)
+  pushStyle();
+  stroke(0);
+  strokeWeight(max(1, loopInfiniteButtonLogoBoxWidth / 22.0));
+  noFill();
+  ellipseMode(CENTER);
+  ellipse(loopInfiniteEllipse1X, loopInfiniteEllipse1Y, loopInfiniteEllipseWidth, loopInfiniteEllipseHeight);
+  ellipse(loopInfiniteEllipse2X, loopInfiniteEllipse2Y, loopInfiniteEllipseWidth, loopInfiniteEllipseHeight);
+  popStyle();
 
   // rect(fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight);
   rect(fastForwardButtonLogoBoxX, fastForwardButtonLogoBoxY, fastForwardButtonLogoBoxWidth, fastForwardButtonLogoBoxHeight);
