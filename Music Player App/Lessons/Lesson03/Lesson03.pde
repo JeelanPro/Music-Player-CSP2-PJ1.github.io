@@ -50,6 +50,9 @@ float fastRewindButtonTringle2X1, fastRewindButtonTringle2Y1, fastRewindButtonTr
 
 float muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight;
 float muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight;
+float muteSpeakerRectX, muteSpeakerRectY, muteSpeakerRectWidth, muteSpeakerRectHeight;
+float muteSpeakerTriangleX1, muteSpeakerTriangleY1, muteSpeakerTriangleX2, muteSpeakerTriangleY2, muteSpeakerTriangleX3, muteSpeakerTriangleY3;
+float muteDiagonalLineX1, muteDiagonalLineY1, muteDiagonalLineX2, muteDiagonalLineY2;
 
 float nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight;
 float nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight;
@@ -298,6 +301,27 @@ void setup() {
   muteButtonLogoBoxY = muteButtonY + (muteButtonHeight - muteButtonLogoBoxSmallerSide) / 2;
   muteButtonLogoBoxWidth = muteButtonLogoBoxSmallerSide;
   muteButtonLogoBoxHeight = muteButtonLogoBoxSmallerSide;
+  muteSpeakerRectWidth = muteButtonLogoBoxWidth * 0.3;
+  muteSpeakerRectHeight = muteButtonLogoBoxHeight * 0.5;
+  muteSpeakerRectX = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 0.1;
+  muteSpeakerRectY = muteButtonLogoBoxY + (muteButtonLogoBoxHeight - muteSpeakerRectHeight) / 2.0;
+
+  // Speaker triangle
+  muteSpeakerTriangleX1 = muteSpeakerRectX + muteSpeakerRectWidth;
+  muteSpeakerTriangleY1 = muteSpeakerRectY;
+  muteSpeakerTriangleX2 = muteSpeakerRectX + muteSpeakerRectWidth;
+  muteSpeakerTriangleY2 = muteSpeakerRectY + muteSpeakerRectHeight;
+  muteSpeakerTriangleX3 = muteSpeakerTriangleX1 + muteSpeakerRectWidth * 0.6;
+  muteSpeakerTriangleY3 = muteSpeakerRectY + muteSpeakerRectHeight / 2.0;
+
+  // Diagonal line
+  muteDiagonalLineX1 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 0.2;
+  muteDiagonalLineY1 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 0.2;
+  muteDiagonalLineX2 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 0.8;
+  muteDiagonalLineY2 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 0.8;
+
+  // nextButton
+  nextButtonX = appWidth/50 * 5;
 
   // nextButton
   nextButtonX = appWidth/50 * 5;
@@ -495,6 +519,15 @@ void setup() {
 
   // rect(muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight);
   rect(muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight);
+  pushStyle();
+  stroke(0);
+  strokeWeight(max(1, muteButtonLogoBoxWidth / 25.0));
+  fill(0);
+  rect(muteSpeakerRectX, muteSpeakerRectY, muteSpeakerRectWidth, muteSpeakerRectHeight);
+  triangle(muteSpeakerTriangleX1, muteSpeakerTriangleY1, muteSpeakerTriangleX2, muteSpeakerTriangleY2, muteSpeakerTriangleX3, muteSpeakerTriangleY3);
+  stroke(255, 0, 0); // Red diagonal line
+  line(muteDiagonalLineX1, muteDiagonalLineY1, muteDiagonalLineX2, muteDiagonalLineY2);
+  popStyle();
 
   // rect(nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight);
   rect(nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight);
