@@ -107,10 +107,8 @@ void setup() {
 
   
   // Population
-  // Init Audio Selection
+  // Minim
   currentAudio = 0;
-  
-  // playList
   minim = new Minim(this);
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
