@@ -32,23 +32,18 @@ void setup() {
     float imageWidth = myImage.width;
     float imageHeight = myImage.height;
 
-    float imageAspectRatioGreaterOne = (imageWidth >= imageHeight) ? imageWidth/imageHeight : imageHeight/imageWidth;
+    float imageAspectRatioGreaterOne = (imageWidth <= imageHeight) ? imageWidth/imageHeight : imageHeight/imageWidth;
     Boolean imageLandscape = (imageWidth >= imageHeight) ? true : false;
 
-    if (imageLandscape==true) {
+    float imageAspectRatio = imageWidth / imageHeight;
+    float divAspectRatio = imageDivWidth / imageDivHeight;
+
+    if (imageAspectRatio > divAspectRatio) {
         imageWidthChanged = imageDivWidth;
-        imageHeightChanged = (imageWidth >= imageDivWidth) ? imageWidthChanged/imageAspectRatioGreaterOne : imageWidthChanged*imageAspectRatioGreaterOne;
-        if (imageHeightChanged > imageDivHeight) { // Error
-            println("Error: Image height is greater than imageDivHeight");
-            exit();
-        }
+        imageHeightChanged = imageDivWidth / imageAspectRatio;
     } else {
         imageHeightChanged = imageDivHeight;
-        imageWidthChanged = (imageHeight >= imageDivHeight) ? imageHeightChanged/imageAspectRatioGreaterOne : imageHeightChanged*imageAspectRatioGreaterOne;
-        if (imageWidthChanged > imageDivWidth) { // Error
-            println("Error: Image width is greater than imageDivWidth");
-            exit();
-        }
+        imageWidthChanged = imageDivHeight * imageAspectRatio;
     }
 
 
