@@ -23,16 +23,14 @@ void setup() {
   appWidth = displayWidth;
   appHeight = displayHeight;
 
-  // Variable Population
+  // Population
   currentAudio = 0;
   
-  // Music Population
   minim = new Minim(this);
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
   playList[2] = minim.loadFile("Audio/Virus.mp3");
   
-  // Display Population
   divX = appWidth/4 * 1;
   divY = appHeight/4 * 1;
   divWidth = appWidth/4 * 2;

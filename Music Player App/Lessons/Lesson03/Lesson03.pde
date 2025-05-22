@@ -88,14 +88,14 @@ void setup() {
   // Display
   //size(1280, 720);
   
-  size(900, 600);
-  appWidth = 900;
-  appHeight = 600;
-  surface.setAlwaysOnTop(true);
+  // size(900, 600);
+  // appWidth = 900;
+  // appHeight = 600;
+  // surface.setAlwaysOnTop(true);
 
-  // fullScreen();
-  // appWidth = displayWidth;
-  // appHeight = displayHeight;
+  fullScreen();
+  appWidth = displayWidth;
+  appHeight = displayHeight;
 
   
   // Population
@@ -193,30 +193,28 @@ void setup() {
   loopOnceButtonLogoBoxY = loopOnceButtonY + (loopOnceButtonHeight - loopOnceButtonLogoBoxSmallerSide) / 2;
   loopOnceButtonLogoBoxWidth = loopOnceButtonLogoBoxSmallerSide;
   loopOnceButtonLogoBoxHeight = loopOnceButtonLogoBoxSmallerSide;
-
   // Loop Once Symbol Calculations
   loopOnceArcCenterX = loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth / 2.0;
   loopOnceArcCenterY = loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight / 2.0;
   loopOnceArcDiameter = min(loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight) * 0.65;
-  loopOnceArcStartAngle = QUARTER_PI; // Start angle for the arc
-  loopOnceArcStopAngle = TWO_PI - HALF_PI;   // End angle for the arc, leaving space for arrowhead
-
+  loopOnceArcStartAngle = QUARTER_PI;
+  loopOnceArcStopAngle = TWO_PI - HALF_PI;
+  // Arrowhead for Loop Once (at its end: loopOnceArcCenterX, loopOnceArcCenterY)
   float tipX = loopOnceArcCenterX + cos(loopOnceArcStopAngle) * (loopOnceArcDiameter / 2.0);
   float tipY = loopOnceArcCenterY + sin(loopOnceArcStopAngle) * (loopOnceArcDiameter / 2.0);
   loopOnceArrowheadX1 = tipX;
   loopOnceArrowheadY1 = tipY;
-  float arrowBaseOffsetAngle = 0.25; // Radians: how far "back" along the arc the arrowhead base is
-  float arrowHalfWidth = loopOnceArcDiameter * 0.12; // How "wide" the arrowhead base is from the arc radius
+  float arrowBaseOffsetAngle = 0.25;
+  float arrowHalfWidth = loopOnceArcDiameter * 0.12;
   loopOnceArrowheadX2 = loopOnceArcCenterX + (loopOnceArcDiameter/2 - arrowHalfWidth) * cos(loopOnceArcStopAngle - arrowBaseOffsetAngle);
   loopOnceArrowheadY2 = loopOnceArcCenterY + (loopOnceArcDiameter/2 - arrowHalfWidth) * sin(loopOnceArcStopAngle - arrowBaseOffsetAngle);
   loopOnceArrowheadX3 = loopOnceArcCenterX + (loopOnceArcDiameter/2 + arrowHalfWidth) * cos(loopOnceArcStopAngle - arrowBaseOffsetAngle);
   loopOnceArrowheadY3 = loopOnceArcCenterY + (loopOnceArcDiameter/2 + arrowHalfWidth) * sin(loopOnceArcStopAngle - arrowBaseOffsetAngle);
-  
   loopOnceTextPosX = loopOnceArcCenterX;
   loopOnceTextPosY = loopOnceArcCenterY;
   loopOnceTextSizeVal = loopOnceArcDiameter * 0.5;
 
-  // loopInfiniteButton (corrected typo)
+  // loopInfiniteButton
   loopInfiniteButtonX = appWidth/50 * 38;
   loopInfiniteButtonY = appHeight/50 * 41;
   loopInfiniteButtonWidth = appWidth/50 * 3;
@@ -227,12 +225,11 @@ void setup() {
   loopInfiniteButtonLogoBoxY = loopInfiniteButtonY + (loopInfiniteButtonHeight - loopInfiniteButtonLogoBoxSmallerSide) / 2;
   loopInfiniteButtonLogoBoxWidth = loopInfiniteButtonLogoBoxSmallerSide;
   loopInfiniteButtonLogoBoxHeight = loopInfiniteButtonLogoBoxSmallerSide;
-
   // Loop Infinite Symbol (Infinity Sign ∞) Calculations
   float infinitySymbolCenterX = loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth / 2.0;
   float infinitySymbolCenterY = loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight / 2.0;
-  loopInfiniteEllipseWidth = loopInfiniteButtonLogoBoxWidth * 0.35; // Width of one loop of infinity
-  loopInfiniteEllipseHeight = loopInfiniteButtonLogoBoxHeight * 0.45; // Height of one loop of infinity
+  loopInfiniteEllipseWidth = loopInfiniteButtonLogoBoxWidth * 0.35;
+  loopInfiniteEllipseHeight = loopInfiniteButtonLogoBoxHeight * 0.45;
   loopInfiniteEllipse1X = infinitySymbolCenterX - loopInfiniteEllipseWidth / 2.0;
   loopInfiniteEllipse1Y = infinitySymbolCenterY;
   loopInfiniteEllipse2X = infinitySymbolCenterX + loopInfiniteEllipseWidth / 2.0;
@@ -303,9 +300,8 @@ void setup() {
   muteButtonLogoBoxHeight = muteButtonLogoBoxSmallerSide;
   muteSpeakerRectWidth = muteButtonLogoBoxWidth * 0.3;
   muteSpeakerRectHeight = muteButtonLogoBoxHeight * 0.5;
-  muteSpeakerRectX = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 0.1;
+  muteSpeakerRectX = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 1/4;
   muteSpeakerRectY = muteButtonLogoBoxY + (muteButtonLogoBoxHeight - muteSpeakerRectHeight) / 2.0;
-
   // Speaker triangle
   muteSpeakerTriangleX1 = muteSpeakerRectX + muteSpeakerRectWidth;
   muteSpeakerTriangleY1 = muteSpeakerRectY;
@@ -313,15 +309,11 @@ void setup() {
   muteSpeakerTriangleY2 = muteSpeakerRectY + muteSpeakerRectHeight;
   muteSpeakerTriangleX3 = muteSpeakerTriangleX1 + muteSpeakerRectWidth * 0.6;
   muteSpeakerTriangleY3 = muteSpeakerRectY + muteSpeakerRectHeight / 2.0;
-
   // Diagonal line
-  muteDiagonalLineX1 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 0.2;
-  muteDiagonalLineY1 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 0.2;
-  muteDiagonalLineX2 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 0.8;
-  muteDiagonalLineY2 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 0.8;
-
-  // nextButton
-  nextButtonX = appWidth/50 * 5;
+  muteDiagonalLineX1 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 1/4;
+  muteDiagonalLineY1 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 1/4;
+  muteDiagonalLineX2 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 3/4;
+  muteDiagonalLineY2 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 3/4;
 
   // nextButton
   nextButtonX = appWidth/50 * 5;
@@ -479,17 +471,16 @@ void setup() {
 
   // rect(loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight);
   rect(loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight);
-  // Draw Loop Once Symbol
   pushStyle();
   float commonStrokeWeight = max(1, loopOnceButtonLogoBoxWidth / 22.0);
   stroke(0);
   strokeWeight(commonStrokeWeight);
   noFill();
   arc(loopOnceArcCenterX, loopOnceArcCenterY, loopOnceArcDiameter, loopOnceArcDiameter, loopOnceArcStartAngle, loopOnceArcStopAngle);
-  fill(0); // Arrowhead filled
+  fill(0);
   noStroke();
   triangle(loopOnceArrowheadX1, loopOnceArrowheadY1, loopOnceArrowheadX2, loopOnceArrowheadY2, loopOnceArrowheadX3, loopOnceArrowheadY3);
-  fill(0); // Text color
+  fill(0);
   textAlign(CENTER, CENTER);
   textSize(loopOnceTextSizeVal);
   text(loopOnceTextContent, loopOnceTextPosX, loopOnceTextPosY);
@@ -497,7 +488,6 @@ void setup() {
 
   // rect(loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight);
   rect(loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight);
-  // Draw Loop Infinite Symbol (Infinity Sign ∞)
   pushStyle();
   stroke(0);
   strokeWeight(max(1, loopInfiniteButtonLogoBoxWidth / 22.0));
@@ -525,7 +515,7 @@ void setup() {
   fill(0);
   rect(muteSpeakerRectX, muteSpeakerRectY, muteSpeakerRectWidth, muteSpeakerRectHeight);
   triangle(muteSpeakerTriangleX1, muteSpeakerTriangleY1, muteSpeakerTriangleX2, muteSpeakerTriangleY2, muteSpeakerTriangleX3, muteSpeakerTriangleY3);
-  stroke(255, 0, 0); // Red diagonal line
+  stroke(255, 0, 0);
   line(muteDiagonalLineX1, muteDiagonalLineY1, muteDiagonalLineX2, muteDiagonalLineY2);
   popStyle();
 
