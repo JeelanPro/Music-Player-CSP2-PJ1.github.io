@@ -35,7 +35,7 @@ void setup() {
     float imageAspectRatioGreaterOne = (imageWidth >= imageHeight) ? imageWidth/imageHeight : imageHeight/imageWidth;
     Boolean imageLandscape = (imageWidth >= imageHeight) ? true : false;
 
-    if (imageLandscape) {
+    if (imageLandscape==true) {
         imageWidthChanged = imageDivWidth;
         imageHeightChanged = (imageWidth >= imageDivWidth) ? imageWidthChanged/imageAspectRatioGreaterOne : imageWidthChanged*imageAspectRatioGreaterOne;
         if (imageHeightChanged > imageDivHeight) { // Error
