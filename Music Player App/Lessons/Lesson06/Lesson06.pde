@@ -28,7 +28,7 @@ void setup() {
     imageDivWidth = appWidth/4 * 2;
     imageDivHeight = appHeight/4 * 2;
 
-    filePath = "Images/Car.jpg";
+    filePath = "Images/JeelanPro.jpg";
     myImage = loadImage(filePath);
     imageWidth = myImage.width;
     imageHeight = myImage.height;
