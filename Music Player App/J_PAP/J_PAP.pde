@@ -579,6 +579,136 @@ void draw() {
 
 
 void mousePressed() {
+    // Play Button
+    if (mouseX > playButtonLogoBoxX && mouseX < playButtonLogoBoxX + playButtonLogoBoxWidth) {
+        if (mouseY > playButtonLogoBoxY && mouseY < playButtonLogoBoxY + playButtonLogoBoxHeight) {
+            playList[currentAudio].play();
+        }
+    }
+
+    // Pause Button
+    if (mouseX > pauseButtonLogoBoxX && mouseX < pauseButtonLogoBoxX + pauseButtonLogoBoxWidth) {
+        if (mouseY > pauseButtonLogoBoxY && mouseY < pauseButtonLogoBoxY + pauseButtonLogoBoxHeight) {
+            playList[currentAudio].pause();
+        }
+    }
+    
+    // Stop Button
+    if (mouseX > stopButtonLogoBoxX && mouseX < stopButtonLogoBoxX + stopButtonLogoBoxWidth) {
+        if (mouseY > stopButtonLogoBoxY && mouseY < stopButtonLogoBoxY + stopButtonLogoBoxHeight) {
+            playList[currentAudio].rewind();
+            playList[currentAudio].pause();
+        }
+    }
+
+    // Loop Once Button
+    if (mouseX > loopOnceButtonLogoBoxX && mouseX < loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth) {
+        if (mouseY > loopOnceButtonLogoBoxY && mouseY < loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight) {
+            playList[currentAudio].loop(0);
+        }
+    }
+
+    // Loop Infinite Button
+    if (mouseX > loopInfiniteButtonLogoBoxX && mouseX < loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth) {
+        if (mouseY > loopInfiniteButtonLogoBoxY && mouseY < loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight) {
+            playList[currentAudio].loop();
+        }
+    }
+
+    // Fast Forward Button
+    if (mouseX > fastForwardButtonLogoBoxX && mouseX < fastForwardButtonLogoBoxX + fastForwardButtonLogoBoxWidth) {
+        if (mouseY > fastForwardButtonLogoBoxY && mouseY < fastForwardButtonLogoBoxY + fastForwardButtonLogoBoxHeight) {
+            playList[currentAudio].skip(1000);
+        }
+    }
+
+    // Fast Rewind Button
+    if (mouseX > fastRewindButtonLogoBoxX && mouseX < fastRewindButtonLogoBoxX + fastRewindButtonLogoBoxWidth) {
+        if (mouseY > fastRewindButtonLogoBoxY && mouseY < fastRewindButtonLogoBoxY + fastRewindButtonLogoBoxHeight) {
+            playList[currentAudio].skip(-1000);
+        }
+    }
+
+    // Mute Button
+    if (mouseX > muteButtonLogoBoxX && mouseX < muteButtonLogoBoxX + muteButtonLogoBoxWidth) {
+        if (mouseY > muteButtonLogoBoxY && mouseY < muteButtonLogoBoxY + muteButtonLogoBoxHeight) {
+            if (playList[currentAudio].isMuted()) {
+                playList[currentAudio].unmute();
+            } else {
+                playList[currentAudio].mute();
+            }
+        }
+    }
+
+    // Next Button
+    if (mouseX > nextButtonLogoBoxX && mouseX < nextButtonLogoBoxX + nextButtonLogoBoxWidth) {
+        if (mouseY > nextButtonLogoBoxY && mouseY < nextButtonLogoBoxY + nextButtonLogoBoxHeight) {
+            if (playList[currentAudio].isPlaying()) {
+                playList[currentAudio].pause();
+                playList[currentAudio].rewind();
+                if  (currentAudio == numberOfAudio - 1) {
+                    currentAudio = 0;
+                } else {
+                    currentAudio++;
+                }
+                playList[currentAudio].play();
+            } else {
+                playList[currentAudio].rewind();
+                if  (currentAudio == numberOfAudio - 1) {
+                    currentAudio = 0;
+                } else {
+                    currentAudio++;
+                }
+            }
+        }
+    }
+
+    // Previous Button
+    if (mouseX > previousButtonLogoBoxX && mouseX < previousButtonLogoBoxX + previousButtonLogoBoxWidth) {
+        if (mouseY > previousButtonLogoBoxY && mouseY < previousButtonLogoBoxY + previousButtonLogoBoxHeight) {
+            if (playList[currentAudio].isPlaying()) {
+                playList[currentAudio].pause();
+                playList[currentAudio].rewind();
+                if  (currentAudio == 0) {
+                    currentAudio = numberOfAudio - 1;
+                } else {
+                    currentAudio--;
+                }
+                playList[currentAudio].play();
+            } else {
+                playList[currentAudio].rewind();
+                if  (currentAudio == 0) {
+                    currentAudio = numberOfAudio - 1;
+                } else {
+                    currentAudio--;
+                }
+            }
+        }
+    }
+
+    // Shuffle Button
+    if (mouseX > shuffleButtonLogoBoxX && mouseX < shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth) {
+        if (mouseY > shuffleButtonLogoBoxY && mouseY < shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight) {
+            int randomAudio = int(random(0, numberOfAudio));
+            if (playList[currentAudio].isPlaying()) {
+                playList[currentAudio].pause();
+                playList[currentAudio].rewind();
+                currentAudio = randomAudio;
+                playList[currentAudio].play();
+            } else {
+                playList[currentAudio].rewind();
+                currentAudio = randomAudio;
+                playList[currentAudio].play();
+            }
+        }
+    }
+
+    // Exit Button
+    if (mouseX > exitButtonLogoBoxX && mouseX < exitButtonLogoBoxX + exitButtonLogoBoxWidth) {
+        if (mouseY > exitButtonLogoBoxY && mouseY < exitButtonLogoBoxY + exitButtonLogoBoxHeight) {
+            exit();
+        }
+    }
 } // End mousePressed
 
 

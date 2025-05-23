@@ -11,7 +11,7 @@ import ddf.minim.ugens.*;
 int appWidth, appHeight;
 
 Minim minim;
-int numberOfAudio = 4;
+int numberOfAudio = 3;
 int currentAudio;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
 
@@ -35,7 +35,6 @@ void setup() {
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
   playList[2] = minim.loadFile("Audio/Virus.mp3");
-  playList[3] = minim.loadFile("Audio/skibidi-toilet.mp3");
 
   divX = appWidth/4 * 1;
   divY = appHeight/4 * 1;
