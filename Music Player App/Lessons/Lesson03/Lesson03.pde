@@ -134,13 +134,6 @@ void setup() {
   playButtonLogoBoxY = playButtonY + (playButtonHeight - playButtonLogoBoxSamllerSide) / 2;
   playButtonLogoBoxWidth = playButtonLogoBoxSamllerSide;
   playButtonLogoBoxHeight = playButtonLogoBoxSamllerSide;
-  // playButtonLogoTringle
-  playButtonLogoTringleX1 = (playButtonLogoBoxWidth/4 * 1) + playButtonLogoBoxX;
-  playButtonLogoTringleY1 = (playButtonLogoBoxHeight/4 * 1) + playButtonLogoBoxY;
-  playButtonLogoTringleX2 = (playButtonLogoBoxWidth/4 * 1) + playButtonLogoBoxX;
-  playButtonLogoTringleY2 = (playButtonLogoBoxHeight/4 * 3) + playButtonLogoBoxY;
-  playButtonLogoTringleX3 = (playButtonLogoBoxWidth/4 * 3) + playButtonLogoBoxX;
-  playButtonLogoTringleY3 = (playButtonLogoBoxHeight/4 * 2) + playButtonLogoBoxY;
 
   // pauseButton
   pauseButtonX = appWidth/50 * 30;
@@ -153,17 +146,6 @@ void setup() {
   pauseButtonLogoBoxY = pauseButtonY + (pauseButtonHeight - pauseButtonLogoBoxSmallerSide) / 2;
   pauseButtonLogoBoxWidth = pauseButtonLogoBoxSmallerSide;
   pauseButtonLogoBoxHeight = pauseButtonLogoBoxSmallerSide;
-  // pauseButtonLogoBoxShape1
-  pauseButtonLogoBoxShape1X = (pauseButtonLogoBoxWidth/8 * 2) + pauseButtonLogoBoxX;
-  pauseButtonLogoBoxShape1Y = (pauseButtonLogoBoxHeight/8 * 2) + pauseButtonLogoBoxY;
-  pauseButtonLogoBoxShape1Width = (pauseButtonLogoBoxWidth/8 * 1);
-  pauseButtonLogoBoxShape1Height = (pauseButtonLogoBoxHeight/8 * 4);
-  // pauseButtonLogoBoxShape2
-  pauseButtonLogoBoxShape2X = (pauseButtonLogoBoxWidth/8 * 5) + pauseButtonLogoBoxX;
-  pauseButtonLogoBoxShape2Y = (pauseButtonLogoBoxHeight/8 * 2) + pauseButtonLogoBoxY;
-  pauseButtonLogoBoxShape2Width = (pauseButtonLogoBoxWidth/8 * 1);
-  pauseButtonLogoBoxShape2Height = (pauseButtonLogoBoxHeight/8 * 4);
-  
 
   // stopButton
   stopButtonX = appWidth/50 * 17;
@@ -176,11 +158,6 @@ void setup() {
   stopButtonLogoBoxY = stopButtonY + (stopButtonHeight - stopButtonLogoBoxSmallerSide) / 2;
   stopButtonLogoBoxWidth = stopButtonLogoBoxSmallerSide;
   stopButtonLogoBoxHeight = stopButtonLogoBoxSmallerSide;
-  // stopButtonLogoBoxShape
-  stopButtonLogoBoxShapeX = (stopButtonLogoBoxWidth/4 * 1) + stopButtonLogoBoxX;
-  stopButtonLogoBoxShapeY = (stopButtonLogoBoxHeight/4 * 1) + stopButtonLogoBoxY;
-  stopButtonLogoBoxShapeWidth = (stopButtonLogoBoxWidth/4 * 2);
-  stopButtonLogoBoxShapeHeight = (stopButtonLogoBoxHeight/4 * 2);
 
   // loopOnceButton
   loopOnceButtonX = appWidth/50 * 34;
@@ -193,26 +170,6 @@ void setup() {
   loopOnceButtonLogoBoxY = loopOnceButtonY + (loopOnceButtonHeight - loopOnceButtonLogoBoxSmallerSide) / 2;
   loopOnceButtonLogoBoxWidth = loopOnceButtonLogoBoxSmallerSide;
   loopOnceButtonLogoBoxHeight = loopOnceButtonLogoBoxSmallerSide;
-  // Loop Once Symbol Calculations
-  loopOnceArcCenterX = loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth / 2.0;
-  loopOnceArcCenterY = loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight / 2.0;
-  loopOnceArcDiameter = min(loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight) * 0.65;
-  loopOnceArcStartAngle = QUARTER_PI;
-  loopOnceArcStopAngle = TWO_PI - HALF_PI;
-  // Arrowhead for Loop Once (at its end: loopOnceArcCenterX, loopOnceArcCenterY)
-  float tipX = loopOnceArcCenterX + cos(loopOnceArcStopAngle) * (loopOnceArcDiameter / 2.0);
-  float tipY = loopOnceArcCenterY + sin(loopOnceArcStopAngle) * (loopOnceArcDiameter / 2.0);
-  loopOnceArrowheadX1 = tipX;
-  loopOnceArrowheadY1 = tipY;
-  float arrowBaseOffsetAngle = 0.25;
-  float arrowHalfWidth = loopOnceArcDiameter * 0.12;
-  loopOnceArrowheadX2 = loopOnceArcCenterX + (loopOnceArcDiameter/2 - arrowHalfWidth) * cos(loopOnceArcStopAngle - arrowBaseOffsetAngle);
-  loopOnceArrowheadY2 = loopOnceArcCenterY + (loopOnceArcDiameter/2 - arrowHalfWidth) * sin(loopOnceArcStopAngle - arrowBaseOffsetAngle);
-  loopOnceArrowheadX3 = loopOnceArcCenterX + (loopOnceArcDiameter/2 + arrowHalfWidth) * cos(loopOnceArcStopAngle - arrowBaseOffsetAngle);
-  loopOnceArrowheadY3 = loopOnceArcCenterY + (loopOnceArcDiameter/2 + arrowHalfWidth) * sin(loopOnceArcStopAngle - arrowBaseOffsetAngle);
-  loopOnceTextPosX = loopOnceArcCenterX;
-  loopOnceTextPosY = loopOnceArcCenterY;
-  loopOnceTextSizeVal = loopOnceArcDiameter * 0.5;
 
   // loopInfiniteButton
   loopInfiniteButtonX = appWidth/50 * 38;
@@ -225,15 +182,6 @@ void setup() {
   loopInfiniteButtonLogoBoxY = loopInfiniteButtonY + (loopInfiniteButtonHeight - loopInfiniteButtonLogoBoxSmallerSide) / 2;
   loopInfiniteButtonLogoBoxWidth = loopInfiniteButtonLogoBoxSmallerSide;
   loopInfiniteButtonLogoBoxHeight = loopInfiniteButtonLogoBoxSmallerSide;
-  // Loop Infinite Symbol (Infinity Sign ∞) Calculations
-  float infinitySymbolCenterX = loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth / 2.0;
-  float infinitySymbolCenterY = loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight / 2.0;
-  loopInfiniteEllipseWidth = loopInfiniteButtonLogoBoxWidth * 0.35;
-  loopInfiniteEllipseHeight = loopInfiniteButtonLogoBoxHeight * 0.45;
-  loopInfiniteEllipse1X = infinitySymbolCenterX - loopInfiniteEllipseWidth / 2.0;
-  loopInfiniteEllipse1Y = infinitySymbolCenterY;
-  loopInfiniteEllipse2X = infinitySymbolCenterX + loopInfiniteEllipseWidth / 2.0;
-  loopInfiniteEllipse2Y = infinitySymbolCenterY;
 
   // fastForwardButton
   fastForwardButtonX = appWidth/50 * 13;
@@ -246,20 +194,6 @@ void setup() {
   fastForwardButtonLogoBoxY = fastForwardButtonY + (fastForwardButtonHeight - fastForwardButtonLogoBoxSmallerSide) / 2;
   fastForwardButtonLogoBoxWidth = fastForwardButtonLogoBoxSmallerSide;
   fastForwardButtonLogoBoxHeight = fastForwardButtonLogoBoxSmallerSide;
-  // fastForwardButtonTringle1
-  fastForwardButtonTringle1X1 = (fastForwardButtonLogoBoxWidth/4 * 1) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle1Y1 = (fastForwardButtonLogoBoxHeight/4 * 1) + fastForwardButtonLogoBoxY;
-  fastForwardButtonTringle1X2 = (fastForwardButtonLogoBoxWidth/4 * 1) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle1Y2 = (fastForwardButtonLogoBoxHeight/4 * 3) + fastForwardButtonLogoBoxY;
-  fastForwardButtonTringle1X3 = (fastForwardButtonLogoBoxWidth/4 * 2) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle1Y3 = (fastForwardButtonLogoBoxHeight/4 * 2) + fastForwardButtonLogoBoxY;
-  // fastForwardButtonTringle2
-  fastForwardButtonTringle2X1 = (fastForwardButtonLogoBoxWidth/4 * 2) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle2Y1 = (fastForwardButtonLogoBoxHeight/4 * 1) + fastForwardButtonLogoBoxY;
-  fastForwardButtonTringle2X2 = (fastForwardButtonLogoBoxWidth/4 * 2) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle2Y2 = (fastForwardButtonLogoBoxHeight/4 * 3) + fastForwardButtonLogoBoxY;
-  fastForwardButtonTringle2X3 = (fastForwardButtonLogoBoxWidth/4 * 3) + fastForwardButtonLogoBoxX;
-  fastForwardButtonTringle2Y3 = (fastForwardButtonLogoBoxHeight/4 * 2) + fastForwardButtonLogoBoxY;
 
   // fastRewindButton
   fastRewindButtonX = appWidth/50 * 9;
@@ -272,20 +206,6 @@ void setup() {
   fastRewindButtonLogoBoxY = fastRewindButtonY + (fastRewindButtonHeight - fastRewindButtonLogoBoxSmallerSide) / 2;
   fastRewindButtonLogoBoxWidth = fastRewindButtonLogoBoxSmallerSide;
   fastRewindButtonLogoBoxHeight = fastRewindButtonLogoBoxSmallerSide;
-  // fastRewindButtonTringle1
-  fastRewindButtonTringle1X1 = (fastRewindButtonLogoBoxWidth/4 * 1) + fastRewindButtonLogoBoxX;
-  fastRewindButtonTringle1Y1 = (fastRewindButtonLogoBoxHeight/4 * 2) + fastRewindButtonLogoBoxY;
-  fastRewindButtonTringle1X2 = (fastRewindButtonLogoBoxWidth/4 * 2) + fastRewindButtonLogoBoxX;
-  fastRewindButtonTringle1Y2 = (fastRewindButtonLogoBoxHeight/4 * 1) + fastRewindButtonLogoBoxY;
-  fastRewindButtonTringle1X3 = (fastRewindButtonLogoBoxWidth/4 * 2) + fastRewindButtonLogoBoxX;
-  fastRewindButtonTringle1Y3 = (fastRewindButtonLogoBoxHeight/4 * 3) + fastRewindButtonLogoBoxY;
-  // fastRewindButtonTringle2
-  fastRewindButtonTringle2X1 = (fastRewindButtonLogoBoxWidth/4 * 3) + fastRewindButtonLogoBoxX;
-  fastRewindButtonTringle2Y1 = (fastRewindButtonLogoBoxHeight/4 * 1) + fastRewindButtonLogoBoxY;
-  fastRewindButtonTringle2X2 = (fastRewindButtonLogoBoxWidth/4 * 2) + fastRewindButtonLogoBoxX;
-  fastRewindButtonTringle2Y2 = (fastRewindButtonLogoBoxHeight/4 * 2) + fastRewindButtonLogoBoxY;
-  fastRewindButtonTringle2X3 = (fastRewindButtonLogoBoxWidth/4 * 3) + fastRewindButtonLogoBoxX;
-  fastRewindButtonTringle2Y3 = (fastRewindButtonLogoBoxHeight/4 * 3) + fastRewindButtonLogoBoxY;
 
   // muteButton
   muteButtonX = appWidth/50 * 42;
@@ -298,22 +218,6 @@ void setup() {
   muteButtonLogoBoxY = muteButtonY + (muteButtonHeight - muteButtonLogoBoxSmallerSide) / 2;
   muteButtonLogoBoxWidth = muteButtonLogoBoxSmallerSide;
   muteButtonLogoBoxHeight = muteButtonLogoBoxSmallerSide;
-  muteSpeakerRectWidth = muteButtonLogoBoxWidth * 0.3;
-  muteSpeakerRectHeight = muteButtonLogoBoxHeight * 0.5;
-  muteSpeakerRectX = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 1/4;
-  muteSpeakerRectY = muteButtonLogoBoxY + (muteButtonLogoBoxHeight - muteSpeakerRectHeight) / 2.0;
-  // Speaker triangle
-  muteSpeakerTriangleX1 = muteSpeakerRectX + muteSpeakerRectWidth;
-  muteSpeakerTriangleY1 = muteSpeakerRectY;
-  muteSpeakerTriangleX2 = muteSpeakerRectX + muteSpeakerRectWidth;
-  muteSpeakerTriangleY2 = muteSpeakerRectY + muteSpeakerRectHeight;
-  muteSpeakerTriangleX3 = muteSpeakerTriangleX1 + muteSpeakerRectWidth * 0.6;
-  muteSpeakerTriangleY3 = muteSpeakerRectY + muteSpeakerRectHeight / 2.0;
-  // Diagonal line
-  muteDiagonalLineX1 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 1/4;
-  muteDiagonalLineY1 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 1/4;
-  muteDiagonalLineX2 = muteButtonLogoBoxX + muteButtonLogoBoxWidth * 3/4;
-  muteDiagonalLineY2 = muteButtonLogoBoxY + muteButtonLogoBoxHeight * 3/4;
 
   // nextButton
   nextButtonX = appWidth/50 * 5;
@@ -326,18 +230,6 @@ void setup() {
   nextButtonLogoBoxY = nextButtonY + (nextButtonHeight - nextButtonLogoBoxSmallerSide) / 2;
   nextButtonLogoBoxWidth = nextButtonLogoBoxSmallerSide;
   nextButtonLogoBoxHeight = nextButtonLogoBoxSmallerSide;
-  // nextButtonLogoBoxShape
-  nextButtonLogoBoxShapeX = (nextButtonLogoBoxWidth/8 * 5) + nextButtonLogoBoxX;
-  nextButtonLogoBoxShapeY = (nextButtonLogoBoxHeight/8 * 2) + nextButtonLogoBoxY;
-  nextButtonLogoBoxShapeWidth = (nextButtonLogoBoxWidth/8 * 1);
-  nextButtonLogoBoxShapeHeight = (nextButtonLogoBoxHeight/8 * 4);
-  // nextButtonLogoTringle
-  nextButtonLogoTringleX1 = (nextButtonLogoBoxWidth/8 * 2) + nextButtonLogoBoxX;
-  nextButtonLogoTringleY1 = (nextButtonLogoBoxHeight/8 * 2) + nextButtonLogoBoxY;
-  nextButtonLogoTringleX2 = (nextButtonLogoBoxWidth/8 * 5) + nextButtonLogoBoxX;
-  nextButtonLogoTringleY2 = (nextButtonLogoBoxHeight/8 * 4) + nextButtonLogoBoxY;
-  nextButtonLogoTringleX3 = (nextButtonLogoBoxWidth/8 * 2) + nextButtonLogoBoxX;
-  nextButtonLogoTringleY3 = (nextButtonLogoBoxHeight/8 * 6) + nextButtonLogoBoxY;
 
   // previousButton
   previousButtonX = appWidth/50 * 1;
@@ -350,18 +242,6 @@ void setup() {
   previousButtonLogoBoxY = previousButtonY + (previousButtonHeight - previousButtonLogoBoxSmallerSide) / 2;
   previousButtonLogoBoxWidth = previousButtonLogoBoxSmallerSide;
   previousButtonLogoBoxHeight = previousButtonLogoBoxSmallerSide;
-  // previousButtonLogoBoxShape
-  previousButtonLogoBoxShapeX = (previousButtonLogoBoxWidth/8 * 2) + previousButtonLogoBoxX;
-  previousButtonLogoBoxShapeY = (previousButtonLogoBoxHeight/8 * 2) + previousButtonLogoBoxY;
-  previousButtonLogoBoxShapeWidth = (previousButtonLogoBoxWidth/8 * 1);
-  previousButtonLogoBoxShapeHeight = (previousButtonLogoBoxHeight/8 * 4);
-  // previousButtonLogoTringle
-  previousButtonLogoTringleX1 = (previousButtonLogoBoxWidth/8 * 6) + previousButtonLogoBoxX;
-  previousButtonLogoTringleY1 = (previousButtonLogoBoxHeight/8 * 2) + previousButtonLogoBoxY;
-  previousButtonLogoTringleX2 = (previousButtonLogoBoxWidth/8 * 6) + previousButtonLogoBoxX;
-  previousButtonLogoTringleY2 = (previousButtonLogoBoxHeight/8 * 6) + previousButtonLogoBoxY;
-  previousButtonLogoTringleX3 = (previousButtonLogoBoxWidth/8 * 3) + previousButtonLogoBoxX;
-  previousButtonLogoTringleY3 = (previousButtonLogoBoxHeight/8 * 4) + previousButtonLogoBoxY;
 
   // shuffleButton
   shuffleButtonX = appWidth/50 * 46;
@@ -374,29 +254,6 @@ void setup() {
   shuffleButtonLogoBoxY = shuffleButtonY + (shuffleButtonHeight - shuffleButtonLogoBoxSmallerSide) / 2;
   shuffleButtonLogoBoxWidth = shuffleButtonLogoBoxSmallerSide;
   shuffleButtonLogoBoxHeight = shuffleButtonLogoBoxSmallerSide;
-  // Shuffle Symbol Calculations
-  float shufflePadding = shuffleButtonLogoBoxWidth / 4.0;
-  float shuffleArrowHeadSize = shuffleButtonLogoBoxWidth / 5.0;
-  // Line 1: Top-left to Bottom-right
-  shuffleLine1X1 = shuffleButtonLogoBoxX + shufflePadding;
-  shuffleLine1Y1 = shuffleButtonLogoBoxY + shufflePadding;
-  shuffleLine1X2 = shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth - shufflePadding;
-  shuffleLine1Y2 = shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight - shufflePadding;
-  // Arrowhead for Line 1 (at its end: shuffleLine1X2, shuffleLine1Y2)
-  shuffleLine1ArrowAX2 = shuffleLine1X2 - shuffleArrowHeadSize;
-  shuffleLine1ArrowAY2 = shuffleLine1Y2;
-  shuffleLine1ArrowBX2 = shuffleLine1X2;
-  shuffleLine1ArrowBY2 = shuffleLine1Y2 - shuffleArrowHeadSize;
-  // Line 2: Bottom-left to Top-right
-  shuffleLine2X1 = shuffleButtonLogoBoxX + shufflePadding;
-  shuffleLine2Y1 = shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight - shufflePadding;
-  shuffleLine2X2 = shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth - shufflePadding;
-  shuffleLine2Y2 = shuffleButtonLogoBoxY + shufflePadding;
-  // Arrowhead for Line 2 (at its end: shuffleLine2X2, shuffleLine2Y2)
-  shuffleLine2ArrowAX2 = shuffleLine2X2 - shuffleArrowHeadSize;
-  shuffleLine2ArrowAY2 = shuffleLine2Y2;
-  shuffleLine2ArrowBX2 = shuffleLine2X2;
-  shuffleLine2ArrowBY2 = shuffleLine2Y2 + shuffleArrowHeadSize;
 
   // exitButton
   exitButtonX = appWidth/50 * (50 - 5);
@@ -405,47 +262,35 @@ void setup() {
   exitButtonHeight = appHeight/50 * 4;
   // exitButtonLogoBox
   float exitButtonLogoBoxSmallerSide = (exitButtonWidth < exitButtonHeight) ? exitButtonWidth : exitButtonHeight;
-  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide); // Adjusted to be on the right side of the button
-  exitButtonLogoBoxY = exitButtonY; // Adjusted to be at the top of the button
+  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide);
+  exitButtonLogoBoxY = exitButtonY;
   exitButtonLogoBoxWidth = exitButtonLogoBoxSmallerSide;
   exitButtonLogoBoxHeight = exitButtonLogoBoxSmallerSide;
-  // Exit Symbol ("X") Calculations
-  float exitPadding = exitButtonLogoBoxWidth / 4.0;
-  // Line 1: Top-left to Bottom-right
-  exitLine1X1 = exitButtonLogoBoxX + exitPadding;
-  exitLine1Y1 = exitButtonLogoBoxY + exitPadding;
-  exitLine1X2 = exitButtonLogoBoxX + exitButtonLogoBoxWidth - exitPadding;
-  exitLine1Y2 = exitButtonLogoBoxY + exitButtonLogoBoxHeight - exitPadding;
-  // Line 2: Top-right to Bottom-left
-  exitLine2X1 = exitButtonLogoBoxX + exitButtonLogoBoxWidth - exitPadding;
-  exitLine2Y1 = exitButtonLogoBoxY + exitPadding;
-  exitLine2X2 = exitButtonLogoBoxX + exitPadding;
-  exitLine2Y2 = exitButtonLogoBoxY + exitButtonLogoBoxHeight - exitPadding;
 
 
   // timeLine
   timeLineX = appWidth/50 * 10;
   timeLineY = appHeight/50 * 45;
   timeLineWidth = appWidth/50 * 21;
-  timeLineHeight = appHeight/50 * 4;
+  timeLineHeight = appHeight/50 * 3;
 
   // currentTime
   currentTimeX = appWidth/50 * 1;
   currentTimeY = appHeight/50 * 45;
   currentTimeWidth = appWidth/50 * 8;
-  currentTimeHeight = appHeight/50 * 4;
+  currentTimeHeight = appHeight/50 * 3;
 
   // leftTime
   leftTimeX = appWidth/50 * 41;
   leftTimeY = appHeight/50 * 45;
   leftTimeWidth = appWidth/50 * 8;
-  leftTimeHeight = appHeight/50 * 4;
+  leftTimeHeight = appHeight/50 * 3;
 
   // audioTime
   audioTimeX = appWidth/50 * 32;
   audioTimeY = appHeight/50 * 45;
   audioTimeWidth = appWidth/50 * 8;
-  audioTimeHeight = appHeight/50 * 4;
+  audioTimeHeight = appHeight/50 * 3;
 
 
 
