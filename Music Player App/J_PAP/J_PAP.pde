@@ -420,8 +420,8 @@ void setup() {
   exitButtonHeight = appHeight/50 * 4;
   // exitButtonLogoBox
   float exitButtonLogoBoxSmallerSide = (exitButtonWidth < exitButtonHeight) ? exitButtonWidth : exitButtonHeight;
-  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide); // Adjusted to be on the right side of the button
-  exitButtonLogoBoxY = exitButtonY; // Adjusted to be at the top of the button
+  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide);
+  exitButtonLogoBoxY = exitButtonY;
   exitButtonLogoBoxWidth = exitButtonLogoBoxSmallerSide;
   exitButtonLogoBoxHeight = exitButtonLogoBoxSmallerSide;
   // Exit Symbol ("X") Calculations
