@@ -12,71 +12,39 @@ float imageX, imageY, imageWidth, imageHeight;
 
 float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
 float playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight;
-float playButtonLogoTringleX1, playButtonLogoTringleY1, playButtonLogoTringleX2, playButtonLogoTringleY2, playButtonLogoTringleX3, playButtonLogoTringleY3;
 
 float pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight;
 float pauseButtonLogoBoxX, pauseButtonLogoBoxY, pauseButtonLogoBoxWidth, pauseButtonLogoBoxHeight;
-float pauseButtonLogoBoxShape1X, pauseButtonLogoBoxShape1Y, pauseButtonLogoBoxShape1Width, pauseButtonLogoBoxShape1Height;
-float pauseButtonLogoBoxShape2X, pauseButtonLogoBoxShape2Y, pauseButtonLogoBoxShape2Width, pauseButtonLogoBoxShape2Height;
 
 float stopButtonX, stopButtonY, stopButtonWidth, stopButtonHeight;
 float stopButtonLogoBoxX, stopButtonLogoBoxY, stopButtonLogoBoxWidth, stopButtonLogoBoxHeight;
-float stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWidth, stopButtonLogoBoxShapeHeight;
 
 float loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight;
 float loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight;
-// Loop Once Symbol
-float loopOnceArcCenterX, loopOnceArcCenterY, loopOnceArcDiameter;
-float loopOnceArcStartAngle, loopOnceArcStopAngle;
-float loopOnceArrowheadX1, loopOnceArrowheadY1, loopOnceArrowheadX2, loopOnceArrowheadY2, loopOnceArrowheadX3, loopOnceArrowheadY3;
-String loopOnceTextContent = "1";
-float loopOnceTextPosX, loopOnceTextPosY, loopOnceTextSizeVal;
 
 float loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight;
 float loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight;
-// Loop Infinite Symbol (Infinity Sign ∞)
-float loopInfiniteEllipse1X, loopInfiniteEllipse1Y, loopInfiniteEllipse2X, loopInfiniteEllipse2Y;
-float loopInfiniteEllipseWidth, loopInfiniteEllipseHeight;
 
 float fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight;
 float fastForwardButtonLogoBoxX, fastForwardButtonLogoBoxY, fastForwardButtonLogoBoxWidth, fastForwardButtonLogoBoxHeight;
-float fastForwardButtonTringle1X1, fastForwardButtonTringle1Y1, fastForwardButtonTringle1X2, fastForwardButtonTringle1Y2, fastForwardButtonTringle1X3, fastForwardButtonTringle1Y3;
-float fastForwardButtonTringle2X1, fastForwardButtonTringle2Y1, fastForwardButtonTringle2X2, fastForwardButtonTringle2Y2, fastForwardButtonTringle2X3, fastForwardButtonTringle2Y3;
 
 float fastRewindButtonX, fastRewindButtonY, fastRewindButtonWidth, fastRewindButtonHeight;
 float fastRewindButtonLogoBoxX, fastRewindButtonLogoBoxY, fastRewindButtonLogoBoxWidth, fastRewindButtonLogoBoxHeight;
-float fastRewindButtonTringle1X1, fastRewindButtonTringle1Y1, fastRewindButtonTringle1X2, fastRewindButtonTringle1Y2, fastRewindButtonTringle1X3, fastRewindButtonTringle1Y3;
-float fastRewindButtonTringle2X1, fastRewindButtonTringle2Y1, fastRewindButtonTringle2X2, fastRewindButtonTringle2Y2, fastRewindButtonTringle2X3, fastRewindButtonTringle2Y3;
 
 float muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight;
 float muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight;
-float muteSpeakerRectX, muteSpeakerRectY, muteSpeakerRectWidth, muteSpeakerRectHeight;
-float muteSpeakerTriangleX1, muteSpeakerTriangleY1, muteSpeakerTriangleX2, muteSpeakerTriangleY2, muteSpeakerTriangleX3, muteSpeakerTriangleY3;
-float muteDiagonalLineX1, muteDiagonalLineY1, muteDiagonalLineX2, muteDiagonalLineY2;
 
 float nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight;
 float nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight;
-float nextButtonLogoBoxShapeX, nextButtonLogoBoxShapeY, nextButtonLogoBoxShapeWidth, nextButtonLogoBoxShapeHeight;
-float nextButtonLogoTringleX1, nextButtonLogoTringleY1, nextButtonLogoTringleX2, nextButtonLogoTringleY2, nextButtonLogoTringleX3, nextButtonLogoTringleY3;
 
 float previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight;
 float previousButtonLogoBoxX, previousButtonLogoBoxY, previousButtonLogoBoxWidth, previousButtonLogoBoxHeight;
-float previousButtonLogoBoxShapeX, previousButtonLogoBoxShapeY, previousButtonLogoBoxShapeWidth, previousButtonLogoBoxShapeHeight;
-float previousButtonLogoTringleX1, previousButtonLogoTringleY1, previousButtonLogoTringleX2, previousButtonLogoTringleY2, previousButtonLogoTringleX3, previousButtonLogoTringleY3;
 
 float shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight;
 float shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight;
-float shuffleLine1X1, shuffleLine1Y1, shuffleLine1X2, shuffleLine1Y2;
-float shuffleLine1ArrowAX2, shuffleLine1ArrowAY2;
-float shuffleLine1ArrowBX2, shuffleLine1ArrowBY2;
-float shuffleLine2X1, shuffleLine2Y1, shuffleLine2X2, shuffleLine2Y2;
-float shuffleLine2ArrowAX2, shuffleLine2ArrowAY2;
-float shuffleLine2ArrowBX2, shuffleLine2ArrowBY2;
 
 float exitButtonX, exitButtonY, exitButtonWidth, exitButtonHeight;
 float exitButtonLogoBoxX, exitButtonLogoBoxY, exitButtonLogoBoxWidth, exitButtonLogoBoxHeight;
-float exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2;
-float exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2;
 
 float timeLineX, timeLineY, timeLineWidth, timeLineHeight;
 float currentTimeX, currentTimeY, currentTimeWidth, currentTimeHeight;
@@ -303,99 +271,40 @@ void setup() {
 
   // rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
   rect(playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight);
-  // triangle(playButtonLogoTringleX1, playButtonLogoTringleY1, playButtonLogoTringleX2, playButtonLogoTringleY2, playButtonLogoTringleX3, playButtonLogoTringleY3);
 
   // rect(pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight);
   rect(pauseButtonLogoBoxX, pauseButtonLogoBoxY, pauseButtonLogoBoxWidth, pauseButtonLogoBoxHeight);
-  // rect(pauseButtonLogoBoxShape1X, pauseButtonLogoBoxShape1Y, pauseButtonLogoBoxShape1Width, pauseButtonLogoBoxShape1Height);
-  // rect(pauseButtonLogoBoxShape2X, pauseButtonLogoBoxShape2Y, pauseButtonLogoBoxShape2Width, pauseButtonLogoBoxShape2Height);
 
   // rect(stopButtonX, stopButtonY, stopButtonWidth, stopButtonHeight);
   rect(stopButtonLogoBoxX, stopButtonLogoBoxY, stopButtonLogoBoxWidth, stopButtonLogoBoxHeight);
-  // rect(stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWidth, stopButtonLogoBoxShapeHeight);
 
   // rect(loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight);
   rect(loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight);
-  // pushStyle();
-  // float commonStrokeWeight = max(1, loopOnceButtonLogoBoxWidth / 22.0);
-  // stroke(0);
-  // strokeWeight(commonStrokeWeight);
-  // noFill();
-  // arc(loopOnceArcCenterX, loopOnceArcCenterY, loopOnceArcDiameter, loopOnceArcDiameter, loopOnceArcStartAngle, loopOnceArcStopAngle);
-  // fill(0);
-  // noStroke();
-  // triangle(loopOnceArrowheadX1, loopOnceArrowheadY1, loopOnceArrowheadX2, loopOnceArrowheadY2, loopOnceArrowheadX3, loopOnceArrowheadY3);
-  // fill(0);
-  // textAlign(CENTER, CENTER);
-  // textSize(loopOnceTextSizeVal);
-  // text(loopOnceTextContent, loopOnceTextPosX, loopOnceTextPosY);
-  // popStyle();
 
   // rect(loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight);
   rect(loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight);
-  // pushStyle();
-  // stroke(0);
-  // strokeWeight(max(1, loopInfiniteButtonLogoBoxWidth / 22.0));
-  // noFill();
-  // ellipseMode(CENTER);
-  // ellipse(loopInfiniteEllipse1X, loopInfiniteEllipse1Y, loopInfiniteEllipseWidth, loopInfiniteEllipseHeight);
-  // ellipse(loopInfiniteEllipse2X, loopInfiniteEllipse2Y, loopInfiniteEllipseWidth, loopInfiniteEllipseHeight);
-  // popStyle();
 
   // rect(fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight);
   rect(fastForwardButtonLogoBoxX, fastForwardButtonLogoBoxY, fastForwardButtonLogoBoxWidth, fastForwardButtonLogoBoxHeight);
-  // triangle(fastForwardButtonTringle1X1, fastForwardButtonTringle1Y1, fastForwardButtonTringle1X2, fastForwardButtonTringle1Y2, fastForwardButtonTringle1X3, fastForwardButtonTringle1Y3);
-  // triangle(fastForwardButtonTringle2X1, fastForwardButtonTringle2Y1, fastForwardButtonTringle2X2, fastForwardButtonTringle2Y2, fastForwardButtonTringle2X3, fastForwardButtonTringle2Y3);
 
   // rect(fastRewindButtonX, fastRewindButtonY, fastRewindButtonWidth, fastRewindButtonHeight);
   rect(fastRewindButtonLogoBoxX, fastRewindButtonLogoBoxY, fastRewindButtonLogoBoxWidth, fastRewindButtonLogoBoxHeight);
-  // triangle(fastRewindButtonTringle1X1, fastRewindButtonTringle1Y1, fastRewindButtonTringle1X2, fastRewindButtonTringle1Y2, fastRewindButtonTringle1X3, fastRewindButtonTringle1Y3);
-  // triangle(fastRewindButtonTringle2X1, fastRewindButtonTringle2Y1, fastRewindButtonTringle2X2, fastRewindButtonTringle2Y2, fastRewindButtonTringle2X3, fastRewindButtonTringle2Y3);
 
   // rect(muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight);
   rect(muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight);
-  // pushStyle();
-  // stroke(0);
-  // strokeWeight(max(1, muteButtonLogoBoxWidth / 25.0));
-  // fill(0);
-  // rect(muteSpeakerRectX, muteSpeakerRectY, muteSpeakerRectWidth, muteSpeakerRectHeight);
-  // triangle(muteSpeakerTriangleX1, muteSpeakerTriangleY1, muteSpeakerTriangleX2, muteSpeakerTriangleY2, muteSpeakerTriangleX3, muteSpeakerTriangleY3);
-  // stroke(255, 0, 0);
-  // line(muteDiagonalLineX1, muteDiagonalLineY1, muteDiagonalLineX2, muteDiagonalLineY2);
-  // popStyle();
 
   // rect(nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight);
   rect(nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight);
-  // rect(nextButtonLogoBoxShapeX, nextButtonLogoBoxShapeY, nextButtonLogoBoxShapeWidth, nextButtonLogoBoxShapeHeight);
-  // triangle(nextButtonLogoTringleX1, nextButtonLogoTringleY1, nextButtonLogoTringleX2, nextButtonLogoTringleY2, nextButtonLogoTringleX3, nextButtonLogoTringleY3);
 
   // rect(previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight);
   rect(previousButtonLogoBoxX, previousButtonLogoBoxY, previousButtonLogoBoxWidth, previousButtonLogoBoxHeight);
-  // rect(previousButtonLogoBoxShapeX, previousButtonLogoBoxShapeY, previousButtonLogoBoxShapeWidth, previousButtonLogoBoxShapeHeight);
-  // triangle(previousButtonLogoTringleX1, previousButtonLogoTringleY1, previousButtonLogoTringleX2, previousButtonLogoTringleY2, previousButtonLogoTringleX3, previousButtonLogoTringleY3);
 
   // rect(shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight);
   rect(shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight);
-  // pushStyle();
-  // stroke(0);
-  // strokeWeight(max(1, shuffleButtonLogoBoxWidth / 25.0));
-  // line(shuffleLine1X1, shuffleLine1Y1, shuffleLine1X2, shuffleLine1Y2);
-  // line(shuffleLine1X2, shuffleLine1Y2, shuffleLine1ArrowAX2, shuffleLine1ArrowAY2);
-  // line(shuffleLine1X2, shuffleLine1Y2, shuffleLine1ArrowBX2, shuffleLine1ArrowBY2);
-  // line(shuffleLine2X1, shuffleLine2Y1, shuffleLine2X2, shuffleLine2Y2);
-  // line(shuffleLine2X2, shuffleLine2Y2, shuffleLine2ArrowAX2, shuffleLine2ArrowAY2);
-  // line(shuffleLine2X2, shuffleLine2Y2, shuffleLine2ArrowBX2, shuffleLine2ArrowBY2);
-  // popStyle();
 
 
   // rect(exitButtonX, exitButtonY, exitButtonWidth, exitButtonHeight);
   rect(exitButtonLogoBoxX, exitButtonLogoBoxY, exitButtonLogoBoxWidth, exitButtonLogoBoxHeight);
-  // pushStyle();
-  // stroke(0);
-  // strokeWeight(max(1, exitButtonLogoBoxWidth / 15.0));
-  // line(exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2);
-  // line(exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2);
-  // popStyle();
 
   rect(timeLineX, timeLineY, timeLineWidth, timeLineHeight);
   rect(currentTimeX, currentTimeY, currentTimeWidth, currentTimeHeight);
