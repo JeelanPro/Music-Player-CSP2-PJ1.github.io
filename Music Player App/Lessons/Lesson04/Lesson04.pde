@@ -25,7 +25,6 @@ float stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWi
 
 float loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight;
 float loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight;
-// Loop Once Symbol
 float loopOnceArcCenterX, loopOnceArcCenterY, loopOnceArcDiameter;
 float loopOnceArcStartAngle, loopOnceArcStopAngle;
 float loopOnceArrowheadX1, loopOnceArrowheadY1, loopOnceArrowheadX2, loopOnceArrowheadY2, loopOnceArrowheadX3, loopOnceArrowheadY3;
@@ -34,7 +33,6 @@ float loopOnceTextPosX, loopOnceTextPosY, loopOnceTextSizeVal;
 
 float loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight;
 float loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight;
-// Loop Infinite Symbol (Infinity Sign ∞)
 float loopInfiniteEllipse1X, loopInfiniteEllipse1Y, loopInfiniteEllipse2X, loopInfiniteEllipse2Y;
 float loopInfiniteEllipseWidth, loopInfiniteEllipseHeight;
 
@@ -405,8 +403,8 @@ void setup() {
   exitButtonHeight = appHeight/50 * 4;
   // exitButtonLogoBox
   float exitButtonLogoBoxSmallerSide = (exitButtonWidth < exitButtonHeight) ? exitButtonWidth : exitButtonHeight;
-  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide); // Adjusted to be on the right side of the button
-  exitButtonLogoBoxY = exitButtonY; // Adjusted to be at the top of the button
+  exitButtonLogoBoxX = exitButtonX + (exitButtonWidth - exitButtonLogoBoxSmallerSide);
+  exitButtonLogoBoxY = exitButtonY;
   exitButtonLogoBoxWidth = exitButtonLogoBoxSmallerSide;
   exitButtonLogoBoxHeight = exitButtonLogoBoxSmallerSide;
   // Exit Symbol ("X") Calculations
