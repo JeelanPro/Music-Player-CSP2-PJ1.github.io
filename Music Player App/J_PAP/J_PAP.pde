@@ -15,11 +15,28 @@ int numberOfAudio = 3;
 int currentAudio;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
 
+String[] audioImages = new String[ numberOfAudio ];
+
 float logoX, logoY, logoWidth, logoHeight;
 float logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight;
+float logoImageWidthChanged, logoImageHeightChanged; //
+float logoImageWidth, logoImageHeight; //
+String logoFilePath; //
+PImage logoImage; //
+Boolean logoImageLandscape; //
+float logoImageAspectRatio; //
+float logoImagePrintingWidth, logoImagePrintingHeight, logoImagePrintingX, logoImagePrintingY; //
 
 float titleX, titleY, titleWidth, titleHeight;
+
 float imageX, imageY, imageWidth, imageHeight;
+float audioImageWidthChanged, audioImageHeightChanged; //
+float audioImageWidth, audioImageHeight; //
+String audioImageFilePath; //
+PImage audioImage; //
+Boolean audioImageLandscape; //
+float audioImageAspectRatio; //
+float audioImagePrintingWidth, audioImagePrintingHeight, audioImagePrintingX, audioImagePrintingY; //
 
 float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
 float playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight;
@@ -113,6 +130,11 @@ void setup() {
   playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
   playList[1] = minim.loadFile("Audio/qaseda.mp3");
   playList[2] = minim.loadFile("Audio/Virus.mp3");
+
+  // Audio Images
+  audioImages[0] = "Images/JeelanPro.jpg";
+  audioImages[1] = "Images/Skibidi.jpg";
+  audioImages[2] = "Images/Virus.jpg";
   
   // logo
   logoX = appWidth/50 * 1; 
@@ -125,6 +147,32 @@ void setup() {
   logoBoxY = logoY + (logoHeight - logoBoxSmallerSide);
   logoBoxWidth = logoBoxSmallerSide;
   logoBoxHeight = logoBoxSmallerSide;
+  // logoImage
+  logoFilePath = "Images/JeelanPro.jpg";
+  logoImage = loadImage(logoFilePath);
+  logoImageWidth = logoImage.width;
+  logoImageHeight = logoImage.height;
+  logoImageAspectRatio = (logoImageWidth >= logoImageHeight) ? logoImageWidth / logoImageHeight : logoImageHeight / logoImageWidth;
+  logoImageLandscape = (logoImageWidth > logoImageHeight) ? true : false;
+  if (logoImageLandscape) {
+    logoImageWidthChanged = logoBoxWidth;
+    logoImageHeightChanged = (logoImageWidth >= logoBoxWidth) ? logoImageWidthChanged / logoImageAspectRatio : logoImageWidthChanged * logoImageAspectRatio;
+    if (logoImageHeightChanged > logoBoxHeight) {
+        println("Error: Algorithm Error");
+        exit();
+    }
+  } else {
+    logoImageHeightChanged = logoBoxHeight;
+    logoImageWidthChanged = (logoImageHeight >= logoBoxHeight) ? logoImageHeightChanged / logoImageAspectRatio : logoImageHeightChanged * logoImageAspectRatio;
+    if (logoImageWidthChanged > logoBoxWidth) {
+        println("Error: Algorithm Error");
+        exit();
+    }
+  }
+  logoImagePrintingX = logoBoxX + (logoBoxWidth - logoImageWidthChanged) / 2;
+  logoImagePrintingY = logoBoxY + (logoBoxHeight - logoImageHeightChanged) / 2;
+  logoImagePrintingWidth = logoImageWidthChanged;
+  logoImagePrintingHeight = logoImageHeightChanged;
 
   // title
   titleX = appWidth/50 * 6;
@@ -137,6 +185,32 @@ void setup() {
   imageY = appHeight/50 * 6;
   imageWidth = appWidth/50 * 48;
   imageHeight = appHeight/50 * 34;
+  // audioImage
+  audioImageFilePath = audioImages[currentAudio];
+  audioImage = loadImage(audioImageFilePath);
+  audioImageWidth = audioImage.width;
+  audioImageHeight = audioImage.height;
+  audioImageAspectRatio = (audioImageWidth >= audioImageHeight) ? audioImageWidth / audioImageHeight : audioImageHeight / audioImageWidth;
+  audioImageLandscape = (audioImageWidth > audioImageHeight) ? true : false;
+  if (audioImageLandscape) {
+    audioImageWidthChanged = imageWidth;
+    audioImageHeightChanged = (audioImageWidth >= imageWidth) ? audioImageWidthChanged / audioImageAspectRatio : audioImageWidthChanged * audioImageAspectRatio;
+    if (audioImageHeightChanged > imageHeight) {
+        println("Error: Algorithm Error");
+        exit();
+    }
+  } else {
+    audioImageHeightChanged = imageHeight;
+    audioImageWidthChanged = (audioImageHeight >= imageHeight) ? audioImageHeightChanged / audioImageAspectRatio : audioImageHeightChanged * audioImageAspectRatio;
+    if (audioImageWidthChanged > imageWidth) {
+        println("Error: Algorithm Error");
+        exit();
+    }
+  }
+  audioImagePrintingX = imageX + (imageWidth - audioImageWidthChanged) / 2;
+  audioImagePrintingY = imageY + (imageHeight - audioImageHeightChanged) / 2;
+  audioImagePrintingWidth = audioImageWidthChanged;
+  audioImagePrintingHeight = audioImageHeightChanged;
 
   // playButton
   playButtonX = appWidth/50 * 21;
@@ -467,9 +541,12 @@ void setup() {
   // Draw
   // rect(logoX, logoY, logoWidth, logoHeight);
   rect(logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight);
+  image(logoImage, logoImagePrintingX, logoImagePrintingY, logoImagePrintingWidth, logoImagePrintingHeight);
 
   rect(titleX, titleY, titleWidth, titleHeight);
+
   rect(imageX, imageY, imageWidth, imageHeight);
+  image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
 
   // rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
   rect(playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight);
@@ -575,6 +652,40 @@ void setup() {
 
 
 void draw() {
+  // Population
+  // Audio Image
+  audioImageFilePath = audioImages[currentAudio];
+  audioImage = loadImage(audioImageFilePath);
+  audioImageWidth = audioImage.width;
+  audioImageHeight = audioImage.height;
+  audioImageAspectRatio = (audioImageWidth >= audioImageHeight) ? audioImageWidth / audioImageHeight : audioImageHeight / audioImageWidth;
+  audioImageLandscape = (audioImageWidth < audioImageHeight) ? true : false;
+  if (audioImageLandscape) {
+    audioImageWidthChanged = imageWidth;
+    audioImageHeightChanged = (audioImageWidth >= imageWidth) ? audioImageWidthChanged / audioImageAspectRatio : audioImageWidthChanged * audioImageAspectRatio;
+    if (audioImageHeightChanged > imageHeight) {
+        println("Error: Algorithm Error");
+        exit();
+    }
+  } else {
+    audioImageHeightChanged = imageHeight;
+    audioImageWidthChanged = (audioImageHeight >= imageHeight) ? audioImageHeightChanged / audioImageAspectRatio : audioImageHeightChanged * audioImageAspectRatio;
+    if (audioImageWidthChanged > imageWidth) {
+        println("Error: Algorithm Error");
+        exit();
+    }
+  }
+  audioImagePrintingX = imageX + (imageWidth - audioImageWidthChanged) / 2;
+  audioImagePrintingY = imageY + (imageHeight - audioImageHeightChanged) / 2;
+  audioImagePrintingWidth = audioImageWidthChanged;
+  audioImagePrintingHeight = audioImageHeightChanged;
+
+
+  // Draw
+  rect(imageX, imageY, imageWidth, imageHeight);
+  image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
+
+
 } // End draw
 
 
