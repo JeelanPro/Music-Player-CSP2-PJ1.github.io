@@ -151,6 +151,7 @@ void keyPressed() {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == numberOfAudio - 1) {
         currentAudio = 0;
       } else {
@@ -160,6 +161,7 @@ void keyPressed() {
 
     } else {
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == numberOfAudio - 1) {
         currentAudio = 0;
       } else {
@@ -172,6 +174,7 @@ void keyPressed() {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == numberOfAudio - 1) {
         currentAudio = 0;
       } else {
@@ -181,6 +184,7 @@ void keyPressed() {
 
     } else {
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == numberOfAudio - 1) {
         currentAudio = 0;
       } else {
@@ -195,6 +199,7 @@ void keyPressed() {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == 0) {
         currentAudio = numberOfAudio - 1;
       } else {
@@ -204,6 +209,7 @@ void keyPressed() {
 
     } else {
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == 0) {
         currentAudio = numberOfAudio - 1;
       } else {
@@ -216,6 +222,7 @@ void keyPressed() {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == 0) {
         currentAudio = numberOfAudio - 1;
       } else {
@@ -225,6 +232,7 @@ void keyPressed() {
 
     } else {
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       if  (currentAudio == 0) {
         currentAudio = numberOfAudio - 1;
       } else {
@@ -240,11 +248,13 @@ void keyPressed() {
     if (playList[currentAudio].isPlaying()) {
       playList[currentAudio].pause();
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       currentAudio = randomAudio;
       playList[currentAudio].play();
 
     } else {
       playList[currentAudio].rewind();
+      playList[currentAudio].unmute();
       currentAudio = randomAudio;
       playList[currentAudio].play();
 
