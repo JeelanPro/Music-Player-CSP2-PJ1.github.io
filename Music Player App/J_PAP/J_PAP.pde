@@ -114,14 +114,14 @@ void setup() {
   // Display
   //size(1280, 720);
 
-  size(900, 600);
-  appWidth = 900;
-  appHeight = 600;
-  surface.setAlwaysOnTop(true);
+  // size(900, 600);
+  // appWidth = 900;
+  // appHeight = 600;
+  // surface.setAlwaysOnTop(true);
 
-  // fullScreen();
-  // appWidth = displayWidth;
-  // appHeight = displayHeight;
+  fullScreen();
+  appWidth = displayWidth;
+  appHeight = displayHeight;
 
   
   // Population
@@ -239,7 +239,7 @@ void setup() {
   pauseButtonHeight = appHeight/50 * 3;
   // pauseButtonLogoBox
   float pauseButtonLogoBoxSmallerSide = (pauseButtonWidth < pauseButtonHeight) ? pauseButtonWidth : pauseButtonHeight;
-  pauseButtonLogoBoxX = pauseButtonX + (pauseButtonWidth - pauseButtonLogoBoxSmallerSide) / 2;
+  pauseButtonLogoBoxX = pauseButtonX + (pauseButtonWidth - pauseButtonLogoBoxSmallerSide);
   pauseButtonLogoBoxY = pauseButtonY + (pauseButtonHeight - pauseButtonLogoBoxSmallerSide) / 2;
   pauseButtonLogoBoxWidth = pauseButtonLogoBoxSmallerSide;
   pauseButtonLogoBoxHeight = pauseButtonLogoBoxSmallerSide;
@@ -262,7 +262,7 @@ void setup() {
   stopButtonHeight = appHeight/50 * 3;
   // stopButtonLogoBox
   float stopButtonLogoBoxSmallerSide = (stopButtonWidth < stopButtonHeight) ? stopButtonWidth : stopButtonHeight;
-  stopButtonLogoBoxX = stopButtonX + (stopButtonWidth - stopButtonLogoBoxSmallerSide) / 2;
+  stopButtonLogoBoxX = stopButtonX;
   stopButtonLogoBoxY = stopButtonY + (stopButtonHeight - stopButtonLogoBoxSmallerSide) / 2;
   stopButtonLogoBoxWidth = stopButtonLogoBoxSmallerSide;
   stopButtonLogoBoxHeight = stopButtonLogoBoxSmallerSide;
@@ -279,7 +279,7 @@ void setup() {
   loopOnceButtonHeight = appHeight/50 * 3;
   // loopOnceButtonLogoBox
   float loopOnceButtonLogoBoxSmallerSide = (loopOnceButtonWidth < loopOnceButtonHeight) ? loopOnceButtonWidth : loopOnceButtonHeight;
-  loopOnceButtonLogoBoxX = loopOnceButtonX + (loopOnceButtonWidth - loopOnceButtonLogoBoxSmallerSide) / 2;
+  loopOnceButtonLogoBoxX = loopOnceButtonX + (loopOnceButtonWidth - loopOnceButtonLogoBoxSmallerSide);
   loopOnceButtonLogoBoxY = loopOnceButtonY + (loopOnceButtonHeight - loopOnceButtonLogoBoxSmallerSide) / 2;
   loopOnceButtonLogoBoxWidth = loopOnceButtonLogoBoxSmallerSide;
   loopOnceButtonLogoBoxHeight = loopOnceButtonLogoBoxSmallerSide;
@@ -311,7 +311,7 @@ void setup() {
   loopInfiniteButtonHeight = appHeight/50 * 3;
   // loopInfiniteButtonLogoBox
   float loopInfiniteButtonLogoBoxSmallerSide = (loopInfiniteButtonWidth < loopInfiniteButtonHeight) ? loopInfiniteButtonWidth : loopInfiniteButtonHeight;
-  loopInfiniteButtonLogoBoxX = loopInfiniteButtonX + (loopInfiniteButtonWidth - loopInfiniteButtonLogoBoxSmallerSide) / 2;
+  loopInfiniteButtonLogoBoxX = loopInfiniteButtonX + (loopInfiniteButtonWidth - loopInfiniteButtonLogoBoxSmallerSide);
   loopInfiniteButtonLogoBoxY = loopInfiniteButtonY + (loopInfiniteButtonHeight - loopInfiniteButtonLogoBoxSmallerSide) / 2;
   loopInfiniteButtonLogoBoxWidth = loopInfiniteButtonLogoBoxSmallerSide;
   loopInfiniteButtonLogoBoxHeight = loopInfiniteButtonLogoBoxSmallerSide;
@@ -332,7 +332,7 @@ void setup() {
   fastForwardButtonHeight = appHeight/50 * 3;
   // fastForwardButtonLogoBox
   float fastForwardButtonLogoBoxSmallerSide = (fastForwardButtonWidth < fastForwardButtonHeight) ? fastForwardButtonWidth : fastForwardButtonHeight;
-  fastForwardButtonLogoBoxX = fastForwardButtonX + (fastForwardButtonWidth - fastForwardButtonLogoBoxSmallerSide) / 2;
+  fastForwardButtonLogoBoxX = fastForwardButtonX;
   fastForwardButtonLogoBoxY = fastForwardButtonY + (fastForwardButtonHeight - fastForwardButtonLogoBoxSmallerSide) / 2;
   fastForwardButtonLogoBoxWidth = fastForwardButtonLogoBoxSmallerSide;
   fastForwardButtonLogoBoxHeight = fastForwardButtonLogoBoxSmallerSide;
@@ -358,7 +358,7 @@ void setup() {
   fastRewindButtonHeight = appHeight/50 * 3;
   // fastRewindButtonLogoBox
   float fastRewindButtonLogoBoxSmallerSide = (fastRewindButtonWidth < fastRewindButtonHeight) ? fastRewindButtonWidth : fastRewindButtonHeight;
-  fastRewindButtonLogoBoxX = fastRewindButtonX + (fastRewindButtonWidth - fastRewindButtonLogoBoxSmallerSide) / 2;
+  fastRewindButtonLogoBoxX = fastRewindButtonX;
   fastRewindButtonLogoBoxY = fastRewindButtonY + (fastRewindButtonHeight - fastRewindButtonLogoBoxSmallerSide) / 2;
   fastRewindButtonLogoBoxWidth = fastRewindButtonLogoBoxSmallerSide;
   fastRewindButtonLogoBoxHeight = fastRewindButtonLogoBoxSmallerSide;
@@ -384,7 +384,7 @@ void setup() {
   muteButtonHeight = appHeight/50 * 3;
   // muteButtonLogoBox
   float muteButtonLogoBoxSmallerSide = (muteButtonWidth < muteButtonHeight) ? muteButtonWidth : muteButtonHeight;
-  muteButtonLogoBoxX = muteButtonX + (muteButtonWidth - muteButtonLogoBoxSmallerSide) / 2;
+  muteButtonLogoBoxX = muteButtonX + (muteButtonWidth - muteButtonLogoBoxSmallerSide);
   muteButtonLogoBoxY = muteButtonY + (muteButtonHeight - muteButtonLogoBoxSmallerSide) / 2;
   muteButtonLogoBoxWidth = muteButtonLogoBoxSmallerSide;
   muteButtonLogoBoxHeight = muteButtonLogoBoxSmallerSide;
@@ -412,7 +412,7 @@ void setup() {
   nextButtonHeight = appHeight/50 * 3;
   // nextButtonLogoBox
   float nextButtonLogoBoxSmallerSide = (nextButtonWidth < nextButtonHeight) ? nextButtonWidth : nextButtonHeight;
-  nextButtonLogoBoxX = nextButtonX + (nextButtonWidth - nextButtonLogoBoxSmallerSide) / 2;
+  nextButtonLogoBoxX = nextButtonX;
   nextButtonLogoBoxY = nextButtonY + (nextButtonHeight - nextButtonLogoBoxSmallerSide) / 2;
   nextButtonLogoBoxWidth = nextButtonLogoBoxSmallerSide;
   nextButtonLogoBoxHeight = nextButtonLogoBoxSmallerSide;
@@ -436,7 +436,7 @@ void setup() {
   previousButtonHeight = appHeight/50 * 3;
   // previousButtonLogoBox
   float previousButtonLogoBoxSmallerSide = (previousButtonWidth < previousButtonHeight) ? previousButtonWidth : previousButtonHeight;
-  previousButtonLogoBoxX = previousButtonX + (previousButtonWidth - previousButtonLogoBoxSmallerSide) / 2;
+  previousButtonLogoBoxX = previousButtonX;
   previousButtonLogoBoxY = previousButtonY + (previousButtonHeight - previousButtonLogoBoxSmallerSide) / 2;
   previousButtonLogoBoxWidth = previousButtonLogoBoxSmallerSide;
   previousButtonLogoBoxHeight = previousButtonLogoBoxSmallerSide;
@@ -460,7 +460,7 @@ void setup() {
   shuffleButtonHeight = appHeight/50 * 3;
   // shuffleButtonLogoBox
   float shuffleButtonLogoBoxSmallerSide = (shuffleButtonWidth < shuffleButtonHeight) ? shuffleButtonWidth : shuffleButtonHeight;
-  shuffleButtonLogoBoxX = shuffleButtonX + (shuffleButtonWidth - shuffleButtonLogoBoxSmallerSide) / 2;
+  shuffleButtonLogoBoxX = shuffleButtonX + (shuffleButtonWidth - shuffleButtonLogoBoxSmallerSide);
   shuffleButtonLogoBoxY = shuffleButtonY + (shuffleButtonHeight - shuffleButtonLogoBoxSmallerSide) / 2;
   shuffleButtonLogoBoxWidth = shuffleButtonLogoBoxSmallerSide;
   shuffleButtonLogoBoxHeight = shuffleButtonLogoBoxSmallerSide;
