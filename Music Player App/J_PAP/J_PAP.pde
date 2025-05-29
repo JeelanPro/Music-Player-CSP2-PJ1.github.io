@@ -114,13 +114,14 @@ void setup() {
   // Display
   //size(1280, 720);
 
-  // size(900, 600);
-  // appWidth = 900;
-  // appHeight = 600;
+  size(900, 600);
+  appWidth = 900;
+  appHeight = 600;
+  surface.setAlwaysOnTop(true);
 
-  fullScreen();
-  appWidth = displayWidth;
-  appHeight = displayHeight;
+  // fullScreen();
+  // appWidth = displayWidth;
+  // appHeight = displayHeight;
 
   
   // Population
@@ -184,7 +185,7 @@ void setup() {
   imageX = appWidth/50 * 1;
   imageY = appHeight/50 * 6;
   imageWidth = appWidth/50 * 48;
-  imageHeight = appHeight/50 * 34;
+  imageHeight = appHeight/50 * 35;
   // audioImage
   audioImageFilePath = audioImages[currentAudio];
   audioImage = loadImage(audioImageFilePath);
@@ -214,7 +215,7 @@ void setup() {
 
   // playButton
   playButtonX = appWidth/50 * 21;
-  playButtonY = appHeight/50 * 41;
+  playButtonY = appHeight/50 * 42;
   playButtonWidth = appWidth/50 * 8;
   playButtonHeight = appHeight/50 * 3;
   // playButtonLogoBox
@@ -233,7 +234,7 @@ void setup() {
 
   // pauseButton
   pauseButtonX = appWidth/50 * 30;
-  pauseButtonY = appHeight/50 * 41;
+  pauseButtonY = appHeight/50 * 42;
   pauseButtonWidth = appWidth/50 * 3;
   pauseButtonHeight = appHeight/50 * 3;
   // pauseButtonLogoBox
@@ -256,7 +257,7 @@ void setup() {
 
   // stopButton
   stopButtonX = appWidth/50 * 17;
-  stopButtonY = appHeight/50 * 41;
+  stopButtonY = appHeight/50 * 42;
   stopButtonWidth = appWidth/50 * 3;
   stopButtonHeight = appHeight/50 * 3;
   // stopButtonLogoBox
@@ -273,7 +274,7 @@ void setup() {
 
   // loopOnceButton
   loopOnceButtonX = appWidth/50 * 34;
-  loopOnceButtonY = appHeight/50 * 41;
+  loopOnceButtonY = appHeight/50 * 42;
   loopOnceButtonWidth = appWidth/50 * 3;
   loopOnceButtonHeight = appHeight/50 * 3;
   // loopOnceButtonLogoBox
@@ -305,7 +306,7 @@ void setup() {
 
   // loopInfiniteButton
   loopInfiniteButtonX = appWidth/50 * 38;
-  loopInfiniteButtonY = appHeight/50 * 41;
+  loopInfiniteButtonY = appHeight/50 * 42;
   loopInfiniteButtonWidth = appWidth/50 * 3;
   loopInfiniteButtonHeight = appHeight/50 * 3;
   // loopInfiniteButtonLogoBox
@@ -326,7 +327,7 @@ void setup() {
 
   // fastForwardButton
   fastForwardButtonX = appWidth/50 * 13;
-  fastForwardButtonY = appHeight/50 * 41;
+  fastForwardButtonY = appHeight/50 * 42;
   fastForwardButtonWidth = appWidth/50 * 3;
   fastForwardButtonHeight = appHeight/50 * 3;
   // fastForwardButtonLogoBox
@@ -352,7 +353,7 @@ void setup() {
 
   // fastRewindButton
   fastRewindButtonX = appWidth/50 * 9;
-  fastRewindButtonY = appHeight/50 * 41;
+  fastRewindButtonY = appHeight/50 * 42;
   fastRewindButtonWidth = appWidth/50 * 3;
   fastRewindButtonHeight = appHeight/50 * 3;
   // fastRewindButtonLogoBox
@@ -378,7 +379,7 @@ void setup() {
 
   // muteButton
   muteButtonX = appWidth/50 * 42;
-  muteButtonY = appHeight/50 * 41;
+  muteButtonY = appHeight/50 * 42;
   muteButtonWidth = appWidth/50 * 3;
   muteButtonHeight = appHeight/50 * 3;
   // muteButtonLogoBox
@@ -406,7 +407,7 @@ void setup() {
 
   // nextButton
   nextButtonX = appWidth/50 * 5;
-  nextButtonY = appHeight/50 * 41;
+  nextButtonY = appHeight/50 * 42;
   nextButtonWidth = appWidth/50 * 3;
   nextButtonHeight = appHeight/50 * 3;
   // nextButtonLogoBox
@@ -430,7 +431,7 @@ void setup() {
 
   // previousButton
   previousButtonX = appWidth/50 * 1;
-  previousButtonY = appHeight/50 * 41;
+  previousButtonY = appHeight/50 * 42;
   previousButtonWidth = appWidth/50 * 3;
   previousButtonHeight = appHeight/50 * 3;
   // previousButtonLogoBox
@@ -454,7 +455,7 @@ void setup() {
 
   // shuffleButton
   shuffleButtonX = appWidth/50 * 46;
-  shuffleButtonY = appHeight/50 * 41;
+  shuffleButtonY = appHeight/50 * 42;
   shuffleButtonWidth = appWidth/50 * 3;
   shuffleButtonHeight = appHeight/50 * 3;
   // shuffleButtonLogoBox
@@ -488,7 +489,7 @@ void setup() {
   shuffleLine2ArrowBY2 = shuffleLine2Y2 + shuffleArrowHeadSize;
 
   // exitButton
-  exitButtonX = appWidth/50 * (50 - 5);
+  exitButtonX = appWidth/50 * 45;
   exitButtonY = appHeight/50 * 1;
   exitButtonWidth = appWidth/50 * 4;
   exitButtonHeight = appHeight/50 * 4;
@@ -514,31 +515,32 @@ void setup() {
 
   // timeLine
   timeLineX = appWidth/50 * 10;
-  timeLineY = appHeight/50 * 45;
+  timeLineY = appHeight/50 * 46;
   timeLineWidth = appWidth/50 * 21;
-  timeLineHeight = appHeight/50 * 4;
+  timeLineHeight = appHeight/50 * 3;
 
   // currentTime
   currentTimeX = appWidth/50 * 1;
-  currentTimeY = appHeight/50 * 45;
+  currentTimeY = appHeight/50 * 46;
   currentTimeWidth = appWidth/50 * 8;
-  currentTimeHeight = appHeight/50 * 4;
+  currentTimeHeight = appHeight/50 * 3;
 
   // leftTime
   leftTimeX = appWidth/50 * 41;
-  leftTimeY = appHeight/50 * 45;
+  leftTimeY = appHeight/50 * 46;
   leftTimeWidth = appWidth/50 * 8;
-  leftTimeHeight = appHeight/50 * 4;
+  leftTimeHeight = appHeight/50 * 3;
 
   // audioTime
   audioTimeX = appWidth/50 * 32;
-  audioTimeY = appHeight/50 * 45;
+  audioTimeY = appHeight/50 * 46;
   audioTimeWidth = appWidth/50 * 8;
-  audioTimeHeight = appHeight/50 * 4;
+  audioTimeHeight = appHeight/50 * 3;
 
 
 
   // Draw
+  rect(appWidth/50 * 0, appHeight/50 * 0, appWidth/50 * 50, appHeight/50 * 50);
   // rect(logoX, logoY, logoWidth, logoHeight);
   rect(logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight);
   image(logoImage, logoImagePrintingX, logoImagePrintingY, logoImagePrintingWidth, logoImagePrintingHeight);
