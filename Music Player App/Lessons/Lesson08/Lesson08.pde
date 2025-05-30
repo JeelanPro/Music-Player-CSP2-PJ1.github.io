@@ -1,5 +1,6 @@
 // Library
 
+
 // Global Variable
 int appWidth, appHeight;
 
@@ -26,14 +27,18 @@ void setup() {
 
     // Draw
     rect(divX, divY, divWidth, divHeight);
+    
 
 } // End Setup
+
 
 void draw() {
 } // End draw
 
+
 void mousePressed() {
 } // End mousePressed
+
 
 void keyPressed() {
 } // End keyPressed
