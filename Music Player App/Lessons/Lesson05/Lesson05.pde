@@ -13,6 +13,8 @@ int appWidth, appHeight;
 Minim minim;
 int numberOfAudio = 3;
 int currentAudio;
+String audioFolder;
+String fileExtension;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
 
 float logoX, logoY, logoWidth, logoHeight;
@@ -113,9 +115,11 @@ void setup() {
 
   // Minim
   minim = new Minim(this);
-  playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
-  playList[1] = minim.loadFile("Audio/qaseda.mp3");
-  playList[2] = minim.loadFile("Audio/Virus.mp3");
+  audioFolder = "Audio/";
+  fileExtension = ".mp3";
+  playList[0] = minim.loadFile(audioFolder + "Skibidi" + fileExtension);
+  playList[1] = minim.loadFile(audioFolder + "Qaseeda" + fileExtension);
+  playList[2] = minim.loadFile(audioFolder + "Virus" + fileExtension);
 
   // logo
   logoX = appWidth/50 * 1; 

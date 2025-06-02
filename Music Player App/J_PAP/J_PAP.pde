@@ -13,29 +13,40 @@ int appWidth, appHeight;
 Minim minim;
 int numberOfAudio = 3;
 int currentAudio;
+String audioFolder;
+String fileExtension;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
+AudioMetaData[] playListMetaData = new AudioMetaData[ numberOfAudio ];
 
+String imageFolder;
+String imageFileExtension;
 String[] audioImages = new String[ numberOfAudio ];
 
 float logoX, logoY, logoWidth, logoHeight;
 float logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight;
-float logoImageWidthChanged, logoImageHeightChanged; //
-float logoImageWidth, logoImageHeight; //
-String logoFilePath; //
-PImage logoImage; //
-Boolean logoImageLandscape; //
-float logoImageAspectRatio; //
+float logoImageWidthChanged, logoImageHeightChanged;
+float logoImageWidth, logoImageHeight;
+String logoFilePath;
+PImage logoImage;
+Boolean logoImageLandscape;
+float logoImageAspectRatio;
 float logoImagePrintingWidth, logoImagePrintingHeight, logoImagePrintingX, logoImagePrintingY; //
 
 float titleX, titleY, titleWidth, titleHeight;
+PFont titleTextStyle;
+float titleTextSize;
+String titleText;
+float titleTextAspectRatio;
+color titleTextColor;
+color titleTextWhiteColor;
 
 float imageX, imageY, imageWidth, imageHeight;
-float audioImageWidthChanged, audioImageHeightChanged; //
-float audioImageWidth, audioImageHeight; //
-String audioImageFilePath; //
-PImage audioImage; //
-Boolean audioImageLandscape; //
-float audioImageAspectRatio; //
+float audioImageWidthChanged, audioImageHeightChanged;
+float audioImageWidth, audioImageHeight;
+String audioImageFilePath;
+PImage audioImage;
+Boolean audioImageLandscape;
+float audioImageAspectRatio;
 float audioImagePrintingWidth, audioImagePrintingHeight, audioImagePrintingX, audioImagePrintingY; //
 
 float playButtonX, playButtonY, playButtonWidth, playButtonHeight;
@@ -128,14 +139,18 @@ void setup() {
   // Minim
   currentAudio = 0;
   minim = new Minim(this);
-  playList[0] = minim.loadFile("Audio/skibidi-toilet.mp3");
-  playList[1] = minim.loadFile("Audio/qaseda.mp3");
-  playList[2] = minim.loadFile("Audio/Virus.mp3");
+  audioFolder = "Audio/";
+  fileExtension = ".mp3";
+  playList[0] = minim.loadFile(audioFolder + "skibidi-toilet" + fileExtension);
+  playList[1] = minim.loadFile(audioFolder + "qaseda" + fileExtension);
+  playList[2] = minim.loadFile(audioFolder + "Virus" + fileExtension);
 
   // Audio Images
-  audioImages[0] = "Images/Skibidi.jpg";
-  audioImages[1] = "Images/JeelanPro.jpg";
-  audioImages[2] = "Images/Virus.jpg";
+  imageFolder = "Images/";
+  imageFileExtension = ".jpg";
+  audioImages[0] = imageFolder + "Skibidi" + imageFileExtension;
+  audioImages[1] = imageFolder + "JeelanPro" + imageFileExtension;
+  audioImages[2] = imageFolder + "Virus" + imageFileExtension;
   
   // logo
   logoX = appWidth/50 * 1; 
@@ -180,6 +195,27 @@ void setup() {
   titleY = appHeight/50 * 1;
   titleWidth = appWidth/50 * 38;
   titleHeight = appHeight/50 * 4;
+  // Title Imp things
+  playListMetaData[currentAudio] = playList[currentAudio].getMetaData();
+  titleText = playListMetaData[currentAudio].title();
+  if (titleText == null || titleText.isEmpty()) {
+    titleText = "Error: Title Not Found";
+    println("Error: Title Not Found");
+  }
+  titleTextColor = #000000;
+  titleTextStyle = createFont ("Arial", 55);
+  // Non Imp things
+  titleTextWhiteColor = #FFFFFF;
+  titleTextSize = titleHeight;
+  titleTextAspectRatio = titleTextSize / titleHeight;
+  titleTextSize = titleHeight * titleTextAspectRatio;
+  // Little Action
+  textAlign(CENTER, CENTER);
+  textFont(titleTextStyle, titleTextSize);
+  while (titleWidth < textWidth(titleText)) {
+    titleTextSize *= 0.99;
+    textFont(titleTextStyle, titleTextSize);
+  }
 
   // image
   imageX = appWidth/50 * 1;
@@ -546,6 +582,9 @@ void setup() {
   image(logoImage, logoImagePrintingX, logoImagePrintingY, logoImagePrintingWidth, logoImagePrintingHeight);
 
   rect(titleX, titleY, titleWidth, titleHeight);
+  fill(titleTextColor);
+  text(titleText, titleX, titleY, titleWidth, titleHeight);
+  fill(titleTextWhiteColor);
 
   rect(imageX, imageY, imageWidth, imageHeight);
   image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
@@ -682,11 +721,41 @@ void draw() {
   audioImagePrintingWidth = audioImageWidthChanged;
   audioImagePrintingHeight = audioImageHeightChanged;
 
+  // title
+  titleX = appWidth/50 * 6;
+  titleY = appHeight/50 * 1;
+  titleWidth = appWidth/50 * 38;
+  titleHeight = appHeight/50 * 4;
+  // Title Imp things
+  playListMetaData[currentAudio] = playList[currentAudio].getMetaData();
+  titleText = playListMetaData[currentAudio].title();
+  if (titleText == null || titleText.isEmpty()) {
+    titleText = "Error: Title Not Found";
+  }
+  titleTextColor = #000000;
+  titleTextStyle = createFont ("Arial", 55);
+  // Non Imp things
+  titleTextWhiteColor = #FFFFFF;
+  titleTextSize = titleHeight;
+  titleTextAspectRatio = titleTextSize / titleHeight;
+  titleTextSize = titleHeight * titleTextAspectRatio;
+  // Little Action
+  textAlign(CENTER, CENTER);
+  textFont(titleTextStyle, titleTextSize);
+  while (titleWidth < textWidth(titleText)) {
+    titleTextSize *= 0.99;
+    textFont(titleTextStyle, titleTextSize);
+  }
+
 
   // Draw
   rect(imageX, imageY, imageWidth, imageHeight);
   image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
 
+  rect(titleX, titleY, titleWidth, titleHeight);
+  fill(titleTextColor);
+  text(titleText, titleX, titleY, titleWidth, titleHeight);
+  fill(titleTextWhiteColor);
 
 } // End draw
 

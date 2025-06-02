@@ -6,12 +6,12 @@ int appWidth, appHeight;
 
 float titleX, titleY, titleWidth, titleHeight;
 
-PFont titleFont;
-float fontSize;
+PFont textStyle;
+float textSize;
 String title;
 float textAspectRatio;
-color titleColor;
-color whiteColor;
+color textColor;
+color textWhiteColor;
 
 
 void setup() {
@@ -31,31 +31,28 @@ void setup() {
     titleWidth = appWidth/50 * 46;
     titleHeight = appHeight/50 * 5;
 
-    title = "JeelanPro Computer Services is the best one of the powerful. Computer Services";
-    titleColor = #2C08FF;
+    title = "JeelanPro";
+    textColor = #000000;
+    textStyle = createFont ("Arial", 55);
 
-    whiteColor = #FFFFFF;
-    fontSize = titleHeight;
-    textAspectRatio = fontSize / titleHeight;
-    fontSize = titleHeight*textAspectRatio;
+    textWhiteColor = #FFFFFF;
+    textSize = titleHeight;
+    textAspectRatio = textSize / titleHeight;
+    textSize = titleHeight*textAspectRatio;
 
-    titleFont = createFont ("Arial", 55);
     textAlign (CENTER, CENTER);
-    textFont(titleFont, fontSize);
-
-
-    // Action
+    textFont(textStyle, textSize);
     while ( titleWidth < textWidth( title ) ) {
-        fontSize *= 0.99;
-        textFont(titleFont, fontSize);
+        textSize *= 0.99;
+        textFont(textStyle, textSize);
     }
 
 
     // Draw
     rect(titleX, titleY, titleWidth, titleHeight);
-    fill(titleColor);
+    fill(textColor);
     text(title, titleX, titleY, titleWidth, titleHeight);
-    fill(whiteColor);
+    fill(textWhiteColor);
     
 
 } // End Setup
