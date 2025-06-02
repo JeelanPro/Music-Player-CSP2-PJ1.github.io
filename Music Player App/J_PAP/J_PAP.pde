@@ -577,6 +577,7 @@ void setup() {
 
   // Draw
   rect(appWidth/50 * 0, appHeight/50 * 0, appWidth/50 * 50, appHeight/50 * 50);
+  
   // rect(logoX, logoY, logoWidth, logoHeight);
   rect(logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight);
   image(logoImage, logoImagePrintingX, logoImagePrintingY, logoImagePrintingWidth, logoImagePrintingHeight);
