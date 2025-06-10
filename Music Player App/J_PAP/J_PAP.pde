@@ -141,14 +141,14 @@ void setup() {
   // Display
   //size(1280, 720);
 
-  // size(900, 600);
-  // appWidth = 900;
-  // appHeight = 600;
-  // surface.setAlwaysOnTop(true);
+  size(900, 600);
+  appWidth = 900;
+  appHeight = 600;
+  surface.setAlwaysOnTop(true);
 
-  fullScreen();
-  appWidth = displayWidth;
-  appHeight = displayHeight;
+  // fullScreen();
+  // appWidth = displayWidth;
+  // appHeight = displayHeight;
 
   backgroundColor =#bcbcbc;
 
