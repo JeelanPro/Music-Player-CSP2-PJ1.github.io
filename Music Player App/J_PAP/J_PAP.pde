@@ -13,6 +13,7 @@ int appWidth, appHeight;
 Minim minim;
 int numberOfAudio = 3;
 int currentAudio;
+int oldCurrentAudio;
 String audioFolder;
 String fileExtension;
 AudioPlayer[] playList = new AudioPlayer[ numberOfAudio ];
@@ -36,6 +37,7 @@ float titleX, titleY, titleWidth, titleHeight;
 PFont titleTextStyle;
 float titleTextSize;
 String titleText;
+String drawedText;
 float titleTextAspectRatio;
 color titleTextColor;
 color titleTextWhiteColor;
@@ -45,6 +47,7 @@ float audioImageWidthChanged, audioImageHeightChanged;
 float audioImageWidth, audioImageHeight;
 String audioImageFilePath;
 PImage audioImage;
+PImage[] audioImageList = new PImage[ numberOfAudio ];
 Boolean audioImageLandscape;
 float audioImageAspectRatio;
 float audioImagePrintingWidth, audioImagePrintingHeight, audioImagePrintingX, audioImagePrintingY; //
@@ -166,6 +169,9 @@ void setup() {
   audioImages[0] = imageFolder + "Skibidi" + imageFileExtension;
   audioImages[1] = imageFolder + "JeelanPro" + imageFileExtension;
   audioImages[2] = imageFolder + "Virus" + imageFileExtension;
+  for (int i = 0; i < numberOfAudio; i++) {
+    audioImageList[i] = loadImage(audioImages[i]);
+  }
 
   // logo
   logoX = appWidth/50 * 1;
@@ -712,71 +718,89 @@ void setup() {
 void draw() {
   // Population
   // Audio Image
-  audioImageFilePath = audioImages[currentAudio];
-  audioImage = loadImage(audioImageFilePath);
-  audioImageWidth = audioImage.width;
-  audioImageHeight = audioImage.height;
-  audioImageAspectRatio = (audioImageWidth >= audioImageHeight) ? audioImageWidth / audioImageHeight : audioImageHeight / audioImageWidth;
-  audioImageLandscape = (audioImageWidth < audioImageHeight) ? true : false;
-  if (audioImageLandscape) {
-    audioImageWidthChanged = imageWidth;
-    audioImageHeightChanged = (audioImageWidth >= imageWidth) ? audioImageWidthChanged / audioImageAspectRatio : audioImageWidthChanged * audioImageAspectRatio;
-    if (audioImageHeightChanged > imageHeight) {
-      println("Error: Algorithm Error");
-      exit();
+  if (oldCurrentAudio != currentAudio) {
+    audioImageFilePath = audioImages[currentAudio];
+    // audioImage = loadImage(audioImageFilePath);
+    audioImage = audioImageList[currentAudio];
+    audioImageWidth = audioImage.width;
+    audioImageHeight = audioImage.height;
+    audioImageAspectRatio = (audioImageWidth >= audioImageHeight) ? audioImageWidth / audioImageHeight : audioImageHeight / audioImageWidth;
+    audioImageLandscape = (audioImageWidth < audioImageHeight) ? true : false;
+    if (audioImageLandscape) {
+      audioImageWidthChanged = imageWidth;
+      audioImageHeightChanged = (audioImageWidth >= imageWidth) ? audioImageWidthChanged / audioImageAspectRatio : audioImageWidthChanged * audioImageAspectRatio;
+    } else {
+      audioImageHeightChanged = imageHeight;
+      audioImageWidthChanged = (audioImageHeight >= imageHeight) ? audioImageHeightChanged / audioImageAspectRatio : audioImageHeightChanged * audioImageAspectRatio;
     }
-  } else {
-    audioImageHeightChanged = imageHeight;
-    audioImageWidthChanged = (audioImageHeight >= imageHeight) ? audioImageHeightChanged / audioImageAspectRatio : audioImageHeightChanged * audioImageAspectRatio;
-    if (audioImageWidthChanged > imageWidth) {
-      println("Error: Algorithm Error");
-      exit();
-    }
+    audioImagePrintingX = imageX + (imageWidth - audioImageWidthChanged) / 2;
+    audioImagePrintingY = imageY + (imageHeight - audioImageHeightChanged) / 2;
+    audioImagePrintingWidth = audioImageWidthChanged;
+    audioImagePrintingHeight = audioImageHeightChanged;
+    // oldCurrentAudio = currentAudio;
   }
-  audioImagePrintingX = imageX + (imageWidth - audioImageWidthChanged) / 2;
-  audioImagePrintingY = imageY + (imageHeight - audioImageHeightChanged) / 2;
-  audioImagePrintingWidth = audioImageWidthChanged;
-  audioImagePrintingHeight = audioImageHeightChanged;
 
   // title
-  titleText = playListMetaData[currentAudio].title();
-  if (titleText == null || titleText.isEmpty()) {
-    titleText = "Error: Title Not Found";
-  }
-  titleTextSize = titleHeight;
-  titleTextAspectRatio = titleTextSize / titleHeight;
-  titleTextSize = titleHeight * titleTextAspectRatio;
-  // Little Action
-  textAlign(CENTER, CENTER);
-  textFont(titleTextStyle, titleTextSize);
-  while (titleWidth < textWidth(titleText)) {
-    titleTextSize *= 0.99;
+  if (drawedText != titleText) {
+    titleText = playListMetaData[currentAudio].title();
+    if (titleText == null || titleText.isEmpty()) {
+      titleText = "Error: Title Not Found";
+    }
+    titleTextSize = titleHeight;
+    titleTextAspectRatio = titleTextSize / titleHeight;
+    titleTextSize = titleHeight * titleTextAspectRatio;
+    // Little Action
+    textAlign(CENTER, CENTER);
     textFont(titleTextStyle, titleTextSize);
+    while (titleWidth < textWidth(titleText)) {
+      titleTextSize *= 0.99;
+      textFont(titleTextStyle, titleTextSize);
+    }
+    // drawedText = titleText;
   }
 
 
   // Hover Using if statements
+  // Play Button
   playButtonIsHovered = (mouseX >= playButtonLogoBoxX && mouseX <= playButtonLogoBoxX + playButtonLogoBoxWidth && mouseY >= playButtonLogoBoxY && mouseY <= playButtonLogoBoxY + playButtonLogoBoxHeight);
+  // Pause Button
   pauseButtonIsHovered = (mouseX >= pauseButtonLogoBoxX && mouseX <= pauseButtonLogoBoxX + pauseButtonLogoBoxWidth && mouseY >= pauseButtonLogoBoxY && mouseY <= pauseButtonLogoBoxY + pauseButtonLogoBoxHeight);
+  // Stop Button
   stopButtonIsHovered = (mouseX >= stopButtonLogoBoxX && mouseX <= stopButtonLogoBoxX + stopButtonLogoBoxWidth && mouseY >= stopButtonLogoBoxY && mouseY <= stopButtonLogoBoxY + stopButtonLogoBoxHeight);
+  // Loop Once Button
   loopOnceButtonIsHovered = (mouseX >= loopOnceButtonLogoBoxX && mouseX <= loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth && mouseY >= loopOnceButtonLogoBoxY && mouseY <= loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight);
+  // Loop Infinite Button
   loopInfiniteButtonIsHovered = (mouseX >= loopInfiniteButtonLogoBoxX && mouseX <= loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth && mouseY >= loopInfiniteButtonLogoBoxY && mouseY <= loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight);
+  // Fast Forward Button
   fastForwardButtonIsHovered = (mouseX >= fastForwardButtonLogoBoxX && mouseX <= fastForwardButtonLogoBoxX + fastForwardButtonLogoBoxWidth && mouseY >= fastForwardButtonLogoBoxY && mouseY <= fastForwardButtonLogoBoxY + fastForwardButtonLogoBoxHeight);
+  // Fast Rewind Button
   fastRewindButtonIsHovered = (mouseX >= fastRewindButtonLogoBoxX && mouseX <= fastRewindButtonLogoBoxX + fastRewindButtonLogoBoxWidth && mouseY >= fastRewindButtonLogoBoxY && mouseY <= fastRewindButtonLogoBoxY + fastRewindButtonLogoBoxHeight);
+  // Mute Button
   muteButtonIsHovered = (mouseX >= muteButtonLogoBoxX && mouseX <= muteButtonLogoBoxX + muteButtonLogoBoxWidth && mouseY >= muteButtonLogoBoxY && mouseY <= muteButtonLogoBoxY + muteButtonLogoBoxHeight);
+  // Next Button
   nextButtonIsHovered = (mouseX >= nextButtonLogoBoxX && mouseX <= nextButtonLogoBoxX + nextButtonLogoBoxWidth && mouseY >= nextButtonLogoBoxY && mouseY <= nextButtonLogoBoxY + nextButtonLogoBoxHeight);
+  // Previous Button
+  previousButtonIsHovered = (mouseX >= previousButtonLogoBoxX && mouseX <= previousButtonLogoBoxX + previousButtonLogoBoxWidth && mouseY >= previousButtonLogoBoxY && mouseY <= previousButtonLogoBoxY + previousButtonLogoBoxHeight);
+  // Shuffle Button
   shuffleButtonIsHovered = (mouseX >= shuffleButtonLogoBoxX && mouseX <= shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth && mouseY >= shuffleButtonLogoBoxY && mouseY <= shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight);
+  // Exit Button
   exitButtonIsHovered = (mouseX >= exitButtonLogoBoxX && mouseX <= exitButtonLogoBoxX + exitButtonLogoBoxWidth && mouseY >= exitButtonLogoBoxY && mouseY <= exitButtonLogoBoxY + exitButtonLogoBoxHeight);
 
 
   // Draw
-  rect(imageX, imageY, imageWidth, imageHeight);
-  image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
+  if (oldCurrentAudio != currentAudio) {
+    rect(imageX, imageY, imageWidth, imageHeight);
+    image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
+    oldCurrentAudio = currentAudio;
+  }
   
-  rect(titleX, titleY, titleWidth, titleHeight);
-  fill(titleTextColor);
-  text(titleText, titleX, titleY, titleWidth, titleHeight);
-  fill(titleTextWhiteColor);
+  if (drawedText != titleText) {
+    rect(titleX, titleY, titleWidth, titleHeight);
+    fill(titleTextColor);
+    text(titleText, titleX, titleY, titleWidth, titleHeight);
+    fill(titleTextWhiteColor);
+    drawedText = titleText;
+  }
 
   // ----------------------- PLAY BUTTON -----------------------
   if (playButtonIsHovered) {
