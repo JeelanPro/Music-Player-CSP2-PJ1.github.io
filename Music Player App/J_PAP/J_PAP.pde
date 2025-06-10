@@ -146,7 +146,7 @@ void setup() {
   appWidth = displayWidth;
   appHeight = displayHeight;
 
-  
+
   // Population
   // Minim
   currentAudio = 0;
@@ -166,9 +166,9 @@ void setup() {
   audioImages[0] = imageFolder + "Skibidi" + imageFileExtension;
   audioImages[1] = imageFolder + "JeelanPro" + imageFileExtension;
   audioImages[2] = imageFolder + "Virus" + imageFileExtension;
-  
+
   // logo
-  logoX = appWidth/50 * 1; 
+  logoX = appWidth/50 * 1;
   logoY = appHeight/50 * 1;
   logoWidth = appWidth/50 * 4;
   logoHeight = appHeight/50 * 4;
@@ -189,15 +189,15 @@ void setup() {
     logoImageWidthChanged = logoBoxWidth;
     logoImageHeightChanged = (logoImageWidth >= logoBoxWidth) ? logoImageWidthChanged / logoImageAspectRatio : logoImageWidthChanged * logoImageAspectRatio;
     if (logoImageHeightChanged > logoBoxHeight) {
-        println("Error: Algorithm Error");
-        exit();
+      println("Error: Algorithm Error");
+      exit();
     }
   } else {
     logoImageHeightChanged = logoBoxHeight;
     logoImageWidthChanged = (logoImageHeight >= logoBoxHeight) ? logoImageHeightChanged / logoImageAspectRatio : logoImageHeightChanged * logoImageAspectRatio;
     if (logoImageWidthChanged > logoBoxWidth) {
-        println("Error: Algorithm Error");
-        exit();
+      println("Error: Algorithm Error");
+      exit();
     }
   }
   logoImagePrintingX = logoBoxX + (logoBoxWidth - logoImageWidthChanged) / 2;
@@ -247,15 +247,15 @@ void setup() {
     audioImageWidthChanged = imageWidth;
     audioImageHeightChanged = (audioImageWidth >= imageWidth) ? audioImageWidthChanged / audioImageAspectRatio : audioImageWidthChanged * audioImageAspectRatio;
     if (audioImageHeightChanged > imageHeight) {
-        println("Error: Algorithm Error");
-        exit();
+      println("Error: Algorithm Error");
+      exit();
     }
   } else {
     audioImageHeightChanged = imageHeight;
     audioImageWidthChanged = (audioImageHeight >= imageHeight) ? audioImageHeightChanged / audioImageAspectRatio : audioImageHeightChanged * audioImageAspectRatio;
     if (audioImageWidthChanged > imageWidth) {
-        println("Error: Algorithm Error");
-        exit();
+      println("Error: Algorithm Error");
+      exit();
     }
   }
   audioImagePrintingX = imageX + (imageWidth - audioImageWidthChanged) / 2;
@@ -303,7 +303,7 @@ void setup() {
   pauseButtonLogoBoxShape2Y = (pauseButtonLogoBoxHeight/8 * 2) + pauseButtonLogoBoxY;
   pauseButtonLogoBoxShape2Width = (pauseButtonLogoBoxWidth/8 * 1);
   pauseButtonLogoBoxShape2Height = (pauseButtonLogoBoxHeight/8 * 4);
-  
+
 
   // stopButton
   stopButtonX = appWidth/50 * 17;
@@ -593,7 +593,7 @@ void setup() {
 
   // Draw
   rect(appWidth/50 * 0, appHeight/50 * 0, appWidth/50 * 50, appHeight/50 * 50);
-  
+
   // rect(logoX, logoY, logoWidth, logoHeight);
   rect(logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight);
   image(logoImage, logoImagePrintingX, logoImagePrintingY, logoImagePrintingWidth, logoImagePrintingHeight);
@@ -722,15 +722,15 @@ void draw() {
     audioImageWidthChanged = imageWidth;
     audioImageHeightChanged = (audioImageWidth >= imageWidth) ? audioImageWidthChanged / audioImageAspectRatio : audioImageWidthChanged * audioImageAspectRatio;
     if (audioImageHeightChanged > imageHeight) {
-        println("Error: Algorithm Error");
-        exit();
+      println("Error: Algorithm Error");
+      exit();
     }
   } else {
     audioImageHeightChanged = imageHeight;
     audioImageWidthChanged = (audioImageHeight >= imageHeight) ? audioImageHeightChanged / audioImageAspectRatio : audioImageHeightChanged * audioImageAspectRatio;
     if (audioImageWidthChanged > imageWidth) {
-        println("Error: Algorithm Error");
-        exit();
+      println("Error: Algorithm Error");
+      exit();
     }
   }
   audioImagePrintingX = imageX + (imageWidth - audioImageWidthChanged) / 2;
@@ -756,42 +756,71 @@ void draw() {
 
 
   // Hover Using if statements
-  if (mouseX >= playButtonLogoBoxX && mouseX <= playButtonLogoBoxX + playButtonLogoBoxWidth) {
-    if (mouseY >= playButtonLogoBoxY && mouseY <= playButtonLogoBoxY + playButtonLogoBoxHeight) {
-      playButtonIsHovered = true;
-    } else {
-      playButtonIsHovered = false;
-    }
-  }
-
-  
-
+  playButtonIsHovered = (mouseX >= playButtonLogoBoxX && mouseX <= playButtonLogoBoxX + playButtonLogoBoxWidth && mouseY >= playButtonLogoBoxY && mouseY <= playButtonLogoBoxY + playButtonLogoBoxHeight);
+  pauseButtonIsHovered = (mouseX >= pauseButtonLogoBoxX && mouseX <= pauseButtonLogoBoxX + pauseButtonLogoBoxWidth && mouseY >= pauseButtonLogoBoxY && mouseY <= pauseButtonLogoBoxY + pauseButtonLogoBoxHeight);
+  stopButtonIsHovered = (mouseX >= stopButtonLogoBoxX && mouseX <= stopButtonLogoBoxX + stopButtonLogoBoxWidth && mouseY >= stopButtonLogoBoxY && mouseY <= stopButtonLogoBoxY + stopButtonLogoBoxHeight);
+  loopOnceButtonIsHovered = (mouseX >= loopOnceButtonLogoBoxX && mouseX <= loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth && mouseY >= loopOnceButtonLogoBoxY && mouseY <= loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight);
+  loopInfiniteButtonIsHovered = (mouseX >= loopInfiniteButtonLogoBoxX && mouseX <= loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth && mouseY >= loopInfiniteButtonLogoBoxY && mouseY <= loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight);
+  fastForwardButtonIsHovered = (mouseX >= fastForwardButtonLogoBoxX && mouseX <= fastForwardButtonLogoBoxX + fastForwardButtonLogoBoxWidth && mouseY >= fastForwardButtonLogoBoxY && mouseY <= fastForwardButtonLogoBoxY + fastForwardButtonLogoBoxHeight);
+  fastRewindButtonIsHovered = (mouseX >= fastRewindButtonLogoBoxX && mouseX <= fastRewindButtonLogoBoxX + fastRewindButtonLogoBoxWidth && mouseY >= fastRewindButtonLogoBoxY && mouseY <= fastRewindButtonLogoBoxY + fastRewindButtonLogoBoxHeight);
+  muteButtonIsHovered = (mouseX >= muteButtonLogoBoxX && mouseX <= muteButtonLogoBoxX + muteButtonLogoBoxWidth && mouseY >= muteButtonLogoBoxY && mouseY <= muteButtonLogoBoxY + muteButtonLogoBoxHeight);
+  nextButtonIsHovered = (mouseX >= nextButtonLogoBoxX && mouseX <= nextButtonLogoBoxX + nextButtonLogoBoxWidth && mouseY >= nextButtonLogoBoxY && mouseY <= nextButtonLogoBoxY + nextButtonLogoBoxHeight);
+  shuffleButtonIsHovered = (mouseX >= shuffleButtonLogoBoxX && mouseX <= shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth && mouseY >= shuffleButtonLogoBoxY && mouseY <= shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight);
+  exitButtonIsHovered = (mouseX >= exitButtonLogoBoxX && mouseX <= exitButtonLogoBoxX + exitButtonLogoBoxWidth && mouseY >= exitButtonLogoBoxY && mouseY <= exitButtonLogoBoxY + exitButtonLogoBoxHeight);
 
 
   // Draw
   rect(imageX, imageY, imageWidth, imageHeight);
   image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
-
+  
   rect(titleX, titleY, titleWidth, titleHeight);
   fill(titleTextColor);
   text(titleText, titleX, titleY, titleWidth, titleHeight);
   fill(titleTextWhiteColor);
 
+  // ----------------------- PLAY BUTTON -----------------------
+  if (playButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(playButtonX, playButtonY, playButtonWidth, playButtonHeight);
   rect(playButtonLogoBoxX, playButtonLogoBoxY, playButtonLogoBoxWidth, playButtonLogoBoxHeight);
+  fill(255);
   triangle(playButtonLogoTringleX1, playButtonLogoTringleY1, playButtonLogoTringleX2, playButtonLogoTringleY2, playButtonLogoTringleX3, playButtonLogoTringleY3);
 
+  // ----------------------- PAUSE BUTTON -----------------------
+  if (pauseButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(pauseButtonX, pauseButtonY, pauseButtonWidth, pauseButtonHeight);
   rect(pauseButtonLogoBoxX, pauseButtonLogoBoxY, pauseButtonLogoBoxWidth, pauseButtonLogoBoxHeight);
+  fill(255);
   rect(pauseButtonLogoBoxShape1X, pauseButtonLogoBoxShape1Y, pauseButtonLogoBoxShape1Width, pauseButtonLogoBoxShape1Height);
   rect(pauseButtonLogoBoxShape2X, pauseButtonLogoBoxShape2Y, pauseButtonLogoBoxShape2Width, pauseButtonLogoBoxShape2Height);
 
+  // ----------------------- STOP BUTTON -----------------------
+  if (stopButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(stopButtonX, stopButtonY, stopButtonWidth, stopButtonHeight);
   rect(stopButtonLogoBoxX, stopButtonLogoBoxY, stopButtonLogoBoxWidth, stopButtonLogoBoxHeight);
+  fill(255);
   rect(stopButtonLogoBoxShapeX, stopButtonLogoBoxShapeY, stopButtonLogoBoxShapeWidth, stopButtonLogoBoxShapeHeight);
 
+  // ----------------------- LOOP ONCE BUTTON -----------------------
+  if (loopOnceButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(loopOnceButtonX, loopOnceButtonY, loopOnceButtonWidth, loopOnceButtonHeight);
   rect(loopOnceButtonLogoBoxX, loopOnceButtonLogoBoxY, loopOnceButtonLogoBoxWidth, loopOnceButtonLogoBoxHeight);
+  fill(255);
   pushStyle();
   float commonStrokeWeight = max(1, loopOnceButtonLogoBoxWidth / 22.0);
   stroke(0);
@@ -807,8 +836,15 @@ void draw() {
   text(loopOnceTextContent, loopOnceTextPosX, loopOnceTextPosY);
   popStyle();
 
+  // ----------------------- LOOP INFINITE BUTTON -----------------------
+  if (loopInfiniteButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(loopInfiniteButtonX, loopInfiniteButtonY, loopInfiniteButtonWidth, loopInfiniteButtonHeight);
   rect(loopInfiniteButtonLogoBoxX, loopInfiniteButtonLogoBoxY, loopInfiniteButtonLogoBoxWidth, loopInfiniteButtonLogoBoxHeight);
+  fill(255);
   pushStyle();
   stroke(0);
   strokeWeight(max(1, loopInfiniteButtonLogoBoxWidth / 22.0));
@@ -818,18 +854,39 @@ void draw() {
   ellipse(loopInfiniteEllipse2X, loopInfiniteEllipse2Y, loopInfiniteEllipseWidth, loopInfiniteEllipseHeight);
   popStyle();
 
+  // ----------------------- FAST FORWARD BUTTON -----------------------
+  if (fastForwardButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(fastForwardButtonX, fastForwardButtonY, fastForwardButtonWidth, fastForwardButtonHeight);
   rect(fastForwardButtonLogoBoxX, fastForwardButtonLogoBoxY, fastForwardButtonLogoBoxWidth, fastForwardButtonLogoBoxHeight);
+  fill(255);
   triangle(fastForwardButtonTringle1X1, fastForwardButtonTringle1Y1, fastForwardButtonTringle1X2, fastForwardButtonTringle1Y2, fastForwardButtonTringle1X3, fastForwardButtonTringle1Y3);
   triangle(fastForwardButtonTringle2X1, fastForwardButtonTringle2Y1, fastForwardButtonTringle2X2, fastForwardButtonTringle2Y2, fastForwardButtonTringle2X3, fastForwardButtonTringle2Y3);
 
+  // ----------------------- FAST REWIND BUTTON -----------------------
+  if (fastRewindButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(fastRewindButtonX, fastRewindButtonY, fastRewindButtonWidth, fastRewindButtonHeight);
   rect(fastRewindButtonLogoBoxX, fastRewindButtonLogoBoxY, fastRewindButtonLogoBoxWidth, fastRewindButtonLogoBoxHeight);
+  fill(255);
   triangle(fastRewindButtonTringle1X1, fastRewindButtonTringle1Y1, fastRewindButtonTringle1X2, fastRewindButtonTringle1Y2, fastRewindButtonTringle1X3, fastRewindButtonTringle1Y3);
   triangle(fastRewindButtonTringle2X1, fastRewindButtonTringle2Y1, fastRewindButtonTringle2X2, fastRewindButtonTringle2Y2, fastRewindButtonTringle2X3, fastRewindButtonTringle2Y3);
 
+  // ----------------------- MUTE BUTTON -----------------------
+  if (muteButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(muteButtonX, muteButtonY, muteButtonWidth, muteButtonHeight);
   rect(muteButtonLogoBoxX, muteButtonLogoBoxY, muteButtonLogoBoxWidth, muteButtonLogoBoxHeight);
+  fill(255);
   pushStyle();
   stroke(0);
   strokeWeight(max(1, muteButtonLogoBoxWidth / 25.0));
@@ -840,18 +897,39 @@ void draw() {
   line(muteDiagonalLineX1, muteDiagonalLineY1, muteDiagonalLineX2, muteDiagonalLineY2);
   popStyle();
 
+  // ----------------------- NEXT BUTTON -----------------------
+  if (nextButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(nextButtonX, nextButtonY, nextButtonWidth, nextButtonHeight);
   rect(nextButtonLogoBoxX, nextButtonLogoBoxY, nextButtonLogoBoxWidth, nextButtonLogoBoxHeight);
+  fill(255);
   rect(nextButtonLogoBoxShapeX, nextButtonLogoBoxShapeY, nextButtonLogoBoxShapeWidth, nextButtonLogoBoxShapeHeight);
   triangle(nextButtonLogoTringleX1, nextButtonLogoTringleY1, nextButtonLogoTringleX2, nextButtonLogoTringleY2, nextButtonLogoTringleX3, nextButtonLogoTringleY3);
 
+  // ----------------------- PREVIOUS BUTTON -----------------------
+  if (previousButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(previousButtonX, previousButtonY, previousButtonWidth, previousButtonHeight);
   rect(previousButtonLogoBoxX, previousButtonLogoBoxY, previousButtonLogoBoxWidth, previousButtonLogoBoxHeight);
+  fill(255);
   rect(previousButtonLogoBoxShapeX, previousButtonLogoBoxShapeY, previousButtonLogoBoxShapeWidth, previousButtonLogoBoxShapeHeight);
   triangle(previousButtonLogoTringleX1, previousButtonLogoTringleY1, previousButtonLogoTringleX2, previousButtonLogoTringleY2, previousButtonLogoTringleX3, previousButtonLogoTringleY3);
 
+  // ----------------------- SHUFFLE BUTTON -----------------------
+  if (shuffleButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(shuffleButtonX, shuffleButtonY, shuffleButtonWidth, shuffleButtonHeight);
   rect(shuffleButtonLogoBoxX, shuffleButtonLogoBoxY, shuffleButtonLogoBoxWidth, shuffleButtonLogoBoxHeight);
+  fill(255);
   pushStyle();
   stroke(0);
   strokeWeight(max(1, shuffleButtonLogoBoxWidth / 25.0));
@@ -863,155 +941,159 @@ void draw() {
   line(shuffleLine2X2, shuffleLine2Y2, shuffleLine2ArrowBX2, shuffleLine2ArrowBY2);
   popStyle();
 
-
+  // ----------------------- EXIT BUTTON -----------------------
+  if (exitButtonIsHovered) {
+    fill(200, 200, 200);
+  } else {
+    fill(255);
+  }
   // rect(exitButtonX, exitButtonY, exitButtonWidth, exitButtonHeight);
   rect(exitButtonLogoBoxX, exitButtonLogoBoxY, exitButtonLogoBoxWidth, exitButtonLogoBoxHeight);
+  fill(255);
   pushStyle();
   stroke(0);
   strokeWeight(max(1, exitButtonLogoBoxWidth / 15.0));
   line(exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2);
   line(exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2);
   popStyle();
-
-
 } // End draw
 
 
 void mousePressed() {
-    // Play Button
-    if (mouseX > playButtonLogoBoxX && mouseX < playButtonLogoBoxX + playButtonLogoBoxWidth) {
-        if (mouseY > playButtonLogoBoxY && mouseY < playButtonLogoBoxY + playButtonLogoBoxHeight) {
-            playList[currentAudio].play();
-        }
+  // Play Button
+  if (mouseX > playButtonLogoBoxX && mouseX < playButtonLogoBoxX + playButtonLogoBoxWidth) {
+    if (mouseY > playButtonLogoBoxY && mouseY < playButtonLogoBoxY + playButtonLogoBoxHeight) {
+      playList[currentAudio].play();
     }
+  }
 
-    // Pause Button
-    if (mouseX > pauseButtonLogoBoxX && mouseX < pauseButtonLogoBoxX + pauseButtonLogoBoxWidth) {
-        if (mouseY > pauseButtonLogoBoxY && mouseY < pauseButtonLogoBoxY + pauseButtonLogoBoxHeight) {
-            playList[currentAudio].pause();
-        }
+  // Pause Button
+  if (mouseX > pauseButtonLogoBoxX && mouseX < pauseButtonLogoBoxX + pauseButtonLogoBoxWidth) {
+    if (mouseY > pauseButtonLogoBoxY && mouseY < pauseButtonLogoBoxY + pauseButtonLogoBoxHeight) {
+      playList[currentAudio].pause();
     }
-    
-    // Stop Button
-    if (mouseX > stopButtonLogoBoxX && mouseX < stopButtonLogoBoxX + stopButtonLogoBoxWidth) {
-        if (mouseY > stopButtonLogoBoxY && mouseY < stopButtonLogoBoxY + stopButtonLogoBoxHeight) {
-            playList[currentAudio].rewind();
-            playList[currentAudio].pause();
-        }
-    }
+  }
 
-    // Loop Once Button
-    if (mouseX > loopOnceButtonLogoBoxX && mouseX < loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth) {
-        if (mouseY > loopOnceButtonLogoBoxY && mouseY < loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight) {
-            playList[currentAudio].loop(0);
-        }
+  // Stop Button
+  if (mouseX > stopButtonLogoBoxX && mouseX < stopButtonLogoBoxX + stopButtonLogoBoxWidth) {
+    if (mouseY > stopButtonLogoBoxY && mouseY < stopButtonLogoBoxY + stopButtonLogoBoxHeight) {
+      playList[currentAudio].rewind();
+      playList[currentAudio].pause();
     }
+  }
 
-    // Loop Infinite Button
-    if (mouseX > loopInfiniteButtonLogoBoxX && mouseX < loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth) {
-        if (mouseY > loopInfiniteButtonLogoBoxY && mouseY < loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight) {
-            playList[currentAudio].loop();
-        }
+  // Loop Once Button
+  if (mouseX > loopOnceButtonLogoBoxX && mouseX < loopOnceButtonLogoBoxX + loopOnceButtonLogoBoxWidth) {
+    if (mouseY > loopOnceButtonLogoBoxY && mouseY < loopOnceButtonLogoBoxY + loopOnceButtonLogoBoxHeight) {
+      playList[currentAudio].loop(0);
     }
+  }
 
-    // Fast Forward Button
-    if (mouseX > fastForwardButtonLogoBoxX && mouseX < fastForwardButtonLogoBoxX + fastForwardButtonLogoBoxWidth) {
-        if (mouseY > fastForwardButtonLogoBoxY && mouseY < fastForwardButtonLogoBoxY + fastForwardButtonLogoBoxHeight) {
-            playList[currentAudio].skip(1000);
-        }
+  // Loop Infinite Button
+  if (mouseX > loopInfiniteButtonLogoBoxX && mouseX < loopInfiniteButtonLogoBoxX + loopInfiniteButtonLogoBoxWidth) {
+    if (mouseY > loopInfiniteButtonLogoBoxY && mouseY < loopInfiniteButtonLogoBoxY + loopInfiniteButtonLogoBoxHeight) {
+      playList[currentAudio].loop();
     }
+  }
 
-    // Fast Rewind Button
-    if (mouseX > fastRewindButtonLogoBoxX && mouseX < fastRewindButtonLogoBoxX + fastRewindButtonLogoBoxWidth) {
-        if (mouseY > fastRewindButtonLogoBoxY && mouseY < fastRewindButtonLogoBoxY + fastRewindButtonLogoBoxHeight) {
-            playList[currentAudio].skip(-1000);
-        }
+  // Fast Forward Button
+  if (mouseX > fastForwardButtonLogoBoxX && mouseX < fastForwardButtonLogoBoxX + fastForwardButtonLogoBoxWidth) {
+    if (mouseY > fastForwardButtonLogoBoxY && mouseY < fastForwardButtonLogoBoxY + fastForwardButtonLogoBoxHeight) {
+      playList[currentAudio].skip(1000);
     }
+  }
 
-    // Mute Button
-    if (mouseX > muteButtonLogoBoxX && mouseX < muteButtonLogoBoxX + muteButtonLogoBoxWidth) {
-        if (mouseY > muteButtonLogoBoxY && mouseY < muteButtonLogoBoxY + muteButtonLogoBoxHeight) {
-            if (playList[currentAudio].isMuted()) {
-                playList[currentAudio].unmute();
-            } else {
-                playList[currentAudio].mute();
-            }
-        }
+  // Fast Rewind Button
+  if (mouseX > fastRewindButtonLogoBoxX && mouseX < fastRewindButtonLogoBoxX + fastRewindButtonLogoBoxWidth) {
+    if (mouseY > fastRewindButtonLogoBoxY && mouseY < fastRewindButtonLogoBoxY + fastRewindButtonLogoBoxHeight) {
+      playList[currentAudio].skip(-1000);
     }
+  }
 
-    // Next Button
-    if (mouseX > nextButtonLogoBoxX && mouseX < nextButtonLogoBoxX + nextButtonLogoBoxWidth) {
-        if (mouseY > nextButtonLogoBoxY && mouseY < nextButtonLogoBoxY + nextButtonLogoBoxHeight) {
-            if (playList[currentAudio].isPlaying()) {
-                playList[currentAudio].pause();
-                playList[currentAudio].rewind();
-                playList[currentAudio].unmute();
-                if  (currentAudio == numberOfAudio - 1) {
-                    currentAudio = 0;
-                } else {
-                    currentAudio++;
-                }
-                playList[currentAudio].play();
-            } else {
-                playList[currentAudio].rewind();
-                playList[currentAudio].unmute();
-                if  (currentAudio == numberOfAudio - 1) {
-                    currentAudio = 0;
-                } else {
-                    currentAudio++;
-                }
-            }
-        }
+  // Mute Button
+  if (mouseX > muteButtonLogoBoxX && mouseX < muteButtonLogoBoxX + muteButtonLogoBoxWidth) {
+    if (mouseY > muteButtonLogoBoxY && mouseY < muteButtonLogoBoxY + muteButtonLogoBoxHeight) {
+      if (playList[currentAudio].isMuted()) {
+        playList[currentAudio].unmute();
+      } else {
+        playList[currentAudio].mute();
+      }
     }
+  }
 
-    // Previous Button
-    if (mouseX > previousButtonLogoBoxX && mouseX < previousButtonLogoBoxX + previousButtonLogoBoxWidth) {
-        if (mouseY > previousButtonLogoBoxY && mouseY < previousButtonLogoBoxY + previousButtonLogoBoxHeight) {
-            if (playList[currentAudio].isPlaying()) {
-                playList[currentAudio].pause();
-                playList[currentAudio].rewind();
-                playList[currentAudio].unmute();
-                if  (currentAudio == 0) {
-                    currentAudio = numberOfAudio - 1;
-                } else {
-                    currentAudio--;
-                }
-                playList[currentAudio].play();
-            } else {
-                playList[currentAudio].rewind();
-                playList[currentAudio].unmute();
-                if  (currentAudio == 0) {
-                    currentAudio = numberOfAudio - 1;
-                } else {
-                    currentAudio--;
-                }
-            }
+  // Next Button
+  if (mouseX > nextButtonLogoBoxX && mouseX < nextButtonLogoBoxX + nextButtonLogoBoxWidth) {
+    if (mouseY > nextButtonLogoBoxY && mouseY < nextButtonLogoBoxY + nextButtonLogoBoxHeight) {
+      if (playList[currentAudio].isPlaying()) {
+        playList[currentAudio].pause();
+        playList[currentAudio].rewind();
+        playList[currentAudio].unmute();
+        if  (currentAudio == numberOfAudio - 1) {
+          currentAudio = 0;
+        } else {
+          currentAudio++;
         }
+        playList[currentAudio].play();
+      } else {
+        playList[currentAudio].rewind();
+        playList[currentAudio].unmute();
+        if  (currentAudio == numberOfAudio - 1) {
+          currentAudio = 0;
+        } else {
+          currentAudio++;
+        }
+      }
     }
+  }
 
-    // Shuffle Button
-    if (mouseX > shuffleButtonLogoBoxX && mouseX < shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth) {
-        if (mouseY > shuffleButtonLogoBoxY && mouseY < shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight) {
-            int randomAudio = int(random(0, numberOfAudio));
-            if (playList[currentAudio].isPlaying()) {
-                playList[currentAudio].pause();
-                playList[currentAudio].rewind();
-                currentAudio = randomAudio;
-                playList[currentAudio].play();
-            } else {
-                playList[currentAudio].rewind();
-                currentAudio = randomAudio;
-                playList[currentAudio].play();
-            }
+  // Previous Button
+  if (mouseX > previousButtonLogoBoxX && mouseX < previousButtonLogoBoxX + previousButtonLogoBoxWidth) {
+    if (mouseY > previousButtonLogoBoxY && mouseY < previousButtonLogoBoxY + previousButtonLogoBoxHeight) {
+      if (playList[currentAudio].isPlaying()) {
+        playList[currentAudio].pause();
+        playList[currentAudio].rewind();
+        playList[currentAudio].unmute();
+        if  (currentAudio == 0) {
+          currentAudio = numberOfAudio - 1;
+        } else {
+          currentAudio--;
         }
+        playList[currentAudio].play();
+      } else {
+        playList[currentAudio].rewind();
+        playList[currentAudio].unmute();
+        if  (currentAudio == 0) {
+          currentAudio = numberOfAudio - 1;
+        } else {
+          currentAudio--;
+        }
+      }
     }
+  }
 
-    // Exit Button
-    if (mouseX > exitButtonLogoBoxX && mouseX < exitButtonLogoBoxX + exitButtonLogoBoxWidth) {
-        if (mouseY > exitButtonLogoBoxY && mouseY < exitButtonLogoBoxY + exitButtonLogoBoxHeight) {
-            exit();
-        }
+  // Shuffle Button
+  if (mouseX > shuffleButtonLogoBoxX && mouseX < shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth) {
+    if (mouseY > shuffleButtonLogoBoxY && mouseY < shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight) {
+      int randomAudio = int(random(0, numberOfAudio));
+      if (playList[currentAudio].isPlaying()) {
+        playList[currentAudio].pause();
+        playList[currentAudio].rewind();
+        currentAudio = randomAudio;
+        playList[currentAudio].play();
+      } else {
+        playList[currentAudio].rewind();
+        currentAudio = randomAudio;
+        playList[currentAudio].play();
+      }
     }
+  }
+
+  // Exit Button
+  if (mouseX > exitButtonLogoBoxX && mouseX < exitButtonLogoBoxX + exitButtonLogoBoxWidth) {
+    if (mouseY > exitButtonLogoBoxY && mouseY < exitButtonLogoBoxY + exitButtonLogoBoxHeight) {
+      exit();
+    }
+  }
 } // End mousePressed
 
 
