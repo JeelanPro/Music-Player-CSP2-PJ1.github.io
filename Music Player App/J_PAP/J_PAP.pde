@@ -9,6 +9,7 @@ import ddf.minim.ugens.*;
 
 // Global Variable
 int appWidth, appHeight;
+color backgroundColor;
 
 Minim minim;
 int numberOfAudio = 3;
@@ -148,6 +149,8 @@ void setup() {
   fullScreen();
   appWidth = displayWidth;
   appHeight = displayHeight;
+
+  backgroundColor =#bcbcbc;
 
 
   // Population
@@ -598,7 +601,9 @@ void setup() {
 
 
   // Draw
+  fill(backgroundColor);
   rect(appWidth/50 * 0, appHeight/50 * 0, appWidth/50 * 50, appHeight/50 * 50);
+  fill(255);
 
   // rect(logoX, logoY, logoWidth, logoHeight);
   rect(logoBoxX, logoBoxY, logoBoxWidth, logoBoxHeight);
@@ -717,10 +722,9 @@ void setup() {
 
 void draw() {
   // Population
-  // Audio Image
   if (oldCurrentAudio != currentAudio) {
+    // Audio Image
     audioImageFilePath = audioImages[currentAudio];
-    // audioImage = loadImage(audioImageFilePath);
     audioImage = audioImageList[currentAudio];
     audioImageWidth = audioImage.width;
     audioImageHeight = audioImage.height;
@@ -737,14 +741,12 @@ void draw() {
     audioImagePrintingY = imageY + (imageHeight - audioImageHeightChanged) / 2;
     audioImagePrintingWidth = audioImageWidthChanged;
     audioImagePrintingHeight = audioImageHeightChanged;
-    // oldCurrentAudio = currentAudio;
-  }
 
-  // title
-  if (drawedText != titleText) {
+    // title
     titleText = playListMetaData[currentAudio].title();
     if (titleText == null || titleText.isEmpty()) {
       titleText = "Error: Title Not Found";
+      println("Error: Title Not Found for audio index " + currentAudio);
     }
     titleTextSize = titleHeight;
     titleTextAspectRatio = titleTextSize / titleHeight;
@@ -756,7 +758,6 @@ void draw() {
       titleTextSize *= 0.99;
       textFont(titleTextStyle, titleTextSize);
     }
-    // drawedText = titleText;
   }
 
 
@@ -791,15 +792,11 @@ void draw() {
   if (oldCurrentAudio != currentAudio) {
     rect(imageX, imageY, imageWidth, imageHeight);
     image(audioImage, audioImagePrintingX, audioImagePrintingY, audioImagePrintingWidth, audioImagePrintingHeight);
-    oldCurrentAudio = currentAudio;
-  }
-  
-  if (drawedText != titleText) {
+    
     rect(titleX, titleY, titleWidth, titleHeight);
     fill(titleTextColor);
     text(titleText, titleX, titleY, titleWidth, titleHeight);
     fill(titleTextWhiteColor);
-    drawedText = titleText;
   }
 
   // ----------------------- PLAY BUTTON -----------------------
@@ -980,6 +977,10 @@ void draw() {
   line(exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2);
   line(exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2);
   popStyle();
+
+  if (oldCurrentAudio != currentAudio) {
+    oldCurrentAudio = currentAudio;
+  }
 } // End draw
 
 
