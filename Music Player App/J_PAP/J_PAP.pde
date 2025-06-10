@@ -131,6 +131,8 @@ float exitLine1X1, exitLine1Y1, exitLine1X2, exitLine1Y2;
 float exitLine2X1, exitLine2Y1, exitLine2X2, exitLine2Y2;
 Boolean exitButtonIsHovered = false;
 
+Boolean buttonHovered = false;
+
 float timeLineX, timeLineY, timeLineWidth, timeLineHeight;
 float currentTimeX, currentTimeY, currentTimeWidth, currentTimeHeight;
 float leftTimeX, leftTimeY, leftTimeWidth, leftTimeHeight;
@@ -786,6 +788,12 @@ void draw() {
   shuffleButtonIsHovered = (mouseX >= shuffleButtonLogoBoxX && mouseX <= shuffleButtonLogoBoxX + shuffleButtonLogoBoxWidth && mouseY >= shuffleButtonLogoBoxY && mouseY <= shuffleButtonLogoBoxY + shuffleButtonLogoBoxHeight);
   // Exit Button
   exitButtonIsHovered = (mouseX >= exitButtonLogoBoxX && mouseX <= exitButtonLogoBoxX + exitButtonLogoBoxWidth && mouseY >= exitButtonLogoBoxY && mouseY <= exitButtonLogoBoxY + exitButtonLogoBoxHeight);
+  // Buttons Hovered
+  if (playButtonIsHovered || pauseButtonIsHovered || stopButtonIsHovered || loopOnceButtonIsHovered || loopInfiniteButtonIsHovered || fastForwardButtonIsHovered || fastRewindButtonIsHovered || muteButtonIsHovered || nextButtonIsHovered || previousButtonIsHovered || shuffleButtonIsHovered || exitButtonIsHovered) {
+    cursor(HAND);
+  } else {
+    cursor(ARROW);
+  }
 
 
   // Draw
