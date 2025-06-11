@@ -161,10 +161,10 @@ void setup() {
   minim = new Minim(this);
   audioFolder = "Audio/";
   fileExtension = ".mp3";
-  //playList[0] = minim.loadFile(audioFolder + "skibidi-toilet" + fileExtension);
-  playList[0] = minim.loadFile(audioFolder + "nuke-alarm" + fileExtension);
-  playList[1] = minim.loadFile(audioFolder + "qaseda" + fileExtension);
-  playList[2] = minim.loadFile(audioFolder + "Virus" + fileExtension);
+  playList[0] = minim.loadFile(audioFolder + "skibidi-toilet" + fileExtension);
+  playList[1] = minim.loadFile(audioFolder + "nuke-alarm" + fileExtension);
+  playList[2] = minim.loadFile(audioFolder + "qaseda" + fileExtension);
+  playList[3] = minim.loadFile(audioFolder + "Virus" + fileExtension);
   for (int i = 0; i < numberOfAudio; i++) {
     playListMetaData[i] = playList[i].getMetaData();
   }
@@ -172,10 +172,10 @@ void setup() {
   // Audio Images
   imageFolder = "Images/";
   imageFileExtension = ".jpg";
-  //audioImages[0] = imageFolder + "Skibidi" + imageFileExtension;
-  audioImages[0] = imageFolder + "NuclearBomb" + imageFileExtension;
-  audioImages[1] = imageFolder + "JeelanPro" + imageFileExtension;
-  audioImages[2] = imageFolder + "Virus" + imageFileExtension;
+  audioImages[0] = imageFolder + "Skibidi" + imageFileExtension;
+  audioImages[1] = imageFolder + "NuclearBomb" + imageFileExtension;
+  audioImages[2] = imageFolder + "JeelanPro" + imageFileExtension;
+  audioImages[3] = imageFolder + "Virus" + imageFileExtension;
   for (int i = 0; i < numberOfAudio; i++) {
     audioImageList[i] = loadImage(audioImages[i]);
   }
