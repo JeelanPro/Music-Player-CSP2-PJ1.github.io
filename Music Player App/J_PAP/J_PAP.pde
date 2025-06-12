@@ -33,6 +33,7 @@ PImage logoImage;
 Boolean logoImageLandscape;
 float logoImageAspectRatio;
 float logoImagePrintingWidth, logoImagePrintingHeight, logoImagePrintingX, logoImagePrintingY; //
+Boolean logoIsHovered = false;
 
 float titleX, titleY, titleWidth, titleHeight;
 PFont titleTextStyle;
@@ -766,6 +767,8 @@ void draw() {
 
 
   // Hover Using if statements
+  // Logo
+  logoIsHovered = (mouseX >= logoBoxX && mouseX <= logoBoxX + logoBoxWidth && mouseY >= logoBoxY && mouseY <= logoBoxY + logoBoxHeight);
   // Play Button
   playButtonIsHovered = (mouseX >= playButtonLogoBoxX && mouseX <= playButtonLogoBoxX + playButtonLogoBoxWidth && mouseY >= playButtonLogoBoxY && mouseY <= playButtonLogoBoxY + playButtonLogoBoxHeight);
   // Pause Button
@@ -791,7 +794,7 @@ void draw() {
   // Exit Button
   exitButtonIsHovered = (mouseX >= exitButtonLogoBoxX && mouseX <= exitButtonLogoBoxX + exitButtonLogoBoxWidth && mouseY >= exitButtonLogoBoxY && mouseY <= exitButtonLogoBoxY + exitButtonLogoBoxHeight);
   // Buttons Hovered
-  if (playButtonIsHovered || pauseButtonIsHovered || stopButtonIsHovered || loopOnceButtonIsHovered || loopInfiniteButtonIsHovered || fastForwardButtonIsHovered || fastRewindButtonIsHovered || muteButtonIsHovered || nextButtonIsHovered || previousButtonIsHovered || shuffleButtonIsHovered || exitButtonIsHovered) {
+  if (playButtonIsHovered || pauseButtonIsHovered || stopButtonIsHovered || loopOnceButtonIsHovered || loopInfiniteButtonIsHovered || fastForwardButtonIsHovered || fastRewindButtonIsHovered || muteButtonIsHovered || nextButtonIsHovered || previousButtonIsHovered || shuffleButtonIsHovered || exitButtonIsHovered || logoIsHovered) {
     cursor(HAND);
   } else {
     cursor(ARROW);
@@ -995,6 +998,14 @@ void draw() {
 
 
 void mousePressed() {
+  // Logo
+  if (mouseX > logoBoxX && mouseX < logoBoxX + logoBoxWidth) {
+    if (mouseY > logoBoxY && mouseY < logoBoxY + logoBoxHeight) {
+      // link("https://jeelanpro.github.io/");
+      link("https://jeelanpro.github.io/Music-Player-CSP2-PJ1.github.io/");
+    }
+  }
+  
   // Play Button
   if (mouseX > playButtonLogoBoxX && mouseX < playButtonLogoBoxX + playButtonLogoBoxWidth) {
     if (mouseY > playButtonLogoBoxY && mouseY < playButtonLogoBoxY + playButtonLogoBoxHeight) {
